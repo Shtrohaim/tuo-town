@@ -8,16 +8,16 @@ export default defineConfig({
     port: 8000,
     host: '0.0.0.0'
   },
-  // css: {
-  //   preprocessorOptions: {
-  //     scss: {
-  //       additionalData: `
-  //             @import "@/assets/scss/mixins.scss";
-  //             @import "@/assets/scss/variables.scss";
-  //           `
-  //     }
-  //   }
-  // },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+              @import "@/assets/scss/mixins.scss";
+              @import "@/assets/scss/variables.scss";
+            `
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

@@ -1,0 +1,54 @@
+@import 'null.scss';
+
+.container {
+  padding: 0 15px;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.h3 {
+  font-size: 24px;
+}
+
+.h4 {
+  font-size: 18px;
+}
+
+.p_hg {
+  font-size: 14px;
+}
+
+.p_hg {
+  font-size: 14px;
+}
+
+.p_md {
+  font-size: 13px;
+}
+
+.p_sm {
+  font-size: 11px;
+}
+
+.icon24 {
+  width: 24px;
+  height: 24px;
+}
+
+.icon20 {
+  width: 20px;
+  height: 20px;
+}
+
+.fill-none {
+  fill: none;
+}
+
+.fill-white {
+  fill: $white;
+}
+
+.stroke-white {
+  stroke: $white;
+}
