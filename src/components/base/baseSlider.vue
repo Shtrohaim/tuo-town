@@ -3,9 +3,8 @@
     <div class="slider__container" :style="{ height: props.height + 'vh' }">
       <div
         ref="sliderContent"
-        draggable="true"
         class="slider__content"
-        @dragstart="touchStartMethod"
+        @mousedown="touchStartMethod"
         @touchstart="touchStartMethod"
         :style="{
           transform: `translate3d(${translateX}px,0,0)`,
@@ -110,8 +109,8 @@ const touchStartMethod = (event: any) => {
 
     addEventListener('touchmove', swipeAction)
     addEventListener('touchend', swipeEnd)
-    addEventListener('drag', swipeAction)
-    addEventListener('dragend', swipeEnd)
+    addEventListener('mousemove', swipeAction)
+    addEventListener('mouseup', swipeEnd)
   }
 }
 
@@ -130,7 +129,7 @@ const swipeEnd = () => {
   removeEventListener('mousemove', swipeAction)
   removeEventListener('touchend', swipeEnd)
   removeEventListener('mouseup', swipeEnd)
-
+  console.log(1)
   if (Math.abs(posFinal.value) > posThreshold) {
     if (posInit.value < posX1.value) {
       slide.value--
