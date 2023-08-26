@@ -1,5 +1,13 @@
 @import 'null.scss';
 
+#app {
+  overflow: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .container {
   padding: 0 15px;
   max-width: 320px;
@@ -8,26 +16,27 @@
 }
 
 .h3 {
+  font-family: "Jura", serif;
   font-size: 24px;
 }
 
 .h4 {
+  font-family: "Jura", serif;
   font-size: 18px;
 }
 
 .p_hg {
-  font-size: 14px;
-}
-
-.p_hg {
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
 }
 
 .p_md {
+  font-family: "Montserrat", sans-serif;;
   font-size: 13px;
 }
 
 .p_sm {
+  font-family: "Montserrat", sans-serif;;
   font-size: 11px;
 }
 
