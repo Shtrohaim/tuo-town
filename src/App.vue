@@ -1,5 +1,5 @@
 <template>
-  <the-header class="header"></the-header>
+  <the-header @openSidebar="openSidebar" class="header"></the-header>
   <base-slider
     class="slider"
     :havePagination="true"
@@ -16,9 +16,12 @@
       <img class="slider__background" :src="slide.image" :alt="slide.title" />
       <p class="slider__title h3">{{ slide.title }}</p>
       <p class="slider__description p_hg">{{ slide.description }}</p>
-      <a v-if="slide?.link" class="slider__link p_hg">Подробнее</a>
+      <base-button v-if="slide?.link" :href="'/#'" class="slider__link p_hg">Подробнее</base-button>
     </div>
   </base-slider>
+  <Transition>
+    <the-sidebar v-if="isActiveSidebar" @closeSidebar="closeSidebar"></the-sidebar>
+  </Transition>
   <nav>
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/about">About</RouterLink>
@@ -28,11 +31,14 @@
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import TheHeader from '@/components/TheHeader.vue'
-import baseSlider from '@/components/base/baseSlider.vue'
 import { ref } from 'vue'
+import TheHeader from '@/components/TheHeader.vue'
+import BaseSlider from '@/components/base/BaseSlider.vue'
+import BaseButton from '@/components/base/BaseButton.vue'
+import TheSidebar from '@/components/TheSidebar.vue'
 
 const deviceWidth = window.innerWidth
+const isActiveSidebar = ref(false)
 
 const data = [
   {
@@ -87,9 +93,30 @@ const data = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
   }
 ]
+
+const closeSidebar = () => {
+  isActiveSidebar.value = false
+  document.querySelector('body').style.overflow = 'auto'
+}
+
+const openSidebar = () => {
+  isActiveSidebar.value = true
+  document.querySelector('body').style.overflow = 'hidden'
+}
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+.v-enter-active,
+.v-leave-active {
+  transition: 0.5s ease;
+  opacity: 100%;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -153,31 +180,6 @@ const data = [
     margin-bottom: 8px;
 
     z-index: 3;
-  }
-
-  &__link {
-    position: relative;
-    display: inline-block;
-
-    z-index: 3;
-    color: $white;
-    font-weight: 600;
-    text-transform: uppercase;
-
-    border: 2px solid $red-active;
-    padding: 16px 34px;
-    border-radius: 27px;
-
-    transition: 0.3s;
-    cursor: pointer;
-
-    &:hover {
-      border-radius: 0;
-    }
-
-    &:active {
-      color: $red-active;
-    }
   }
 }
 </style>

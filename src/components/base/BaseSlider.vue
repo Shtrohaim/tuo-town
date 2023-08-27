@@ -129,7 +129,7 @@ const swipeEnd = () => {
   removeEventListener('mousemove', swipeAction)
   removeEventListener('touchend', swipeEnd)
   removeEventListener('mouseup', swipeEnd)
-  console.log(1)
+
   if (Math.abs(posFinal.value) > posThreshold) {
     if (posInit.value < posX1.value) {
       slide.value--

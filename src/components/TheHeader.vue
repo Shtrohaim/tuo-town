@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__container">
-      <svg class="header__menu icon24 fill-none stroke-white">
+      <svg @click="openSidebar" class="header__menu icon24 fill-none stroke-white">
         <use href="@/assets/images/svg/menuIcon.svg#icon"></use>
       </svg>
       <svg class="header__phone icon24 fill-none stroke-white">
@@ -43,7 +43,13 @@
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const emits = defineEmits(['openSidebar'])
+
+const openSidebar = () => {
+  emits('openSidebar')
+}
+</script>
 
 <style lang="scss" scoped>
 .header {
@@ -66,6 +72,8 @@
     grid-column-start: 1;
     grid-column-end: 2;
 
+    cursor: pointer;
+
     &:hover {
       stroke: $red-active;
     }
@@ -74,6 +82,8 @@
   &__phone {
     grid-column-start: 2;
     grid-column-end: 3;
+
+    cursor: pointer;
 
     &:hover {
       stroke: $red-active;
@@ -91,6 +101,8 @@
     grid-row-start: 1;
     grid-column-start: 3;
     grid-column-end: 4;
+
+    cursor: pointer;
 
     &:hover {
       fill: $red-active;
