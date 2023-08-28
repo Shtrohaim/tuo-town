@@ -2,7 +2,7 @@
   <div
     class="button"
     @click="emits('onClick')"
-    :class="{ 'button--disabled': disabled, 'button--filled': filled }"
+    :class="{ 'button--disabled': disabled, 'button--filled': filled, 'button--icon': icon }"
   >
     <slot></slot>
   </div>
@@ -11,7 +11,8 @@
 <script setup lang="ts">
 const props = defineProps({
   filled: Boolean,
-  disabled: Boolean
+  disabled: Boolean,
+  icon: Boolean
 })
 const emits = defineEmits(['onClick'])
 </script>
@@ -52,6 +53,11 @@ const emits = defineEmits(['onClick'])
     &:active {
       color: $white;
     }
+  }
+
+  &--icon {
+    padding: 0;
+    border: none;
   }
 
   &--disabled {

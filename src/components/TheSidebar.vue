@@ -7,14 +7,18 @@
         :style="{ width: deviceWidth < 444 ? deviceWidth + 'px' : '444px' }"
       >
         <div class="sidebar__tools" v-if="deviceWidth <= 640">
-          <svg class="icon24 stroke-white fill-none sidebar__mail">
-            <use href="@/assets/images/svg/mailIcon.svg#icon"></use>
-          </svg>
+          <a class="sidebar__mail" href="mailto:tuotown@mail.ru">
+            <svg class="icon24 stroke-white fill-none">
+              <use href="@/assets/images/svg/mailIcon.svg#icon"></use>
+            </svg>
+          </a>
           <the-search class="sidebar__search"></the-search>
         </div>
-        <svg @click="closeSidebar" class="icon24 fill-white sidebar__close-button">
-          <use href="@/assets/images/svg/backIcon.svg#icon"></use>
-        </svg>
+        <base-button class="sidebar__close-button" @onClick="closeSidebar" :icon="true">
+          <svg class="icon24 fill-white">
+            <use href="@/assets/images/svg/backIcon.svg#icon"></use>
+          </svg>
+        </base-button>
         <ul class="sidebar__product-list">
           <li class="sidebar__product-list-item"><a>Кухонные ножи TUOTOWN</a></li>
           <li class="sidebar__product-list-item"><a>Складные ножи TUOTOWN</a></li>
@@ -37,6 +41,7 @@
 
 <script setup lang="ts">
 import TheSearch from '@/components/TheSearch.vue'
+import BaseButton from '@/components/base/BaseButton.vue'
 
 const deviceWidth = window.innerWidth
 const emits = defineEmits(['closeSidebar'])
@@ -94,9 +99,12 @@ const closeSidebar = () => {
     top: 35px;
     left: 15px;
 
+    background: transparent;
+    border: none;
+
     cursor: pointer;
 
-    &:hover {
+    svg:hover {
       fill: $red-active;
     }
   }
@@ -105,13 +113,13 @@ const closeSidebar = () => {
     margin-right: 30px;
     cursor: pointer;
 
-    &:hover {
+    svg:hover {
       stroke: $red-active;
     }
   }
 
   &__search {
-    top: -3px;
+    top: -5px;
   }
 
   &__product-list {
