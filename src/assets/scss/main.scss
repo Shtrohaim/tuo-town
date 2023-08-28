@@ -50,12 +50,21 @@
   height: 20px;
 }
 
+.icon46 {
+  width: 46px;
+  height: 46px;
+}
+
 .fill-none {
   fill: none;
 }
 
 .fill-white {
   fill: $white;
+}
+
+.fill-gray {
+  fill: $gray-light;
 }
 
 .stroke-white {

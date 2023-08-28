@@ -232,11 +232,15 @@ watch(slide, () => {
     font-size: 15px;
     font-weight: 600;
 
+    cursor: pointer;
+
     &--active {
       background-color: $white;
       border-radius: 50%;
 
       margin-bottom: 4px;
+
+      cursor: default;
     }
   }
 
