@@ -51,5 +51,67 @@
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
     }
+  ],
+  "products-recommendation" : [
+    {
+      "id": 0,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/2.png",
+      "price": 800,
+      "new": true,
+      "count": 5
+    },
+    {
+      "id": 1,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/2.png",
+      "price": 800,
+      "new": false,
+      "count": 5
+    },
+    {
+      "id": 2,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/2.png",
+      "price": 800,
+      "new": false,
+      "count": 5
+    },
+    {
+      "id": 3,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/2.png",
+      "price": 800,
+      "new": false,
+      "count": 5
+    },
+    {
+      "id": 4,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/2.png",
+      "price": 800,
+      "new": true,
+      "count": 5
+    }
+  ],
+  "articles": [
+    {
+      "id": 0,
+      "title": "Традиционные виды японских кухонных ножей",
+      "image": "src/assets/images/server/article3.jpg",
+      "date": "Tue Jul 29 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
+    },
+    {
+      "id": 1,
+      "title": "Всемирная история режущих клинков — взгляд в прошлое",
+      "image": "src/assets/images/server/article2.jpg",
+      "date": "Tue May 17 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
+    },
+    {
+      "id": 2,
+      "title": "Как ухаживать за японскими кухонными ножами?",
+      "image": "src/assets/images/server/article1.jpg",
+      "date": "Tue Apr 5 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
+    }
   ]
 }

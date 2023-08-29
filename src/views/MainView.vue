@@ -1,6 +1,8 @@
 <template>
   <main class="main">
+    <h1 class="visually-hidden">Официальный сайт «Tuotown»</h1>
     <section class="main__promo">
+      <h2 class="visually-hidden">Промо материалы</h2>
       <base-slider
         v-if="isLoad"
         class="main__slider"
@@ -10,7 +12,7 @@
         :height="100"
       >
         <div
-          v-for="slide in data"
+          v-for="slide in slides"
           :key="slide.id"
           class="main__slider-slide main__slider-slide--active"
           :style="{ width: deviceWidth + 'px' }"
@@ -24,7 +26,8 @@
         </div>
       </base-slider>
     </section>
-    <section class="main__recommendation">
+    <section class="main__recommendation container">
+      <h2 class="visually-hidden">Рекомендации</h2>
       <nav class="main__navigation">
         <ul class="main__nav-list">
           <li class="main__nav-list-item">
@@ -61,32 +64,129 @@
           </li>
         </ul>
       </nav>
-      <product-card></product-card>
+      <ul class="main__recommendation-list">
+        <li class="main__recommendation-list-item"><category-card></category-card></li>
+        <li class="main__recommendation-list-item" v-for="product in products" :key="product.id">
+          <product-card :product="product"></product-card>
+        </li>
+        <li class="main__recommendation-list-item main__recommendation-list-item--instagram">
+          <a href="https://www.instagram.com/tuotown/" class="main__instagram-link">
+            <img
+              src="@/assets/images/instagram.jpg"
+              alt="Instagram - ссылка"
+              class="main__instagram-image"
+            />
+            <div class="main__instagram-title">
+              <svg class="icon24 fill-white">
+                <use href="@/assets/images/svg/instaIcon.svg#icon"></use>
+              </svg>
+              <span class="p_hg">Instagram</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="main__about container">
+      <h2 class="visually-hidden">О «Tuotown»</h2>
+      <div class="main__about-company">
+        <img
+          class="main__about-image"
+          src="@/assets/images/about1.jpg"
+          alt="«Tuotown» – легендарные ножи, создающие шедевры"
+        />
+        <h3 class="main__about-title h3">«Tuotown» – легендарные ножи, создающие шедевры</h3>
+        <p class="main__about-description p_sm">
+          Компания «Tuotown» – эксклюзивный представитель профессиональных кухонных ножей,
+          изготовленных лучшими мастерами Восточной Азии с применением передового европейского
+          оборудования и современных материалов. <br />
+          <br />
+          Они отличаются идеальным балансом и фантастической остротой. Сочетают в себе вековые
+          традиции и новейшие разработки. Также предлагаем широкий ассортимент сопутствующих
+          товаров.
+        </p>
+      </div>
+      <div class="main__about-knife">
+        <img
+          class="main__about-image"
+          src="@/assets/images/about2.jpg"
+          alt="Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства"
+        />
+        <h3 class="main__about-title h3">
+          Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства
+        </h3>
+        <p class="main__about-description p_sm">
+          Истинная красота ножа — совершённая функциональность и визуальная гармония. Этот предмет
+          издревле сопутствовал человеку: от зари цивилизации до сегодняшних дней. <br />
+          <br />
+          На протяжении всей истории человечества он был верным помощником, незаменимым инструментом
+          и грозным оружием. Предлагаем изделия Hi-end качества по доступным ценам настоящим
+          ценителям японских ножей.
+        </p>
+        <p class="main__about-description p_sm">
+          Отличительной чертой нашего интернет-магазина являются уникальные торговые предложения,
+          эксклюзивность продукции, неизменно высокое качество и выгодные цены. <br />
+          <br />
+          Осуществляем продажи элитных японских кухонных ножей для профессионалов и любителей. В
+          обширной ассортиментной линейке представлены изделия для различных потребностей и любого
+          бюджета — от столовых приборов до шеф-ножей.
+        </p>
+      </div>
+    </section>
+    <section class="main__articles container">
+      <h2 class="main__articles-title h3">Всё самое интересное о ножах</h2>
+      <ul class="main__articles-list">
+        <li class="main__articles-list-item" v-for="article in articles" :key="article.id">
+          <article-card :article="article"></article-card>
+        </li>
+      </ul>
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import BaseButton from '@/components/base/BaseButton.vue'
-import BaseSlider from '@/components/base/BaseSlider.vue'
 import { onMounted, ref } from 'vue'
 
-import promoServices from '@/services/promoServices'
+import BaseButton from '@/components/base/BaseButton.vue'
+import BaseSlider from '@/components/base/BaseSlider.vue'
 import ProductCard from '@/components/ProductCard.vue'
+import CategoryCard from '@/components/CategoryCard.vue'
+import ArticleCard from '@/components/ArticleCard.vue'
+
+import promoServices from '@/services/promoServices'
+import recommendationService from '@/services/recommendationService'
+
+import type ProductsType from '@/types/productsType'
+import type PromoType from '@/types/promoType'
+import type ArticlesType from '@/types/articleType'
 
 const deviceWidth = window.innerWidth
-const data = ref()
+const slides = ref([] as PromoType[])
+const products = ref([] as ProductsType[])
+const articles = ref([] as ArticlesType[])
 const isLoad = ref(false)
 
 const fetchPromo = async () => {
   await promoServices.getMainRecommendations().then((res) => {
-    data.value = res.data
+    slides.value = res.data
     isLoad.value = true
+  })
+}
+
+const fetchArticles = async () => {
+  await recommendationService.getArticlesRecommendation().then((res) => {
+    articles.value = res.data
+  })
+}
+const fetchProducts = async () => {
+  await recommendationService.getProductRecommendation().then((res) => {
+    products.value = res.data
   })
 }
 
 onMounted(async () => {
   await fetchPromo()
+  await fetchProducts()
+  await fetchArticles()
 })
 </script>
 
@@ -152,8 +252,6 @@ onMounted(async () => {
 
   &__recommendation {
     padding: 30px 15px;
-
-    background: $background-light;
   }
 
   &__nav-list {
@@ -185,6 +283,119 @@ onMounted(async () => {
         color: $red-active;
       }
     }
+  }
+
+  &__recommendation-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__recommendation-list-item {
+    margin-bottom: 30px;
+
+    &:nth-last-child(2) {
+      order: 1;
+    }
+  }
+
+  &__instagram-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    min-width: 138px;
+    min-height: 190px;
+    max-width: 138px;
+    max-height: 190px;
+
+    &:hover {
+      .main__instagram-image {
+        transform: scale(1.15);
+        filter: blur(3px);
+      }
+    }
+  }
+
+  &__instagram-title {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $white;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+
+  &__instagram-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    max-width: 140px;
+    max-height: 200px;
+
+    object-fit: cover;
+
+    transition: all 0.3s ease;
+
+    z-index: 0;
+  }
+
+  &__about-company {
+    margin-bottom: 30px;
+  }
+
+  &__about-image {
+    width: 100%;
+
+    border-radius: 20px;
+
+    margin-bottom: 10px;
+  }
+
+  &__about-title {
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__about-description {
+    font-weight: 500;
+    line-height: 140%;
+    color: $gray-light;
+
+    margin-top: 25px;
+  }
+
+  &__articles-title {
+    font-weight: 500;
+    color: $white;
+
+    margin-bottom: 30px;
+  }
+
+  &__articles-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+  }
+
+  &__articles-list-item {
+    margin-bottom: 30px;
   }
 }
 </style>

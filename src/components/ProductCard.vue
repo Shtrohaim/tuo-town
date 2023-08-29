@@ -1,15 +1,18 @@
 <template>
-  <a href="#" class="product-card">
+  <a @click.prevent="" href="#" class="product-card">
     <div class="product-card__wrapper">
-      <img :src="product.image" />
-      <button class="product-card__button" type="submit">
+      <img :src="product.image" :alt="product.name" />
+      <button @click.prevent.stop="" class="product-card__button" type="submit">
         <svg class="icon24 fill-white">
           <use href="@/assets/images/svg/plusIcon.svg#icon"></use>
+        </svg>
+        <svg class="icon20 fill-white product-card__shop-icon">
+          <use href="@/assets/images/svg/shopIcon.svg#icon"></use>
         </svg>
       </button>
     </div>
     <div class="product-card__info">
-      <span class="p_sm product-card__name"> {{ product.name }} </span>
+      <h3 class="p_sm product-card__name">{{ product.name }}</h3>
       <span class="p_hg product-card__price">{{ product.price }}</span>
     </div>
     <span class="product-card__new p_sm" v-if="product.new">Новинка</span>
@@ -17,17 +20,31 @@
 </template>
 
 <script setup lang="ts">
-const product = {
-  name: 'Складной нож SQ01-B',
-  price: 800,
-  image: 'src/assets/images/server/2.png',
-  new: true
-}
+import type ProductsType from '@/types/productsType'
+import type { PropType } from 'vue'
+
+const props = defineProps({
+  product: {
+    type: Object as PropType<ProductsType>,
+    required: true
+  }
+})
 </script>
 
 <style scoped lang="scss">
 .product-card {
   position: relative;
+  display: inline-block;
+
+  &:hover {
+    .product-card__name {
+      color: $red-active;
+    }
+
+    .product-card__button {
+      background: $red-active;
+    }
+  }
 
   &__wrapper {
     position: relative;
@@ -42,18 +59,40 @@ const product = {
   }
 
   &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 5px;
+    right: 10px;
 
     padding: 0;
 
+    height: 37px;
+    width: 37px;
+
     border: none;
+    border-radius: 27px;
     background: transparent;
+
+    transition: all 0.3s ease;
 
     &:hover {
       cursor: pointer;
+      width: 72px;
+
+      z-index: 1;
+
+      .product-card__shop-icon {
+        display: block;
+        margin-left: 10px;
+      }
     }
+  }
+
+  &__shop-icon {
+    display: none;
   }
 
   &__info {

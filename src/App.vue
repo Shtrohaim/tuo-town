@@ -3,7 +3,7 @@
   <Transition>
     <the-sidebar v-if="isActiveSidebar" @closeSidebar="closeSidebar"></the-sidebar>
   </Transition>
-  <RouterView />
+  <RouterView class="app" />
 </template>
 
 <script setup lang="ts">
@@ -42,5 +42,9 @@ const openSidebar = () => {
   top: 0;
 
   z-index: 9999;
+}
+
+.app {
+  background: $background-light;
 }
 </style>
