@@ -4,6 +4,7 @@
     <the-sidebar v-if="isActiveSidebar" @closeSidebar="closeSidebar"></the-sidebar>
   </Transition>
   <RouterView class="app" />
+  <the-footer></the-footer>
 </template>
 
 <script setup lang="ts">
@@ -12,6 +13,7 @@ import { ref } from 'vue'
 
 import TheHeader from '@/components/TheHeader.vue'
 import TheSidebar from '@/components/TheSidebar.vue'
+import TheFooter from '@/components/TheFooter.vue'
 
 const isActiveSidebar = ref(false)
 const closeSidebar = () => {
