@@ -1,10 +1,9 @@
 <template>
-  <main class="main">
+  <main v-if="isLoad" class="main">
     <h1 class="visually-hidden">Официальный сайт «Tuotown»</h1>
     <section class="main__promo">
       <h2 class="visually-hidden">Промо материалы</h2>
       <base-slider
-        v-if="isLoad"
         class="main__slider"
         :havePagination="true"
         :width="deviceWidth"
@@ -86,6 +85,36 @@
         </li>
       </ul>
     </section>
+    <section class="main__products">
+      <h2 class="visually-hidden">Новинки и популярное</h2>
+      <nav class="main__tabulation">
+        <ul class="main__tab-list">
+          <li
+            class="main__tab-list-item p_hg"
+            :class="{ 'main__tab-list-item--active': tabIndex === 0 }"
+            @click="changeTabIndex"
+          >
+            Новинки
+          </li>
+          <li
+            class="main__tab-list-item p_hg"
+            :class="{ 'main__tab-list-item--active': tabIndex === 1 }"
+            @click="changeTabIndex"
+          >
+            Популярное
+          </li>
+        </ul>
+      </nav>
+      <ul class="main__tab-content-list">
+        <li
+          class="main__tab-content-list-item"
+          v-for="product in popularAndNew[tabIndex][Object.keys(popularAndNew[tabIndex])[0]]"
+          :key="product.id"
+        >
+          <product-card :product="product"></product-card>
+        </li>
+      </ul>
+    </section>
     <section class="main__about container">
       <h2 class="visually-hidden">О «Tuotown»</h2>
       <div class="main__about-company">
@@ -152,7 +181,7 @@ import ProductCard from '@/components/ProductCard.vue'
 import CategoryCard from '@/components/CategoryCard.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
 
-import promoServices from '@/services/promoServices'
+import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
 
 import type ProductsType from '@/types/productsType'
@@ -165,13 +194,20 @@ const products = ref([] as ProductsType[])
 const articles = ref([] as ArticlesType[])
 const isLoad = ref(false)
 
-const fetchPromo = async () => {
-  await promoServices.getMainRecommendations().then((res) => {
-    slides.value = res.data
-    isLoad.value = true
-  })
+const popularAndNew = ref()
+const tabIndex = ref(0)
+
+const changeTabIndex = (e: any) => {
+  const elem = e.target
+  const childList = elem.parentNode.children
+  tabIndex.value = Array.from(childList).indexOf(elem)
 }
 
+const fetchPromo = async () => {
+  await recommendationService.getPromo().then((res) => {
+    slides.value = res.data
+  })
+}
 const fetchArticles = async () => {
   await recommendationService.getArticlesRecommendation().then((res) => {
     articles.value = res.data
@@ -183,10 +219,18 @@ const fetchProducts = async () => {
   })
 }
 
+const fetchPopularAndNew = async () => {
+  await productsServices.getNewAndPopular().then((res) => {
+    popularAndNew.value = res.data
+    isLoad.value = true
+  })
+}
+
 onMounted(async () => {
   await fetchPromo()
   await fetchProducts()
   await fetchArticles()
+  await fetchPopularAndNew()
 })
 </script>
 
@@ -350,6 +394,51 @@ onMounted(async () => {
     transition: all 0.3s ease;
 
     z-index: 0;
+  }
+
+  &__products {
+    padding: 0 15px 30px 15px;
+    border-top: 1px solid rgba(255 255 255 / 10%);
+  }
+
+  &__tab-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    column-gap: 27px;
+    row-gap: 8px;
+
+    margin-bottom: 30px;
+  }
+
+  &__tab-list-item {
+    font-weight: 600;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: $white;
+    opacity: 0.5;
+
+    cursor: pointer;
+
+    &--active {
+      opacity: 1;
+      text-decoration: underline $red-active 2px;
+      text-underline-offset: 6px;
+
+      cursor: default;
+    }
+  }
+
+  &__tab-content-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__tab-content-list-item {
+    margin-bottom: 30px;
   }
 
   &__about-company {

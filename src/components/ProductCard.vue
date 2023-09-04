@@ -1,7 +1,7 @@
 <template>
   <a @click.prevent="" href="#" class="product-card">
     <div class="product-card__wrapper">
-      <img :src="product.image" :alt="product.name" />
+      <img class="product-card__image" :src="product.image" :alt="product.name" />
       <button @click.prevent.stop="" class="product-card__button" type="submit">
         <svg class="icon24 fill-white">
           <use href="@/assets/images/svg/plusIcon.svg#icon"></use>
@@ -56,6 +56,10 @@ const props = defineProps({
 
     width: 138px;
     height: 190px;
+  }
+
+  &__image {
+    width: 100%;
   }
 
   &__button {
