@@ -19,18 +19,20 @@
     </section>
     <section class="catalog__recommendation">
       <h2 class="visually-hidden">Рекомендованные каталоги</h2>
-      <base-slider
-        :carousel="false"
-        :havePagination="false"
-        :width="144"
-        :height="15"
-        class="catalog__slider"
-      >
-        <div v-for="slide in slides" :key="slide.id" class="catalog__slide">
-          <h3>{{ slide.title }}</h3>
-          <img :src="slide.image" />
-        </div>
-      </base-slider>
+      <div class="catalog__recommendation-wrapper">
+        <base-slider
+          :carousel="false"
+          :havePagination="false"
+          :slideWidth="167"
+          :height="70"
+          class="catalog__slider"
+        >
+          <div v-for="slide in slides" :key="slide.id" class="catalog__slide">
+            <h3 class="catalog__slide-title p_hg">{{ slide.title }}</h3>
+            <img class="catalog__slide-background" :src="slide.image" />
+          </div>
+        </base-slider>
+      </div>
     </section>
   </main>
 </template>
@@ -55,13 +57,13 @@ const slides = ref()
 const fetchCatalog = async () => {
   await productsServices.getCatalog(catalog_id).then((res) => {
     catalog.value = res.data
-    isLoad.value = true
   })
 }
 
 const fetchRecommendation = async () => {
   await recommendationService.getCatalogRecommendation().then((res) => {
     slides.value = res.data
+    isLoad.value = true
   })
 }
 
@@ -88,6 +90,7 @@ onMounted(async () => {
   &__title {
     z-index: 1;
 
+    margin-top: 30px;
     margin-bottom: 15px;
 
     color: $white;
@@ -112,6 +115,8 @@ onMounted(async () => {
 
     object-fit: cover;
     z-index: 0;
+
+    filter: brightness(60%);
   }
 
   &__category-list {
@@ -121,6 +126,74 @@ onMounted(async () => {
 
   &__category-list-item {
     margin-bottom: 30px;
+  }
+
+  &__recommendation {
+    padding: 30px 0;
+
+    border-top: 1px solid rgba(255 255 255 / 10%);
+    border-bottom: 1px solid rgba(255 255 255 / 10%);
+  }
+
+  &__recommendation-wrapper {
+    min-width: 320px;
+    max-width: 1290px;
+    width: 100%;
+
+    margin: 0 auto;
+  }
+
+  &__slide {
+    position: relative;
+
+    padding: 0 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    flex-shrink: 0;
+
+    min-width: 144px;
+    max-width: 144px;
+    height: 70px;
+
+    margin-left: 20px;
+  }
+
+  &__slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 15px;
+
+    object-fit: cover;
+    z-index: 0;
+
+    filter: brightness(40%);
+    pointer-events: none;
+  }
+
+  &__slide-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+
+    z-index: 1;
+
+    color: $white;
+    font-weight: 600;
+    line-height: normal;
+
+    user-select: none;
   }
 }
 </style>

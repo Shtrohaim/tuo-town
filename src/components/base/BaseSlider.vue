@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <div class="slider__container" :style="{ height: props.height + 'vh' }">
+    <div class="slider__container" :style="{ height: props.height + 'px' }">
       <div
         ref="sliderContent"
         class="slider__content"
@@ -54,15 +54,14 @@ import { computed, onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   havePagination: Boolean,
-  width: Number,
+  slideWidth: Number,
   carousel: Boolean,
   height: Number
 })
 
 const slide = props.carousel ? ref(2) : ref(1)
 const slides = ref(1)
-const width = props.width ? props.width : 320
-const deviceWidth = window.innerWidth
+const width = props.slideWidth ? props.slideWidth : 320
 const translateX = props.carousel ? ref(-width) : ref(0)
 const transitionTime = ref(0)
 const posInit = ref(0)
@@ -124,6 +123,7 @@ const swipeAction = (event: any) => {
 }
 
 const swipeEnd = () => {
+  let noPagination = false
   posFinal.value = posInit.value - posX1.value
 
   removeEventListener('touchmove', swipeAction)
@@ -131,23 +131,24 @@ const swipeEnd = () => {
   removeEventListener('touchend', swipeEnd)
   removeEventListener('mouseup', swipeEnd)
 
-  if (Math.abs(posFinal.value) > posThreshold && width === deviceWidth) {
+  if (Math.abs(posFinal.value) > posThreshold && width === sliderContent.value.clientWidth) {
     if (posInit.value < posX1.value) {
       slide.value--
     } else if (posInit.value > posX1.value) {
       slide.value++
     }
-  } else {
-    if (translateX.value < deviceWidth * slides.value * -1 + width * 2) {
-      slide.value = deviceWidth * slides.value * -1 + width * 2
+  } else if (width !== sliderContent.value.clientWidth) {
+    noPagination = true
+    if (translateX.value < width * slides.value * -1 + sliderContent.value.clientWidth) {
+      translateX.value = width * slides.value * -1 + sliderContent.value.clientWidth
+      transitionTime.value = 400
     } else if (translateX.value > 0) {
-      slide.value = 0
-    } else {
-      slide.value = translateX.value
+      translateX.value = 0
+      transitionTime.value = 400
     }
   }
 
-  if (posInit.value !== posX1.value) {
+  if (posInit.value !== posX1.value && !noPagination) {
     pagination(slide.value)
   }
 }

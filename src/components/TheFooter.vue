@@ -126,6 +126,7 @@ import BaseButton from '@/components/base/BaseButton.vue'
 <style scoped lang="scss">
 .footer {
   background: $background-light;
+  padding-top: 30px;
 
   &__slogan {
     display: block;

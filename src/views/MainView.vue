@@ -6,9 +6,9 @@
       <base-slider
         class="main__slider"
         :havePagination="true"
-        :width="deviceWidth"
+        :slideWidth="deviceWidth"
         :carousel="true"
-        :height="100"
+        :height="deviceHeight"
       >
         <div
           v-for="slide in slides"
@@ -187,6 +187,8 @@ import recommendationService from '@/services/recommendationService'
 import type { ProductsType, PromoType, ArticleType } from '@/types/responseType'
 
 const deviceWidth = window.innerWidth
+const deviceHeight = window.innerHeight
+
 const slides = ref([] as PromoType[])
 const products = ref([] as ProductsType[])
 const articles = ref([] as ArticleType[])
@@ -479,11 +481,9 @@ onMounted(async () => {
     align-items: center;
     flex-wrap: wrap;
 
-    width: 100%;
-  }
+    row-gap: 30px;
 
-  &__articles-list-item {
-    margin-bottom: 30px;
+    width: 100%;
   }
 }
 </style>
