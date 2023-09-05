@@ -1,0 +1,191 @@
+{
+  "promo": [
+    {
+      "id": 0,
+      "image": "src/assets/images/server/1.jpg",
+      "title": "Исключительное качество без компромиссов",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "link": "#"
+    },
+    {
+      "id": 1,
+      "image": "src/assets/images/server/1.jpg",
+      "title": "Слайд 2",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
+    },
+    {
+      "id": 2,
+      "image": "src/assets/images/server/1.jpg",
+      "title": "Слайд 3",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua",
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "image": "src/assets/images/server/1.jpg",
+      "title": "Слайд 4",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
+    },
+    {
+      "id": 4,
+      "image": "src/assets/images/server/1.jpg",
+      "title": "Слайд 5",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
+    },
+    {
+      "id": 5,
+      "image": "src/assets/images/server/1.jpg",
+      "title": "Слайд 6",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua",
+      "link": "#"
+    },
+    {
+      "id": 6,
+      "image": "src/assets/images/server/1.jpg",
+      "title": "Слайд 7",
+      "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
+    }
+  ],
+  "products-recommendation" : [
+    {
+      "id": 0,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/product2.png",
+      "price": 800,
+      "new": true,
+      "count": 5
+    },
+    {
+      "id": 1,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/product2.png",
+      "price": 800,
+      "new": false,
+      "count": 5
+    },
+    {
+      "id": 2,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/product1.png",
+      "price": 800,
+      "new": false,
+      "count": 5
+    },
+    {
+      "id": 3,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/product1.png",
+      "price": 800,
+      "new": false,
+      "count": 5
+    },
+    {
+      "id": 4,
+      "name": "Складной нож SQ01-B",
+      "image": "src/assets/images/server/product1.png",
+      "price": 800,
+      "new": true,
+      "count": 5
+    }
+  ],
+  "articles": [
+    {
+      "id": 0,
+      "title": "Традиционные виды японских кухонных ножей",
+      "image": "src/assets/images/server/article3.jpg",
+      "date": "Tue Jul 29 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
+    },
+    {
+      "id": 1,
+      "title": "Всемирная история режущих клинков — взгляд в прошлое",
+      "image": "src/assets/images/server/article2.jpg",
+      "date": "Tue May 17 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
+    },
+    {
+      "id": 2,
+      "title": "Как ухаживать за японскими кухонными ножами?",
+      "image": "src/assets/images/server/article1.jpg",
+      "date": "Tue Apr 5 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
+    }
+  ],
+  "popular-new": [
+    {
+      "popular": [
+        {
+          "id": 0,
+          "name": "Складной нож SQ01-B",
+          "image": "src/assets/images/server/product1.png",
+          "price": 800,
+          "new": true,
+          "count": 5
+        },
+        {
+          "id": 1,
+          "name": "Складной нож JJ001-TUO-B",
+          "image": "src/assets/images/server/product2.png",
+          "price": 800,
+          "new": false,
+          "count": 5
+        },
+        {
+          "id": 2,
+          "name": "Складной нож SQ01-B",
+          "image": "src/assets/images/server/product1.png",
+          "price": 800,
+          "new": false,
+          "count": 5
+        },
+        {
+          "id": 3,
+          "name": "Складной нож JJ001-TUO-B",
+          "image": "src/assets/images/server/product2.png",
+          "price": 800,
+          "new": false,
+          "count": 5
+        }
+      ]
+    },
+    {
+      "new": [
+        {
+          "id": 0,
+          "name": "Складной нож JJ001-TUO-B",
+          "image": "src/assets/images/server/product2.png",
+          "price": 1600,
+          "new": true,
+          "count": 5
+        },
+        {
+          "id": 1,
+          "name": "Складной нож JJ001-TUO-B",
+          "image": "src/assets/images/server/product2.png",
+          "price": 800,
+          "new": true,
+          "count": 5
+        },
+        {
+          "id": 2,
+          "name": "Складной нож SQ01-B",
+          "image": "src/assets/images/server/product1.png",
+          "price": 1200,
+          "new": true,
+          "count": 5
+        },
+        {
+          "id": 3,
+          "name": "Складной нож JJ001-TUO-B",
+          "image": "src/assets/images/server/product2.png",
+          "price": 800,
+          "new": true,
+          "count": 5
+        }
+      ]
+    }
+  ]
+}
