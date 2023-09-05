@@ -1,10 +1,10 @@
 <template>
   <a href="#" class="category-card">
     <div class="category-card__wrapper">
-      <img class="category-card__background" :src="categories.images" />
+      <img class="category-card__background" :src="`${category.image}`" />
       <div class="category-card__info">
-        <h3 class="category-card__title p_hg">{{ categories.title }}</h3>
-        <svg class="icon20 fill-white">
+        <h3 class="category-card__title p_hg">{{ category.title }}</h3>
+        <svg class="category-card__icon icon20 fill-white">
           <use href="@/assets/images/svg/navArrowIcon.svg#icon"></use>
         </svg>
       </div>
@@ -13,13 +13,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { PropType } from 'vue'
+import type { CategoryType } from '@/types/responseType'
 
-const categories = {
-  id: 0,
-  title: 'Познакомьтесь с коллекцией ножей TUOTOWN',
-  images: 'src/assets/images/server/3.jpg'
-}
+const props = defineProps({
+  category: {
+    type: Object as PropType<CategoryType>,
+    required: true
+  }
+})
 </script>
 
 <style scoped lang="scss">
@@ -54,6 +56,7 @@ const categories = {
     transition: all 0.3s linear;
 
     width: 100%;
+    height: 100%;
 
     object-fit: cover;
 
@@ -62,17 +65,24 @@ const categories = {
 
   &__info {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     position: absolute;
     bottom: 20px;
     left: 15px;
 
+    width: 90%;
+
     z-index: 1;
+  }
+
+  &__icon {
+    justify-self: end;
   }
 
   &__title {
     display: block;
-
-    width: 87%;
 
     font-weight: 600;
     color: $white;

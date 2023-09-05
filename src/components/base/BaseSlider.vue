@@ -62,6 +62,7 @@ const props = defineProps({
 const slide = props.carousel ? ref(2) : ref(1)
 const slides = ref(1)
 const width = props.width ? props.width : 320
+const deviceWidth = window.innerWidth
 const translateX = props.carousel ? ref(-width) : ref(0)
 const transitionTime = ref(0)
 const posInit = ref(0)
@@ -130,13 +131,22 @@ const swipeEnd = () => {
   removeEventListener('touchend', swipeEnd)
   removeEventListener('mouseup', swipeEnd)
 
-  if (Math.abs(posFinal.value) > posThreshold) {
+  if (Math.abs(posFinal.value) > posThreshold && width === deviceWidth) {
     if (posInit.value < posX1.value) {
       slide.value--
     } else if (posInit.value > posX1.value) {
       slide.value++
     }
+  } else {
+    if (translateX.value < deviceWidth * slides.value * -1 + width * 2) {
+      slide.value = deviceWidth * slides.value * -1 + width * 2
+    } else if (translateX.value > 0) {
+      slide.value = 0
+    } else {
+      slide.value = translateX.value
+    }
   }
+
   if (posInit.value !== posX1.value) {
     pagination(slide.value)
   }
@@ -178,7 +188,6 @@ watch(slide, () => {
 
 <style scoped lang="scss">
 .slider {
-  background: black;
   width: 100%;
 
   &__container {

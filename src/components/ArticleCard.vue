@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 
-import type ArticleType from '@/types/articleType'
+import type { ArticleType } from '@/types/responseType'
 
 import getLocalDate from '@/utils/date'
 

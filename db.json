@@ -2,21 +2,21 @@
   "promo": [
     {
       "id": 0,
-      "image": "src/assets/images/server/1.jpg",
+      "image": "/src/assets/images/server/1.jpg",
       "title": "Исключительное качество без компромиссов",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
       "link": "#"
     },
     {
       "id": 1,
-      "image": "src/assets/images/server/1.jpg",
+      "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 2",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
     },
     {
       "id": 2,
-      "image": "src/assets/images/server/1.jpg",
+      "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 3",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua",
@@ -24,21 +24,21 @@
     },
     {
       "id": 3,
-      "image": "src/assets/images/server/1.jpg",
+      "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 4",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
     },
     {
       "id": 4,
-      "image": "src/assets/images/server/1.jpg",
+      "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 5",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
     },
     {
       "id": 5,
-      "image": "src/assets/images/server/1.jpg",
+      "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 6",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua",
@@ -46,7 +46,7 @@
     },
     {
       "id": 6,
-      "image": "src/assets/images/server/1.jpg",
+      "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 7",
       "description":
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
@@ -56,7 +56,7 @@
     {
       "id": 0,
       "name": "Складной нож SQ01-B",
-      "image": "src/assets/images/server/product2.png",
+      "image": "/src/assets/images/server/product/product2.png",
       "price": 800,
       "new": true,
       "count": 5
@@ -64,7 +64,7 @@
     {
       "id": 1,
       "name": "Складной нож SQ01-B",
-      "image": "src/assets/images/server/product2.png",
+      "image": "/src/assets/images/server/product/product2.png",
       "price": 800,
       "new": false,
       "count": 5
@@ -72,7 +72,7 @@
     {
       "id": 2,
       "name": "Складной нож SQ01-B",
-      "image": "src/assets/images/server/product1.png",
+      "image": "/src/assets/images/server/product/product1.png",
       "price": 800,
       "new": false,
       "count": 5
@@ -80,7 +80,7 @@
     {
       "id": 3,
       "name": "Складной нож SQ01-B",
-      "image": "src/assets/images/server/product1.png",
+      "image": "/src/assets/images/server/product/product1.png",
       "price": 800,
       "new": false,
       "count": 5
@@ -88,7 +88,7 @@
     {
       "id": 4,
       "name": "Складной нож SQ01-B",
-      "image": "src/assets/images/server/product1.png",
+      "image": "/src/assets/images/server/product/product1.png",
       "price": 800,
       "new": true,
       "count": 5
@@ -98,19 +98,19 @@
     {
       "id": 0,
       "title": "Традиционные виды японских кухонных ножей",
-      "image": "src/assets/images/server/article3.jpg",
+      "image": "/src/assets/images/server/article3.jpg",
       "date": "Tue Jul 29 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
     },
     {
       "id": 1,
       "title": "Всемирная история режущих клинков — взгляд в прошлое",
-      "image": "src/assets/images/server/article2.jpg",
+      "image": "/src/assets/images/server/article2.jpg",
       "date": "Tue May 17 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
     },
     {
       "id": 2,
       "title": "Как ухаживать за японскими кухонными ножами?",
-      "image": "src/assets/images/server/article1.jpg",
+      "image": "/src/assets/images/server/article1.jpg",
       "date": "Tue Apr 5 2023 20:27:45 GMT+0700 (Красноярск, стандартное время)"
     }
   ],
@@ -120,7 +120,7 @@
         {
           "id": 0,
           "name": "Складной нож SQ01-B",
-          "image": "src/assets/images/server/product1.png",
+          "image": "/src/assets/images/server/product/product1.png",
           "price": 800,
           "new": true,
           "count": 5
@@ -128,7 +128,7 @@
         {
           "id": 1,
           "name": "Складной нож JJ001-TUO-B",
-          "image": "src/assets/images/server/product2.png",
+          "image": "/src/assets/images/server/product/product2.png",
           "price": 800,
           "new": false,
           "count": 5
@@ -136,7 +136,7 @@
         {
           "id": 2,
           "name": "Складной нож SQ01-B",
-          "image": "src/assets/images/server/product1.png",
+          "image": "/src/assets/images/server/product/product1.png",
           "price": 800,
           "new": false,
           "count": 5
@@ -144,7 +144,7 @@
         {
           "id": 3,
           "name": "Складной нож JJ001-TUO-B",
-          "image": "src/assets/images/server/product2.png",
+          "image": "/src/assets/images/server/product/product2.png",
           "price": 800,
           "new": false,
           "count": 5
@@ -156,7 +156,7 @@
         {
           "id": 0,
           "name": "Складной нож JJ001-TUO-B",
-          "image": "src/assets/images/server/product2.png",
+          "image": "/src/assets/images/server/product/product2.png",
           "price": 1600,
           "new": true,
           "count": 5
@@ -164,7 +164,7 @@
         {
           "id": 1,
           "name": "Складной нож JJ001-TUO-B",
-          "image": "src/assets/images/server/product2.png",
+          "image": "/src/assets/images/server/product/product2.png",
           "price": 800,
           "new": true,
           "count": 5
@@ -172,7 +172,7 @@
         {
           "id": 2,
           "name": "Складной нож SQ01-B",
-          "image": "src/assets/images/server/product1.png",
+          "image": "/src/assets/images/server/product/product1.png",
           "price": 1200,
           "new": true,
           "count": 5
@@ -180,12 +180,100 @@
         {
           "id": 3,
           "name": "Складной нож JJ001-TUO-B",
-          "image": "src/assets/images/server/product2.png",
+          "image": "/src/assets/images/server/product/product2.png",
           "price": 800,
           "new": true,
           "count": 5
         }
       ]
+    }
+  ],
+  "catalog": [
+    {
+      "id": 0,
+      "title": "Кухонные ножи",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "image": "/src/assets/images/server/catalog/background.jpg"
+    }
+  ],
+  "category": [
+    {
+      "id": 0,
+      "catalogId": 0,
+      "title": "Кухонные ножи TX-series",
+      "image": "/src/assets/images/server/catalog/catalog1.webp"
+    },
+    {
+      "id": 1,
+      "catalogId": 0,
+      "title": "Кухонные ножи TWB-series",
+      "image": "/src/assets/images/server/catalog/catalog2.webp"
+    },
+    {
+      "id": 2,
+      "catalogId": 0,
+      "title": "Кухонные ножи TG-series",
+      "image": "/src/assets/images/server/catalog/catalog3.webp"
+    },
+    {
+      "id": 3,
+      "catalogId": 0,
+      "title": "Кухонные ножи TWR-series",
+      "image": "/src/assets/images/server/catalog/catalog4.webp"
+    },
+    {
+      "id": 4,
+      "catalogId": 0,
+      "title": "Кухонные ножи Agnes-series AUS-8",
+      "image": "/src/assets/images/server/catalog/catalog5.webp"
+    },
+    {
+      "id": 5,
+      "catalogId": 0,
+      "title": "Кухонные ножи FT-series",
+      "image": "/src/assets/images/server/catalog/catalog6.webp"
+    }
+  ],
+  "catalog-recommendation": [
+    {
+      "id": 0,
+      "image": "/src/assets/images/server/catalog/slide1.jpg",
+      "title": "Ножи с покрытием"
+    },
+    {
+      "id": 1,
+      "image": "/src/assets/images/server/catalog/slide2.jpg",
+      "title": "Ножи с покрытием"
+    },
+    {
+      "id": 2,
+      "image": "/src/assets/images/server/catalog/slide3.jpg",
+      "title": "Ножи с покрытием"
+    },
+    {
+      "id": 3,
+      "image": "/src/assets/images/server/catalog/slide4.jpg",
+      "title": "Ножи с покрытием"
+    },
+    {
+      "id": 4,
+      "image": "/src/assets/images/server/catalog/slide5.jpg",
+      "title": "Ножи с покрытием"
+    },
+    {
+      "id": 5,
+      "image": "/src/assets/images/server/catalog/slide6.jpg",
+      "title": "Ножи с покрытием"
+    },
+    {
+      "id": 6,
+      "image": "/src/assets/images/server/catalog/slide7.jpg",
+      "title": "Ножи с покрытием"
+    },
+    {
+      "id": 7,
+      "image": "/src/assets/images/server/catalog/slide8.jpg",
+      "title": "Ножи с покрытием"
     }
   ]
 }

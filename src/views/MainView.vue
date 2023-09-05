@@ -64,7 +64,7 @@
         </ul>
       </nav>
       <ul class="main__recommendation-list">
-        <li class="main__recommendation-list-item"><category-card></category-card></li>
+        <li class="main__recommendation-list-item"></li>
         <li class="main__recommendation-list-item" v-for="product in products" :key="product.id">
           <product-card :product="product"></product-card>
         </li>
@@ -184,14 +184,13 @@ import ArticleCard from '@/components/ArticleCard.vue'
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
 
-import type ProductsType from '@/types/productsType'
-import type PromoType from '@/types/promoType'
-import type ArticlesType from '@/types/articleType'
+import type { ProductsType, PromoType, ArticleType } from '@/types/responseType'
 
 const deviceWidth = window.innerWidth
 const slides = ref([] as PromoType[])
 const products = ref([] as ProductsType[])
-const articles = ref([] as ArticlesType[])
+const articles = ref([] as ArticleType[])
+
 const isLoad = ref(false)
 
 const popularAndNew = ref()

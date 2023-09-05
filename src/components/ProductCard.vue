@@ -1,7 +1,7 @@
 <template>
   <a @click.prevent="" href="#" class="product-card">
     <div class="product-card__wrapper">
-      <img class="product-card__image" :src="product.image" :alt="product.name" />
+      <img class="product-card__image" :src="`${product.image}`" :alt="product.name" />
       <button @click.prevent.stop="" class="product-card__button" type="submit">
         <svg class="icon24 fill-white">
           <use href="@/assets/images/svg/plusIcon.svg#icon"></use>
@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import type ProductsType from '@/types/productsType'
+import type { ProductsType } from '@/types/responseType'
 import type { PropType } from 'vue'
 
 const props = defineProps({
