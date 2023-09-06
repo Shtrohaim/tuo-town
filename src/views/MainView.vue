@@ -30,41 +30,43 @@
       <nav class="main__navigation">
         <ul class="main__nav-list">
           <li class="main__nav-list-item">
-            <a>
+            <router-link :to="{ name: 'category', params: { id: 0 } }">
               <svg class="icon46 fill-gray">
                 <use href="@/assets/images/svg/knifeIcon.svg#icon"></use>
               </svg>
               <span class="main__list-name p_hg">Кухонные ножи</span>
-            </a>
+            </router-link>
           </li>
           <li class="main__nav-list-item">
-            <a>
+            <router-link :to="{ name: 'category', params: { id: 1 } }">
               <svg class="icon46 fill-gray">
                 <use href="@/assets/images/svg/jackknifeIcon.svg#icon"></use>
               </svg>
               <span class="main__list-name p_hg">Складные ножи</span>
-            </a>
+            </router-link>
           </li>
           <li class="main__nav-list-item">
-            <a>
+            <router-link :to="{ name: 'category', params: { id: 2 } }">
               <svg class="icon46 fill-gray">
                 <use href="@/assets/images/svg/grindIcon.svg#icon"></use>
               </svg>
               <span class="main__list-name p_hg">Точилки для ножей</span>
-            </a>
+            </router-link>
           </li>
           <li class="main__nav-list-item">
-            <a>
+            <router-link :to="{ name: 'category', params: { id: 3 } }">
               <svg class="icon46 fill-gray">
                 <use href="@/assets/images/svg/cookIcon.svg#icon"></use>
               </svg>
               <span class="main__list-name p_hg">Аксессуары для кухни</span>
-            </a>
+            </router-link>
           </li>
         </ul>
       </nav>
       <ul class="main__recommendation-list">
-        <li class="main__recommendation-list-item"></li>
+        <li class="main__recommendation-list-item">
+          <category-card :category="category"></category-card>
+        </li>
         <li class="main__recommendation-list-item" v-for="product in products" :key="product.id">
           <product-card :product="product"></product-card>
         </li>
@@ -184,13 +186,14 @@ import ArticleCard from '@/components/ArticleCard.vue'
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
 
-import type { ProductsType, PromoType, ArticleType } from '@/types/responseType'
+import type { ProductsType, PromoType, ArticleType, CategoryType } from '@/types/responseType'
 
 const deviceWidth = window.innerWidth
 const deviceHeight = window.innerHeight
 
 const slides = ref([] as PromoType[])
 const products = ref([] as ProductsType[])
+const category = ref({} as CategoryType)
 const articles = ref([] as ArticleType[])
 
 const isLoad = ref(false)
@@ -216,7 +219,8 @@ const fetchArticles = async () => {
 }
 const fetchProducts = async () => {
   await recommendationService.getProductRecommendation().then((res) => {
-    products.value = res.data
+    products.value = res.data[0].products
+    category.value = res.data[1].category[0]
   })
 }
 

@@ -1,3 +1,4 @@
 {
-  "/catalog/:id" : "/catalog/:id?_embed=category"
+  "/catalog/category/:id" : "/catalog/:id?_embed=category",
+  "/catalog/products/:id" : "/category/:id?_embed=products"
 }

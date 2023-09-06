@@ -54,44 +54,58 @@
   ],
   "products-recommendation" : [
     {
-      "id": 0,
-      "name": "Складной нож SQ01-B",
-      "image": "/src/assets/images/server/product/product2.png",
-      "price": 800,
-      "new": true,
-      "count": 5
+      "products": [
+        {
+          "id": 0,
+          "name": "Складной нож SQ01-B",
+          "image": "/src/assets/images/server/product/product2.png",
+          "price": 800,
+          "new": true,
+          "count": 5
+        },
+        {
+          "id": 1,
+          "name": "Складной нож SQ01-B",
+          "image": "/src/assets/images/server/product/product2.png",
+          "price": 800,
+          "new": false,
+          "count": 5
+        },
+        {
+          "id": 2,
+          "name": "Складной нож SQ01-B",
+          "image": "/src/assets/images/server/product/product1.png",
+          "price": 800,
+          "new": false,
+          "count": 5
+        },
+        {
+          "id": 3,
+          "name": "Складной нож SQ01-B",
+          "image": "/src/assets/images/server/product/product1.png",
+          "price": 800,
+          "new": false,
+          "count": 5
+        },
+        {
+          "id": 4,
+          "name": "Складной нож SQ01-B",
+          "image": "/src/assets/images/server/product/product1.png",
+          "price": 800,
+          "new": true,
+          "count": 5
+        }
+      ]
     },
     {
-      "id": 1,
-      "name": "Складной нож SQ01-B",
-      "image": "/src/assets/images/server/product/product2.png",
-      "price": 800,
-      "new": false,
-      "count": 5
-    },
-    {
-      "id": 2,
-      "name": "Складной нож SQ01-B",
-      "image": "/src/assets/images/server/product/product1.png",
-      "price": 800,
-      "new": false,
-      "count": 5
-    },
-    {
-      "id": 3,
-      "name": "Складной нож SQ01-B",
-      "image": "/src/assets/images/server/product/product1.png",
-      "price": 800,
-      "new": false,
-      "count": 5
-    },
-    {
-      "id": 4,
-      "name": "Складной нож SQ01-B",
-      "image": "/src/assets/images/server/product/product1.png",
-      "price": 800,
-      "new": true,
-      "count": 5
+      "category": [
+        {
+          "id": 0,
+          "catalogId": 0,
+          "title": "Кухонные ножи TX-series",
+          "image": "/src/assets/images/server/catalog/catalog1.webp"
+        }
+      ]
     }
   ],
   "articles": [
@@ -232,6 +246,107 @@
       "catalogId": 0,
       "title": "Кухонные ножи FT-series",
       "image": "/src/assets/images/server/catalog/catalog6.webp"
+    }
+  ],
+  "products": [
+    {
+      "id": 0,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 3000,
+      "new": true,
+      "count": 5,
+      "categoryId": 0
+    },
+    {
+      "id": 1,
+      "name": "Складной нож SQ01-B",
+      "image": "/src/assets/images/server/product/product1.png",
+      "price": 1600,
+      "new": false,
+      "count": 5,
+      "categoryId": 0
+    },
+    {
+      "id": 2,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 2300,
+      "new": true,
+      "count": 5,
+      "categoryId": 0
+    },
+    {
+      "id": 3,
+      "name": "Складной нож SQ01-B",
+      "image": "/src/assets/images/server/product/product1.png",
+      "price": 800,
+      "new": false,
+      "count": 5,
+      "categoryId": 0
+    },
+    {
+      "id": 4,
+      "name": "Складной нож SQ01-B",
+      "image": "/src/assets/images/server/product/product1.png",
+      "price": 1600,
+      "new": false,
+      "count": 5,
+      "categoryId": 0
+    },
+    {
+      "id": 5,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 1500,
+      "new": false,
+      "count": 5,
+      "categoryId": 2
+    },
+    {
+      "id": 6,
+      "name": "Складной нож SQ01-B",
+      "image": "/src/assets/images/server/product/product1.png",
+      "price": 1600,
+      "new": false,
+      "count": 5,
+      "categoryId": 1
+    },
+    {
+      "id": 7,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 1299,
+      "new": false,
+      "count": 5,
+      "categoryId": 1
+    },
+    {
+      "id": 0,
+      "name": "Складной нож SQ01-B",
+      "image": "/src/assets/images/server/product/product1.png",
+      "price": 1300,
+      "new": true,
+      "count": 5,
+      "categoryId": 0
+    },
+    {
+      "id": 0,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 1600,
+      "new": false,
+      "count": 5,
+      "categoryId": 2
+    },
+    {
+      "id": 0,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 1240,
+      "new": false,
+      "count": 5,
+      "categoryId": 0
     }
   ],
   "catalog-recommendation": [

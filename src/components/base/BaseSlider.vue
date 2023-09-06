@@ -49,7 +49,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script async setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 
 const props = defineProps({

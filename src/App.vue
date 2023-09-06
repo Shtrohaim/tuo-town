@@ -3,7 +3,7 @@
   <Transition>
     <the-sidebar v-if="isActiveSidebar" @closeSidebar="closeSidebar"></the-sidebar>
   </Transition>
-  <RouterView class="app" />
+  <router-view :key="$route.fullPath" class="app" />
   <the-footer></the-footer>
 </template>
 

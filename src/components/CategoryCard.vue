@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="category-card">
+  <router-link :to="{ name: 'products', params: { id: category.id } }" class="category-card">
     <div class="category-card__wrapper">
       <img class="category-card__background" :src="`${category.image}`" />
       <div class="category-card__info">
@@ -9,7 +9,7 @@
         </svg>
       </div>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">

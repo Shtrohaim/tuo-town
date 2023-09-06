@@ -4,7 +4,10 @@ export default {
   async getNewAndPopular() {
     return await axios.get(`/popular-new`)
   },
-  async getCatalog(id: number) {
-    return await axios.get(`/catalog/${id}`)
+  async getCategoryCatalog(id: number) {
+    return await axios.get(`/catalog/category/${id}`)
+  },
+  async getProductCatalog(id: number) {
+    return await axios.get(`/catalog/products/${id}`)
   }
 }

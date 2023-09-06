@@ -1,22 +1,15 @@
 <template>
-  <main v-if="isLoad" class="catalog">
+  <main class="catalog">
     <div class="catalog__banner container">
-      <h1 class="catalog__title h3">{{ catalog.title }}</h1>
-      <p class="catalog__description p_hg">{{ catalog.description }}</p>
-      <img class="catalog__background" :src="`${catalog.image}`" />
+      <h1 class="catalog__title h3">{{ catalog?.title }}</h1>
+      <p class="catalog__description p_hg">{{ catalog?.description }}</p>
+      <img class="catalog__background" :src="`${catalog?.image}`" />
     </div>
-    <section class="catalog__category container">
-      <h2 class="visually-hidden">Католог {{ catalog.title }}</h2>
-      <ul class="catalog__category-list">
-        <li
-          class="catalog__category-list-item"
-          v-for="category in catalog.category"
-          :key="category.id"
-        >
-          <category-card :category="category"></category-card>
-        </li>
-      </ul>
-    </section>
+    <router-view
+      class="catalog__content"
+      :categories="catalog?.category"
+      :products="catalog?.products"
+    ></router-view>
     <section class="catalog__recommendation">
       <h2 class="visually-hidden">Рекомендованные каталоги</h2>
       <div class="catalog__recommendation-wrapper">
@@ -36,13 +29,11 @@
     </section>
   </main>
 </template>
-
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BaseSlider from '@/components/base/BaseSlider.vue'
-import CategoryCard from '@/components/CategoryCard.vue'
 
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
@@ -54,8 +45,14 @@ const catalog_id = Number(route.params.id)
 const catalog = ref()
 const slides = ref()
 
-const fetchCatalog = async () => {
-  await productsServices.getCatalog(catalog_id).then((res) => {
+const fetchCategoryCatalog = async () => {
+  await productsServices.getCategoryCatalog(catalog_id).then((res) => {
+    catalog.value = res.data
+  })
+}
+
+const fetchProductCatalog = async () => {
+  await productsServices.getProductCatalog(catalog_id).then((res) => {
     catalog.value = res.data
   })
 }
@@ -68,7 +65,14 @@ const fetchRecommendation = async () => {
 }
 
 onMounted(async () => {
-  await fetchCatalog()
+  if (route.name === 'category') {
+    await fetchCategoryCatalog()
+  }
+
+  if (route.name === 'products') {
+    await fetchProductCatalog()
+  }
+
   await fetchRecommendation()
 })
 </script>
@@ -117,15 +121,6 @@ onMounted(async () => {
     z-index: 0;
 
     filter: brightness(60%);
-  }
-
-  &__category-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__category-list-item {
-    margin-bottom: 30px;
   }
 
   &__recommendation {
@@ -197,3 +192,4 @@ onMounted(async () => {
   }
 }
 </style>
+<script setup lang="ts"></script>
