@@ -131,13 +131,13 @@ const swipeEnd = () => {
   removeEventListener('touchend', swipeEnd)
   removeEventListener('mouseup', swipeEnd)
 
-  if (Math.abs(posFinal.value) > posThreshold && width === sliderContent.value.clientWidth) {
+  if (Math.abs(posFinal.value) > posThreshold && width >= sliderContent.value.clientWidth) {
     if (posInit.value < posX1.value) {
       slide.value--
     } else if (posInit.value > posX1.value) {
       slide.value++
     }
-  } else if (width !== sliderContent.value.clientWidth) {
+  } else if (width < sliderContent.value.clientWidth) {
     noPagination = true
     if (translateX.value < width * slides.value * -1 + sliderContent.value.clientWidth) {
       translateX.value = width * slides.value * -1 + sliderContent.value.clientWidth
