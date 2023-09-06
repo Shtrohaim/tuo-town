@@ -50,7 +50,7 @@
 </template>
 
 <script async setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeMount, onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   havePagination: Boolean,
@@ -138,6 +138,7 @@ const swipeEnd = () => {
       slide.value++
     }
   } else if (width < sliderContent.value.clientWidth) {
+    console.log(translateX.value, slides.value)
     noPagination = true
     if (translateX.value < width * slides.value * -1 + sliderContent.value.clientWidth) {
       translateX.value = width * slides.value * -1 + sliderContent.value.clientWidth
@@ -154,13 +155,15 @@ const swipeEnd = () => {
 }
 
 onMounted(() => {
-  slides.value = sliderContent.value.children.length
-  if (props.carousel) {
-    let carouselBegin = sliderContent.value.children[slides.value - 1].cloneNode(true)
-    let carouselEnd = sliderContent.value.children[0].cloneNode(true)
-    sliderContent.value.append(carouselEnd)
-    sliderContent.value.prepend(carouselBegin)
-  }
+  setTimeout(() => {
+    slides.value = sliderContent.value.children.length
+    if (props.carousel) {
+      let carouselBegin = sliderContent.value.children[slides.value - 1].cloneNode(true)
+      let carouselEnd = sliderContent.value.children[0].cloneNode(true)
+      sliderContent.value.append(carouselEnd)
+      sliderContent.value.prepend(carouselBegin)
+    }
+  }, 500)
 })
 
 watch(slide, () => {
