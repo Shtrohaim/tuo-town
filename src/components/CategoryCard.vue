@@ -1,9 +1,9 @@
 <template>
-  <router-link :to="{ name: 'products', params: { id: category.id } }" class="category-card">
+  <router-link :to="{ name: 'products', params: { id: category?.id } }" class="category-card">
     <div class="category-card__wrapper">
-      <img class="category-card__background" :src="`${category.image}`" />
+      <img class="category-card__background" :src="`${category?.image}`" />
       <div class="category-card__info">
-        <h3 class="category-card__title p_hg">{{ category.title }}</h3>
+        <h3 class="category-card__title p_hg">{{ category?.title }}</h3>
         <svg class="category-card__icon icon20 fill-white">
           <use href="@/assets/images/svg/navArrowIcon.svg#icon"></use>
         </svg>
@@ -12,7 +12,7 @@
   </router-link>
 </template>
 
-<script setup lang="ts">
+<script async setup lang="ts">
 import { PropType } from 'vue'
 import type { CategoryType } from '@/types/responseType'
 

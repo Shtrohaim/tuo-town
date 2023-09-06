@@ -18,7 +18,12 @@ import type { CategoryType } from '@/types/responseType'
 
 const props = defineProps({
   categories: {
-    type: Object as PropType<CategoryType>
+    type: Object as PropType<CategoryType>,
+    required: true
+  },
+  isLoad: {
+    type: Boolean,
+    required: true
   }
 })
 </script>
