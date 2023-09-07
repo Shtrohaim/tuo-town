@@ -13,6 +13,7 @@ interface ProductsType {
   price: number
   new: boolean
   count: number
+  categoryId: number
 }
 
 interface ArticleType {
@@ -26,6 +27,43 @@ interface CategoryType {
   id: number
   title: string
   image: string
+  catalogId: number
 }
 
-export type { PromoType, ProductsType, ArticleType, CategoryType }
+interface PopularNewType {
+  popular: ProductsType
+  new: ProductsType
+}
+
+interface CatalogCategoryType {
+  id: number
+  title: string
+  description: string
+  image: string
+  category: CategoryType
+}
+
+interface CatalogProductType {
+  id: number
+  title: string
+  image: string
+  catalogId: number
+  products: ProductsType
+}
+
+interface CatalogRecommendationType {
+  id: number
+  image: string
+  title: string
+}
+
+export type {
+  PromoType,
+  ProductsType,
+  ArticleType,
+  CategoryType,
+  PopularNewType,
+  CatalogCategoryType,
+  CatalogProductType,
+  CatalogRecommendationType
+}

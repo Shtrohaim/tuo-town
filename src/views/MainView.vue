@@ -1,9 +1,10 @@
 <template>
-  <main v-if="isLoad" class="main">
-    <h1 class="visually-hidden">Официальный сайт «Tuotown»</h1>
+  <main class="main">
+    <h1 class="visually-hidden h3">Официальный сайт «Tuotown»</h1>
     <section class="main__promo">
       <h2 class="visually-hidden">Промо материалы</h2>
       <base-slider
+        v-if="isLoad.promo"
         class="main__slider"
         :havePagination="true"
         :slideWidth="deviceWidth"
@@ -16,7 +17,7 @@
           class="main__slider-slide main__slider-slide--active"
           :style="{ width: deviceWidth + 'px' }"
         >
-          <img class="main__slider-background" :src="slide.image" :alt="slide.title" />
+          <base-image class="main__slider-background" :src="slide.image" :alt="slide.title" />
           <p class="main__slider-title h3">{{ slide.title }}</p>
           <p class="main__slider-description p_hg">{{ slide.description }}</p>
           <base-button v-if="slide?.link" :href="'/#'" class="main__slider-link p_hg"
@@ -63,7 +64,7 @@
           </li>
         </ul>
       </nav>
-      <ul class="main__recommendation-list">
+      <ul v-if="isLoad.recommendation" class="main__recommendation-list">
         <li class="main__recommendation-list-item">
           <category-card :category="category"></category-card>
         </li>
@@ -72,9 +73,9 @@
         </li>
         <li class="main__recommendation-list-item main__recommendation-list-item--instagram">
           <a href="https://www.instagram.com/tuotown/" class="main__instagram-link">
-            <img
-              src="@/assets/images/instagram.jpg"
-              alt="Instagram - ссылка"
+            <base-image
+              :src="InstagramImg"
+              :alt="'Instagram - ссылка'"
               class="main__instagram-image"
             />
             <div class="main__instagram-title">
@@ -84,6 +85,11 @@
               <span class="p_hg">Instagram</span>
             </div>
           </a>
+        </li>
+      </ul>
+      <ul class="main__recommendation-list" v-else>
+        <li class="main__recommendation-list-item" v-for="n in 6" :key="n">
+          <skeleton-products></skeleton-products>
         </li>
       </ul>
     </section>
@@ -107,7 +113,7 @@
           </li>
         </ul>
       </nav>
-      <ul class="main__tab-content-list">
+      <ul v-if="isLoad.popular" class="main__tab-content-list">
         <li
           class="main__tab-content-list-item"
           v-for="product in popularAndNew[tabIndex][Object.keys(popularAndNew[tabIndex])[0]]"
@@ -116,14 +122,19 @@
           <product-card :product="product"></product-card>
         </li>
       </ul>
+      <ul class="main__tab-content-list" v-else>
+        <li class="main__tab-content-list-item" v-for="n in 4" :key="n">
+          <skeleton-products></skeleton-products>
+        </li>
+      </ul>
     </section>
     <section class="main__about container">
       <h2 class="visually-hidden">О «Tuotown»</h2>
       <div class="main__about-company">
-        <img
+        <base-image
           class="main__about-image"
-          src="@/assets/images/about1.jpg"
-          alt="«Tuotown» – легендарные ножи, создающие шедевры"
+          :src="AboutImage1"
+          :alt="'«Tuotown» – легендарные ножи, создающие шедевры'"
         />
         <h3 class="main__about-title h3">«Tuotown» – легендарные ножи, создающие шедевры</h3>
         <p class="main__about-description p_sm">
@@ -137,10 +148,10 @@
         </p>
       </div>
       <div class="main__about-knife">
-        <img
+        <base-image
           class="main__about-image"
-          src="@/assets/images/about2.jpg"
-          alt="Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства"
+          :src="AboutImage2"
+          :alt="'Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства'"
         />
         <h3 class="main__about-title h3">
           Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства
@@ -165,9 +176,14 @@
     </section>
     <section class="main__articles container">
       <h2 class="main__articles-title h3">Всё самое интересное о ножах</h2>
-      <ul class="main__articles-list">
+      <ul v-if="isLoad.articles" class="main__articles-list">
         <li class="main__articles-list-item" v-for="article in articles" :key="article.id">
           <article-card :article="article"></article-card>
+        </li>
+      </ul>
+      <ul class="main__articles-list" v-else>
+        <li class="main__articles-list-item" v-for="n in 3" :key="n">
+          <skeleton-category></skeleton-category>
         </li>
       </ul>
     </section>
@@ -182,23 +198,41 @@ import BaseSlider from '@/components/base/BaseSlider.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import CategoryCard from '@/components/CategoryCard.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
+import BaseImage from '@/components/base/BaseImage.vue'
+import SkeletonCategory from '@/components/SkeletonCategory.vue'
+import SkeletonProducts from '@/components/SkeletonProducts.vue'
+
+import InstagramImg from '@/assets/images/instagram.jpg'
+import AboutImage1 from '@/assets/images/about1.jpg'
+import AboutImage2 from '@/assets/images/about2.jpg'
 
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
 
-import type { ProductsType, PromoType, ArticleType, CategoryType } from '@/types/responseType'
+import type {
+  ProductsType,
+  PromoType,
+  ArticleType,
+  CategoryType,
+  PopularNewType
+} from '@/types/responseType'
 
 const deviceWidth = window.innerWidth
 const deviceHeight = window.innerHeight
 
-const slides = ref([] as PromoType[])
-const products = ref([] as ProductsType[])
-const category = ref({} as CategoryType)
-const articles = ref([] as ArticleType[])
+const slides = ref<PromoType[]>()
+const products = ref<ProductsType[]>()
+const category = ref<CategoryType>()
+const articles = ref<ArticleType[]>()
 
-const isLoad = ref(false)
+const isLoad = ref({
+  promo: false,
+  recommendation: false,
+  articles: false,
+  popular: false
+})
 
-const popularAndNew = ref()
+const popularAndNew = ref<PopularNewType[]>()
 const tabIndex = ref(0)
 
 const changeTabIndex = (e: any) => {
@@ -210,24 +244,27 @@ const changeTabIndex = (e: any) => {
 const fetchPromo = async () => {
   await recommendationService.getPromo().then((res) => {
     slides.value = res.data
+    isLoad.value.promo = true
   })
 }
 const fetchArticles = async () => {
   await recommendationService.getArticlesRecommendation().then((res) => {
     articles.value = res.data
+    isLoad.value.articles = true
   })
 }
 const fetchProducts = async () => {
   await recommendationService.getProductRecommendation().then((res) => {
     products.value = res.data[0].products
     category.value = res.data[1].category[0]
+    isLoad.value.recommendation = true
   })
 }
 
 const fetchPopularAndNew = async () => {
   await productsServices.getNewAndPopular().then((res) => {
     popularAndNew.value = res.data
-    isLoad.value = true
+    isLoad.value.popular = true
   })
 }
 
@@ -241,6 +278,10 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 .main {
+  &__promo {
+    height: 100vh;
+  }
+
   &__slider-slide {
     position: relative;
     width: 100%;
@@ -452,6 +493,8 @@ onMounted(async () => {
 
   &__about-image {
     width: 100%;
+    min-height: 280px;
+    overflow: hidden;
 
     border-radius: 20px;
 

@@ -1,19 +1,22 @@
 <template>
   <main class="catalog">
     <div class="catalog__banner container">
-      <h1 class="catalog__title h3">{{ catalog?.title }}</h1>
-      <p class="catalog__description p_hg">{{ catalog?.description }}</p>
-      <img class="catalog__background" :src="`${catalog?.image}`" />
+      <h1 v-if="isLoad.catalog" class="catalog__title h3">{{ catalog?.title }}</h1>
+      <h1 v-else class="catalog__title h3">Католог TuoTown</h1>
+      <p v-if="isLoad.catalog" class="catalog__description p_hg">{{ catalog?.description }}</p>
+      <base-image v-if="isLoad.catalog" class="catalog__background" :src="`${catalog?.image}`" />
     </div>
     <router-view
       class="catalog__content"
       :categories="catalog?.category"
       :products="catalog?.products"
+      :isLoad="isLoad.catalog"
     ></router-view>
     <section class="catalog__recommendation">
       <h2 class="visually-hidden">Рекомендованные каталоги</h2>
       <div class="catalog__recommendation-wrapper">
         <base-slider
+          v-if="isLoad.recommendations"
           :carousel="false"
           :havePagination="false"
           :slideWidth="167"
@@ -22,7 +25,7 @@
         >
           <div v-for="slide in slides" :key="slide.id" class="catalog__slide">
             <h3 class="catalog__slide-title p_hg">{{ slide.title }}</h3>
-            <img class="catalog__slide-background" :src="slide.image" />
+            <base-image class="catalog__slide-background" :src="slide.image" />
           </div>
         </base-slider>
       </div>
@@ -34,33 +37,45 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BaseSlider from '@/components/base/BaseSlider.vue'
+import BaseImage from '@/components/base/BaseImage.vue'
 
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
 
+import type {
+  CatalogCategoryType,
+  CatalogProductType,
+  CatalogRecommendationType
+} from '@/types/responseType'
+
 const route = useRoute()
-const isLoad = ref(false)
+const isLoad = ref({
+  catalog: false,
+  recommendations: false
+})
 
 const catalog_id = Number(route.params.id)
-const catalog = ref()
-const slides = ref()
+const catalog = ref<CatalogCategoryType | CatalogProductType>()
+const slides = ref<CatalogRecommendationType[]>()
 
 const fetchCategoryCatalog = async () => {
   await productsServices.getCategoryCatalog(catalog_id).then((res) => {
     catalog.value = res.data
+    isLoad.value.catalog = true
   })
 }
 
 const fetchProductCatalog = async () => {
   await productsServices.getProductCatalog(catalog_id).then((res) => {
     catalog.value = res.data
+    isLoad.value.catalog = true
   })
 }
 
 const fetchRecommendation = async () => {
   await recommendationService.getCatalogRecommendation().then((res) => {
     slides.value = res.data
-    isLoad.value = true
+    isLoad.value.recommendations = true
   })
 }
 
@@ -155,6 +170,10 @@ onMounted(async () => {
     height: 70px;
 
     margin-left: 20px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
   }
 
   &__slide-background {
@@ -164,8 +183,6 @@ onMounted(async () => {
 
     width: 100%;
     height: 100%;
-
-    border-radius: 15px;
 
     object-fit: cover;
     z-index: 0;
@@ -192,4 +209,3 @@ onMounted(async () => {
   }
 }
 </style>
-<script setup lang="ts"></script>

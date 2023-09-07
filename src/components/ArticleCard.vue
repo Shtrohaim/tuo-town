@@ -1,7 +1,7 @@
 <template>
   <a href="#" class="article-card">
     <div class="article-card__wrapper">
-      <img :src="article.image" class="article-card__background" />
+      <base-image :src="article.image" class="article-card__background" />
       <div class="article-card__title-background">
         <h3 class="article-card__title p_hg">{{ article.title }}</h3>
       </div>
@@ -16,6 +16,7 @@ import type { PropType } from 'vue'
 import type { ArticleType } from '@/types/responseType'
 
 import getLocalDate from '@/utils/date'
+import BaseImage from '@/components/base/BaseImage.vue'
 
 const props = defineProps({
   article: {

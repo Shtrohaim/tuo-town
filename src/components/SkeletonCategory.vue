@@ -1,7 +1,7 @@
 <template>
   <div class="skeleton-category">
     <div class="skeleton-category__wrapper">
-      <img class="skeleton-category__background" src="@/assets/images/skeletonCategory.webp" />
+      <div class="skeleton-category__background"></div>
     </div>
   </div>
 </template>
@@ -44,38 +44,19 @@
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
-    filter: blur(5px);
-
-    animation: blurAnimation 1.5s infinite linear;
+    background-image: $skeleton-gradient;
+    background-size: 600px;
+    animation: shine 1.6s infinite linear;
   }
 }
 
-@keyframes blurAnimation {
+@keyframes shine {
   0% {
-    filter: blur(5px);
+    background-position: -100px;
   }
-  25% {
-    filter: blur(4px);
-  }
-  50% {
-    filter: blur(3px);
-  }
-  75% {
-    filter: blur(4px);
-  }
+  40%,
   100% {
-    filter: blur(5px);
-  }
-}
-
-@keyframes flareAnimation {
-  0% {
-    left: -150%;
-  }
-  100% {
-    left: 150%;
+    background-position: 140px;
   }
 }
 </style>

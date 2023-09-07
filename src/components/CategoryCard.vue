@@ -1,7 +1,11 @@
 <template>
   <router-link :to="{ name: 'products', params: { id: category?.id } }" class="category-card">
     <div class="category-card__wrapper">
-      <img class="category-card__background" :src="`${category?.image}`" />
+      <base-image
+        class="category-card__background"
+        :src="`${category?.image}`"
+        :alt="category?.title"
+      />
       <div class="category-card__info">
         <h3 class="category-card__title p_hg">{{ category?.title }}</h3>
         <svg class="category-card__icon icon20 fill-white">
@@ -15,6 +19,7 @@
 <script async setup lang="ts">
 import { PropType } from 'vue'
 import type { CategoryType } from '@/types/responseType'
+import BaseImage from '@/components/base/BaseImage.vue'
 
 const props = defineProps({
   category: {
