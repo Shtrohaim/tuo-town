@@ -193,14 +193,14 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 
-import BaseButton from '@/components/base/BaseButton.vue'
-import BaseSlider from '@/components/base/BaseSlider.vue'
-import ProductCard from '@/components/ProductCard.vue'
-import CategoryCard from '@/components/CategoryCard.vue'
-import ArticleCard from '@/components/ArticleCard.vue'
-import BaseImage from '@/components/base/BaseImage.vue'
-import SkeletonCategory from '@/components/SkeletonCategory.vue'
-import SkeletonProducts from '@/components/SkeletonProducts.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import BaseSlider from '@/components/ui/BaseSlider.vue'
+import ProductCard from '@/components/products/ProductCard.vue'
+import CategoryCard from '@/components/categories/CategoryCard.vue'
+import ArticleCard from '@/components/articles/ArticleCard.vue'
+import BaseImage from '@/components/ui/BaseImage.vue'
+import SkeletonCategory from '@/components/categories/SkeletonCategory.vue'
+import SkeletonProducts from '@/components/products/SkeletonProducts.vue'
 
 import InstagramImg from '@/assets/images/instagram.jpg'
 import AboutImage1 from '@/assets/images/about1.jpg'

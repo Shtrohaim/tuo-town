@@ -40,8 +40,8 @@
 </template>
 
 <script setup lang="ts">
-import TheSearch from '@/components/TheSearch.vue'
-import BaseButton from '@/components/base/BaseButton.vue'
+import TheSearch from '@/components/ui/BaseSearch.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
 
 const deviceWidth = window.innerWidth
 const emits = defineEmits(['closeSidebar'])

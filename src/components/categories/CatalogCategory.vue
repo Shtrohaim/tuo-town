@@ -17,8 +17,8 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 
-import CategoryCard from '@/components/CategoryCard.vue'
-import SkeletonCategory from '@/components/SkeletonCategory.vue'
+import CategoryCard from '@/components/categories/CategoryCard.vue'
+import SkeletonCategory from '@/components/categories/SkeletonCategory.vue'
 
 import type { CategoryType } from '@/types/responseType'
 

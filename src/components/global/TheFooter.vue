@@ -109,7 +109,7 @@
           вл20с1, вход Ф, 22-68-70</span
         >
         <span class="footer__contact-time">08:00 — 18:00, ежедневно</span>
-        <img class="footer__contact-image" src="@/assets/images/copyright.png" />
+        <img class="footer__contact-image" src="../../assets/images/copyright.png" />
       </div>
     </div>
     <span class="footer__copyright p_md"
@@ -120,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseButton from '@/components/base/BaseButton.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
 </script>
 
 <style scoped lang="scss">

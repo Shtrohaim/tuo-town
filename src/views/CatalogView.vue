@@ -36,8 +36,8 @@
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import BaseSlider from '@/components/base/BaseSlider.vue'
-import BaseImage from '@/components/base/BaseImage.vue'
+import BaseSlider from '@/components/ui/BaseSlider.vue'
+import BaseImage from '@/components/ui/BaseImage.vue'
 
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'

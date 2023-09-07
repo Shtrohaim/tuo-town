@@ -17,10 +17,10 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 
-import ProductCard from '@/components/ProductCard.vue'
+import ProductCard from '@/components/products/ProductCard.vue'
 
 import type { ProductsType } from '@/types/responseType'
-import SkeletonProducts from '@/components/SkeletonProducts.vue'
+import SkeletonProducts from '@/components/products/SkeletonProducts.vue'
 
 const props = defineProps({
   products: {

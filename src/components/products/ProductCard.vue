@@ -23,7 +23,7 @@
 import type { ProductsType } from '@/types/responseType'
 import type { PropType } from 'vue'
 import { ref } from 'vue'
-import BaseImage from '@/components/base/BaseImage.vue'
+import BaseImage from '@/components/ui/BaseImage.vue'
 
 const props = defineProps({
   product: {

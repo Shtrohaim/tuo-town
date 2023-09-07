@@ -16,7 +16,7 @@ import type { PropType } from 'vue'
 import type { ArticleType } from '@/types/responseType'
 
 import getLocalDate from '@/utils/date'
-import BaseImage from '@/components/base/BaseImage.vue'
+import BaseImage from '@/components/ui/BaseImage.vue'
 
 const props = defineProps({
   article: {

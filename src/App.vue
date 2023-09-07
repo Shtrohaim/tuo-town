@@ -11,9 +11,9 @@
 import { RouterView } from 'vue-router'
 import { ref } from 'vue'
 
-import TheHeader from '@/components/TheHeader.vue'
-import TheSidebar from '@/components/TheSidebar.vue'
-import TheFooter from '@/components/TheFooter.vue'
+import TheHeader from '@/components/global/TheHeader.vue'
+import TheSidebar from '@/components/global/TheSidebar.vue'
+import TheFooter from '@/components/global/TheFooter.vue'
 
 const isActiveSidebar = ref(false)
 const closeSidebar = () => {

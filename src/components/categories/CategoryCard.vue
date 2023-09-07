@@ -19,7 +19,7 @@
 <script async setup lang="ts">
 import { PropType } from 'vue'
 import type { CategoryType } from '@/types/responseType'
-import BaseImage from '@/components/base/BaseImage.vue'
+import BaseImage from '@/components/ui/BaseImage.vue'
 
 const props = defineProps({
   category: {
