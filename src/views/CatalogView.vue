@@ -10,7 +10,10 @@
       class="catalog__content"
       :categories="catalog?.category"
       :products="catalog?.products"
+      :filter="filter"
       :isLoad="isLoad.catalog"
+      :filterLoad="isLoad.filter"
+      @onUnmounted="catalogUnmounted"
     ></router-view>
     <section class="catalog__recommendation">
       <h2 class="visually-hidden">Рекомендованные каталоги</h2>
@@ -51,24 +54,33 @@ import type {
 const route = useRoute()
 const isLoad = ref({
   catalog: false,
-  recommendations: false
+  recommendations: false,
+  filter: false
 })
 
-const catalog_id = Number(route.params.id)
+const catalog_id = ref(Number(route.params.id))
 const catalog = ref<CatalogCategoryType | CatalogProductType>()
 const slides = ref<CatalogRecommendationType[]>()
+const filter = ref<any[]>()
 
 const fetchCategoryCatalog = async () => {
-  await productsServices.getCategoryCatalog(catalog_id).then((res) => {
+  await productsServices.getCategoryCatalog(catalog_id.value).then((res) => {
     catalog.value = res.data
     isLoad.value.catalog = true
   })
 }
 
 const fetchProductCatalog = async () => {
-  await productsServices.getProductCatalog(catalog_id).then((res) => {
+  await productsServices.getProductCatalog(catalog_id.value).then((res) => {
     catalog.value = res.data
     isLoad.value.catalog = true
+  })
+}
+
+const fetchProductFilter = async () => {
+  await productsServices.getProductFilter(catalog_id.value).then((res) => {
+    filter.value = res.data
+    isLoad.value.filter = true
   })
 }
 
@@ -79,15 +91,20 @@ const fetchRecommendation = async () => {
   })
 }
 
-onMounted(async () => {
+const catalogUnmounted = async () => {
+  catalog_id.value = Number(route.params.id)
   if (route.name === 'category') {
     await fetchCategoryCatalog()
   }
 
   if (route.name === 'products') {
     await fetchProductCatalog()
+    await fetchProductFilter()
   }
+}
 
+onMounted(async () => {
+  await catalogUnmounted()
   await fetchRecommendation()
 })
 </script>
@@ -141,8 +158,8 @@ onMounted(async () => {
   &__recommendation {
     padding: 30px 0;
 
-    border-top: 1px solid rgba(255 255 255 / 10%);
-    border-bottom: 1px solid rgba(255 255 255 / 10%);
+    border-top: 1px solid $border-line;
+    border-bottom: 1px solid $border-line;
   }
 
   &__recommendation-wrapper {

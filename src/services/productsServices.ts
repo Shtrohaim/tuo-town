@@ -9,5 +9,8 @@ export default {
   },
   async getProductCatalog(id: number) {
     return await axios.get(`/catalog/products/${id}`)
+  },
+  async getProductFilter(id: number) {
+    return await axios.get(`/filter/${id}`)
   }
 }

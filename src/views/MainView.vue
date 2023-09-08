@@ -444,7 +444,7 @@ onMounted(async () => {
 
   &__products {
     padding: 0 15px 30px 15px;
-    border-top: 1px solid rgba(255 255 255 / 10%);
+    border-top: 1px solid $border-line;
   }
 
   &__tab-list {

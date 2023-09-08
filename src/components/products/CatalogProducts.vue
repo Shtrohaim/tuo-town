@@ -1,6 +1,7 @@
 <template>
   <section class="products container">
     <h2 class="visually-hidden">Католог продуктов</h2>
+    <base-filter v-if="filterLoad" :data="filter" />
     <ul v-if="isLoad" class="products__list">
       <li class="products__list-item" v-for="product in products" :key="product.id">
         <product-card :product="product"></product-card>
@@ -21,16 +22,32 @@ import ProductCard from '@/components/products/ProductCard.vue'
 
 import type { ProductsType } from '@/types/responseType'
 import SkeletonProducts from '@/components/products/SkeletonProducts.vue'
+import BaseFilter from '@/components/ui/BaseFilter.vue'
+import { onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({
   products: {
     type: Object as PropType<ProductsType>,
     required: true
   },
+  filter: {
+    type: Array,
+    required: true
+  },
   isLoad: {
     type: Boolean,
     required: true
+  },
+  filterLoad: {
+    type: Boolean,
+    required: true
   }
+})
+
+const emits = defineEmits(['onUnmounted'])
+
+onUnmounted(() => {
+  emits('onUnmounted')
 })
 </script>
 

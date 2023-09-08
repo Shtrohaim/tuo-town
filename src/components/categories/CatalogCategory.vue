@@ -21,6 +21,7 @@ import CategoryCard from '@/components/categories/CategoryCard.vue'
 import SkeletonCategory from '@/components/categories/SkeletonCategory.vue'
 
 import type { CategoryType } from '@/types/responseType'
+import { onUnmounted } from 'vue'
 
 const props = defineProps({
   categories: {
@@ -31,6 +32,12 @@ const props = defineProps({
     type: Boolean,
     required: true
   }
+})
+
+const emits = defineEmits(['onUnmounted'])
+
+onUnmounted(() => {
+  emits('onUnmounted')
 })
 </script>
 

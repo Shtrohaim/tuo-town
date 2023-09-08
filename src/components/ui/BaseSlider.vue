@@ -267,7 +267,7 @@ watch(slide, () => {
 
     background: transparent;
 
-    border: 1px solid rgba(255 255 255 / 10%);
+    border: 1px solid $border-line;
     border-radius: 50%;
 
     &--prev {

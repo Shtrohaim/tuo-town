@@ -4,10 +4,12 @@ import MainView from '@/views/MainView.vue'
 import CatalogView from '@/views/CatalogView.vue'
 import CatalogCategory from '@/components/categories/CatalogCategory.vue'
 import CatalogProducts from '@/components/products/CatalogProducts.vue'
+import BaseFilter from '@/components/ui/BaseFilter.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior(to, from, savedPosition) {
+    if (to.params.savePosition) return {}
     return { top: 0, behavior: 'smooth' }
   },
   routes: [
