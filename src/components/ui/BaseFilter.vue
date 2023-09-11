@@ -1,6 +1,24 @@
 <template>
   <form class="filter">
     <ul class="filter__outer-list">
+      <li class="filter__outer-list-item">
+        <div class="filter__header" @click="openFilter">
+          <span class="p_md">Цена</span>
+          <base-button class="filter__button" :icon="true">
+            <svg class="icon20 fill-white">
+              <use href="@/assets/images/svg/dropdownIcon.svg#icon"></use>
+            </svg>
+          </base-button>
+        </div>
+        <div class="filter__body">
+          <base-range
+            @onChange="getCurrentPrice"
+            :curValues="curPrice"
+            :minPrice="price.min_price"
+            :maxPrice="price.max_price"
+          />
+        </div>
+      </li>
       <li class="filter__outer-list-item" v-for="filter in data" :key="filter?.id">
         <div class="filter__header" @click="openFilter">
           <span class="p_md">{{ filter?.title }}</span>
@@ -27,6 +45,9 @@
         </div>
       </li>
     </ul>
+    <base-button @onClick="clearFilter" class="filter__clear-button" :filled="true"
+      >Сбросить</base-button
+    >
   </form>
 </template>
 
@@ -35,6 +56,7 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseCheckbox from '@/components/ui/BaseCheckbox.vue'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import BaseRange from '@/components/ui/BaseRange.vue'
 
 const props = defineProps({
   data: {
@@ -44,30 +66,52 @@ const props = defineProps({
 })
 
 const filterValues = ref({})
+const price = ref()
+const curPrice = ref({
+  minPrice: 0,
+  maxPrice: 0
+})
+const filter = ref(props.data)
 
 const router = useRouter()
 const route = useRoute()
 
-const getValues = () => {
-  props.data?.forEach((filter) => {
-    filterValues.value[filter.id] = {}
-    filter.content.forEach((item) => {
-      if (Array.isArray(route.query[filter.id])) {
-        filterValues.value[filter.id][item.id] = false
-        for (let index in route.query[filter.id]) {
-          if (Number(route.query[filter.id][index]) === item.id)
-            filterValues.value[filter.id][item.id] = true
-        }
-      } else {
-        filterValues.value[filter.id][item.id] =
-          Number(route.query[filter.id]) === item.id ? true : false
-      }
-    })
+const getPrice = () => {
+  filter.value?.forEach((item) => {
+    if (item.id === 'ff0') {
+      price.value = item
+      let index = filter.value?.indexOf(item)
+      filter.value?.splice(index, 1)
+    }
   })
 }
 
+const getValues = () => {
+  filter.value?.forEach((item) => {
+    filterValues.value[item.id] = {}
+    item.content.forEach((elem) => {
+      if (Array.isArray(route.query[item.id])) {
+        filterValues.value[item.id][elem.id] = false
+        for (let index in route.query[item.id]) {
+          if (Number(route.query[item.id][index]) === elem.id)
+            filterValues.value[item.id][elem.id] = true
+        }
+      } else {
+        filterValues.value[item.id][elem.id] =
+          Number(route.query[item.id]) === elem.id ? true : false
+      }
+    })
+  })
+
+  curPrice.value.minPrice = route.query.min_price ? route.query.min_price : 0
+  curPrice.value.maxPrice = route.query.max_price ? route.query.max_price : price.value.max_price
+}
+
 const transformToQuery = computed(() => {
-  let queryObject = {}
+  let queryObject = {
+    min_price: 0,
+    max_price: 0
+  }
   for (let n in filterValues.value) {
     queryObject[n] = []
     for (let m in filterValues.value[n])
@@ -75,22 +119,45 @@ const transformToQuery = computed(() => {
         queryObject[n].push(m)
       }
   }
+  queryObject.min_price = curPrice.value.minPrice
+  queryObject.max_price = curPrice.value.maxPrice
+
   return queryObject
 })
 
-getValues()
+const getCurrentPrice = ({ minPrice, maxPrice }) => {
+  curPrice.value.minPrice = minPrice
+  curPrice.value.maxPrice = maxPrice
+  setFilter()
+}
 
+const setFilter = () => {
+  router.push({ query: transformToQuery.value, params: { savePosition: true } })
+}
+
+const clearFilter = () => {
+  router.replace({ query: null })
+  setTimeout(() => {
+    router.go(0)
+  }, 100)
+}
 const openFilter = (e) => {
   e.currentTarget.parentNode.classList.toggle('filter__outer-list-item--open')
 }
 
+getPrice()
+getValues()
+
 watch(filterValues.value, () => {
-  router.push({ query: transformToQuery.value, params: { savePosition: true } })
+  setFilter()
 })
 </script>
 
 <style scoped lang="scss">
 .filter {
+  display: flex;
+  flex-direction: column;
+
   &__outer-list {
     display: flex;
     flex-direction: column;
@@ -156,6 +223,10 @@ watch(filterValues.value, () => {
 
   &__checkbox {
     margin-right: 10px;
+  }
+
+  &__clear-button {
+    margin: 15px auto 0;
   }
 }
 </style>
