@@ -103,8 +103,8 @@ const getValues = () => {
     })
   })
 
-  curPrice.value.minPrice = route.query.min_price ? route.query.min_price : 0
-  curPrice.value.maxPrice = route.query.max_price ? route.query.max_price : price.value.max_price
+  curPrice.value.minPrice = Number(route.query.min_price)
+  curPrice.value.maxPrice = Number(route.query.max_price)
 }
 
 const transformToQuery = computed(() => {
@@ -119,8 +119,10 @@ const transformToQuery = computed(() => {
         queryObject[n].push(m)
       }
   }
-  queryObject.min_price = curPrice.value.minPrice
-  queryObject.max_price = curPrice.value.maxPrice
+  queryObject.min_price =
+    String(curPrice.value.minPrice).trim() === '' ? price.value.min_price : curPrice.value.minPrice
+  queryObject.max_price =
+    String(curPrice.value.maxPrice).trim() === '' ? price.value.max_price : curPrice.value.maxPrice
 
   return queryObject
 })
@@ -207,6 +209,12 @@ watch(filterValues.value, () => {
     color: $white;
     font-weight: 400;
     line-height: normal;
+
+    cursor: pointer;
+
+    &:hover {
+      color: #c80000;
+    }
   }
 
   &__inner-list {
@@ -223,6 +231,15 @@ watch(filterValues.value, () => {
 
   &__checkbox {
     margin-right: 10px;
+  }
+
+  &__checkbox,
+  label {
+    cursor: pointer;
+
+    &:hover {
+      color: $white;
+    }
   }
 
   &__clear-button {

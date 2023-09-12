@@ -144,6 +144,8 @@ onUnmounted(() => {
     position: relative;
 
     min-height: 60px;
+
+    cursor: pointer;
   }
 
   &__close-filter {

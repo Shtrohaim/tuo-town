@@ -18,13 +18,13 @@
       />
     </div>
     <div class="range__slider">
-      <div class="range__bar">
+      <div class="range__bar" ref="rangeBar">
         <div
           id="minPrice"
           class="range__handle-left"
           :style="{
             left: (curMinPrice * 100) / maxPrice + '%',
-            'z-index': (curMinPrice * 100) / maxPrice > 50 ? 1 : 0
+            'z-index': (curMinPrice * 100) / maxPrice > 50 ? 2 : 1
           }"
           @mousedown="touchStartMethod"
           @touchstart="touchStartMethod"
@@ -33,7 +33,10 @@
           <div
             class="range__progress"
             :style="{
-              width: ((curMaxPrice - curMinPrice) * 100) / maxPrice + '%',
+              width:
+                String(curMaxPrice).trim() === ''
+                  ? 100 + '%'
+                  : ((curMaxPrice - curMinPrice) * 100) / maxPrice + '%',
               margin: `0 0 0 ${(curMinPrice * 100) / maxPrice}%`
             }"
           ></div>
@@ -42,8 +45,9 @@
           id="maxPrice"
           class="range__handle-right"
           :style="{
-            right: 100 - (curMaxPrice * 100) / maxPrice + '%',
-            'z-index': 100 - (curMaxPrice * 100) / maxPrice > 50 ? 1 : 0
+            right:
+              String(curMaxPrice).trim() === '' ? 0 : 100 - (curMaxPrice * 100) / maxPrice + '%',
+            'z-index': 100 - (curMaxPrice * 100) / maxPrice > 50 ? 2 : 1
           }"
           @mousedown="touchStartMethod"
           @touchstart="touchStartMethod"
@@ -84,6 +88,10 @@ const translateLeft = ref(0)
 
 const translateRight = ref(0)
 
+const target = ref('')
+
+const rangeBar = ref()
+
 const onChange = () => {
   emits('onChange', {
     minPrice: curMinPrice.value,
@@ -95,14 +103,21 @@ const touchStartMethod = (event) => {
     ? event.changedTouches[0].clientX
     : event.clientX
 
+  if (String(curMinPrice.value).trim() === '') {
+    curMinPrice.value = props.minPrice
+  }
+
+  if (String(curMaxPrice.value).trim() === '') curMaxPrice.value = props.maxPrice
+
+  target.value = event.target.id
+
   if (event.target.id === 'minPrice')
     translateLeft.value =
-      (((curMinPrice.value * 100) / props.maxPrice) * event.target.parentNode.offsetWidth) / 100
+      (((curMinPrice.value * 100) / props.maxPrice) * rangeBar.value.offsetWidth) / 100
 
   if (event.target.id === 'maxPrice')
     translateRight.value =
-      ((100 - (curMaxPrice.value * 100) / props.maxPrice) * event.target.parentNode.offsetWidth) /
-      -100
+      ((100 - (curMaxPrice.value * 100) / props.maxPrice) * rangeBar.value.offsetWidth) / -100
 
   addEventListener('touchmove', swipeAction)
   addEventListener('touchend', swipeEnd)
@@ -117,18 +132,18 @@ const swipeAction = (event) => {
 
   let percent: number = 0
 
-  if (event.target.id === 'minPrice') {
+  if (target.value === 'minPrice') {
     translateLeft.value = translateLeft.value < 0 ? 0 : translateLeft.value - posX2.value
 
-    percent = Math.abs((translateLeft.value * 100) / event.target.parentNode.offsetWidth)
+    percent = Math.abs((translateLeft.value * 100) / rangeBar.value.offsetWidth)
 
     curMinPrice.value = Math.ceil((props.maxPrice * percent) / 100)
   }
 
-  if (event.target.id === 'maxPrice') {
+  if (target.value === 'maxPrice') {
     translateRight.value = translateRight.value > 0 ? 0 : translateRight.value - posX2.value
 
-    percent = Math.abs((translateRight.value * 100) / event.target.parentNode.offsetWidth)
+    percent = Math.abs((translateRight.value * 100) / rangeBar.value.offsetWidth)
 
     curMaxPrice.value = Math.ceil((props.maxPrice * (100 - percent)) / 100)
   }
@@ -233,6 +248,12 @@ watch(curMaxPrice, () => {
     transform: translate(50%, -30%);
 
     background: $red-active;
+
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 
   &__handle-left {
@@ -248,8 +269,11 @@ watch(curMaxPrice, () => {
     transform: translate(-50%, -30%);
 
     background: $red-active;
+    cursor: grab;
 
-    z-index: 1;
+    &:active {
+      cursor: grabbing;
+    }
   }
 }
 </style>
