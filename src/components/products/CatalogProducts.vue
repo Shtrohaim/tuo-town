@@ -35,19 +35,19 @@ import type { PropType } from 'vue'
 
 import ProductCard from '@/components/products/ProductCard.vue'
 
-import type { ProductsType } from '@/types/responseType'
+import type { FilterType, ProductsType } from '@/types/responseType'
 import SkeletonProducts from '@/components/products/SkeletonProducts.vue'
 import BaseFilter from '@/components/ui/BaseFilter.vue'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onUnmounted, ref } from 'vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 
 const props = defineProps({
   products: {
-    type: Object as PropType<ProductsType>,
+    type: Array as PropType<ProductsType[]>,
     required: true
   },
   filter: {
-    type: Array,
+    type: Array as PropType<FilterType[]>,
     required: true
   },
   isLoad: {

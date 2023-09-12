@@ -98,7 +98,7 @@ const onChange = () => {
     maxPrice: curMaxPrice.value
   })
 }
-const touchStartMethod = (event) => {
+const touchStartMethod = (event: any) => {
   posInit.value = posX1.value = event.changedTouches
     ? event.changedTouches[0].clientX
     : event.clientX
@@ -125,7 +125,7 @@ const touchStartMethod = (event) => {
   addEventListener('mouseup', swipeEnd)
 }
 
-const swipeAction = (event) => {
+const swipeAction = (event: any) => {
   let clientX = event.changedTouches ? event.changedTouches[0].clientX : event.clientX
   posX2.value = posX1.value - clientX
   posX1.value = clientX

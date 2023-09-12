@@ -52,20 +52,25 @@
 </template>
 
 <script setup lang="ts">
+import { computed, ref, watch } from 'vue'
+import type { PropType } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseCheckbox from '@/components/ui/BaseCheckbox.vue'
-import { computed, onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import BaseRange from '@/components/ui/BaseRange.vue'
+
+import type { FilterType } from '@/types/responseType'
+import type { FilterValuesType } from '@/types/filterType'
 
 const props = defineProps({
   data: {
-    type: Array,
+    type: Array as PropType<FilterType[]>,
     required: true
   }
 })
 
-const filterValues = ref({})
+const filterValues = ref<FilterValuesType>({})
 const price = ref()
 const curPrice = ref({
   minPrice: 0,
@@ -92,26 +97,25 @@ const getValues = () => {
     item.content.forEach((elem) => {
       if (Array.isArray(route.query[item.id])) {
         filterValues.value[item.id][elem.id] = false
-        for (let index in route.query[item.id]) {
-          if (Number(route.query[item.id][index]) === elem.id)
+        for (let index in route.query[item.id] as any) {
+          if (Number(route.query[item.id]?.[index]) === elem.id)
             filterValues.value[item.id][elem.id] = true
         }
       } else {
-        filterValues.value[item.id][elem.id] =
-          Number(route.query[item.id]) === elem.id ? true : false
+        filterValues.value[item.id][elem.id] = Number(route.query[item.id]) === elem.id
       }
     })
   })
 
-  curPrice.value.minPrice = Number(route.query.min_price)
-  curPrice.value.maxPrice = Number(route.query.max_price)
+  curPrice.value.minPrice = route.query.min_price ? route.query.min_price : price.value.min_price
+  curPrice.value.maxPrice = route.query.max_price ? route.query.max_price : price.value.max_price
 }
 
 const transformToQuery = computed(() => {
   let queryObject = {
     min_price: 0,
     max_price: 0
-  }
+  } as { [key: string]: any }
   for (let n in filterValues.value) {
     queryObject[n] = []
     for (let m in filterValues.value[n])
@@ -127,24 +131,24 @@ const transformToQuery = computed(() => {
   return queryObject
 })
 
-const getCurrentPrice = ({ minPrice, maxPrice }) => {
+const getCurrentPrice = ({ minPrice, maxPrice }: { [key: string]: number }) => {
   curPrice.value.minPrice = minPrice
   curPrice.value.maxPrice = maxPrice
   setFilter()
 }
 
 const setFilter = () => {
-  router.push({ query: transformToQuery.value, params: { savePosition: true } })
+  router.push({ query: transformToQuery.value, params: { savePosition: 1 } })
 }
 
 const clearFilter = () => {
-  router.replace({ query: null })
+  router.replace({ query: undefined })
   setTimeout(() => {
     router.go(0)
   }, 100)
 }
-const openFilter = (e) => {
-  e.currentTarget.parentNode.classList.toggle('filter__outer-list-item--open')
+const openFilter = (event: any) => {
+  event.currentTarget.parentNode.classList.toggle('filter__outer-list-item--open')
 }
 
 getPrice()

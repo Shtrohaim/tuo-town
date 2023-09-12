@@ -45,11 +45,7 @@ import BaseImage from '@/components/ui/BaseImage.vue'
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
 
-import type {
-  CatalogCategoryType,
-  CatalogProductType,
-  CatalogRecommendationType
-} from '@/types/responseType'
+import type { CatalogRecommendationType } from '@/types/responseType'
 
 const route = useRoute()
 const isLoad = ref({
@@ -59,7 +55,7 @@ const isLoad = ref({
 })
 
 const catalog_id = ref(Number(route.params.id))
-const catalog = ref<CatalogCategoryType | CatalogProductType>()
+const catalog = ref<any>()
 const slides = ref<CatalogRecommendationType[]>()
 const filter = ref<any[]>()
 

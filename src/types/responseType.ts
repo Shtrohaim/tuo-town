@@ -57,6 +57,20 @@ interface CatalogRecommendationType {
   title: string
 }
 
+interface FilterType {
+  id: string
+  title: string
+  categoryId: number
+  min_price: number
+  max_price: number
+  content: [
+    {
+      id: number
+      title: string
+    }
+  ]
+}
+
 export type {
   PromoType,
   ProductsType,
@@ -65,5 +79,6 @@ export type {
   PopularNewType,
   CatalogCategoryType,
   CatalogProductType,
-  CatalogRecommendationType
+  CatalogRecommendationType,
+  FilterType
 }

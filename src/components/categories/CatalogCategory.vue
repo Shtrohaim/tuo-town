@@ -25,7 +25,7 @@ import { onUnmounted } from 'vue'
 
 const props = defineProps({
   categories: {
-    type: Object as PropType<CategoryType>,
+    type: Array as PropType<CategoryType[]>,
     required: true
   },
   isLoad: {
