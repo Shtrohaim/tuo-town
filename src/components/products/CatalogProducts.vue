@@ -13,7 +13,12 @@
             <div class="products__close-filter"></div>
             <span class="products__filter-title h3">Фильтры</span>
           </div>
-          <base-filter class="products__filter" v-if="filterLoad" :data="filter" />
+          <base-filter
+            @onFiltered="emits('onFiltered')"
+            class="products__filter"
+            v-if="filterLoad"
+            :data="filter"
+          />
         </div>
       </div>
     </Transition>
@@ -27,6 +32,11 @@
         <skeleton-products></skeleton-products>
       </li>
     </ul>
+    <base-pagination
+      v-if="isLoad"
+      @onPagination="emits('onPagination')"
+      :totalItems="totalItems"
+    ></base-pagination>
   </section>
 </template>
 
@@ -38,8 +48,9 @@ import ProductCard from '@/components/products/ProductCard.vue'
 import type { FilterType, ProductsType } from '@/types/responseType'
 import SkeletonProducts from '@/components/products/SkeletonProducts.vue'
 import BaseFilter from '@/components/ui/BaseFilter.vue'
-import { onUnmounted, ref } from 'vue'
+import { computed, onUnmounted, ref } from 'vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
+import BasePagination from '@/components/ui/BasePagination.vue'
 
 const props = defineProps({
   products: {
@@ -57,10 +68,14 @@ const props = defineProps({
   filterLoad: {
     type: Boolean,
     required: true
+  },
+  totalItems: {
+    type: Number,
+    required: true
   }
 })
 
-const emits = defineEmits(['onUnmounted'])
+const emits = defineEmits(['onUnmounted', 'onFiltered', 'onPagination'])
 
 const filterIsOpen = ref(false)
 
