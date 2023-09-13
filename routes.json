@@ -1,5 +1,5 @@
 {
   "/catalog/category/:id" : "/catalog/:id?_embed=category",
-  "/catalog/products/:id" : "/category/:id?_embed=products",
+  "/catalog/products/:id" : "/category/:id",
   "/filter/:id" : "/filter?categoryId=0"
 }

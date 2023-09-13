@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   minPrice: {
@@ -77,8 +77,8 @@ const props = defineProps({
 
 const emits = defineEmits(['onChange'])
 
-const curMinPrice = ref(props.curValues.minPrice)
-const curMaxPrice = ref(props.curValues.maxPrice)
+const curMinPrice = ref(0)
+const curMaxPrice = ref(0)
 
 const posInit = ref(0)
 const posX1 = ref(0)
@@ -157,6 +157,11 @@ const swipeEnd = () => {
   removeEventListener('mousemove', swipeAction)
   removeEventListener('mouseup', swipeEnd)
 }
+
+onMounted(() => {
+  curMinPrice.value = props.curValues.minPrice
+  curMaxPrice.value = props.curValues.maxPrice
+})
 
 watch(curMinPrice, () => {
   if (curMinPrice.value < props.minPrice) {

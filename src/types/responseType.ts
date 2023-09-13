@@ -48,6 +48,7 @@ interface CatalogProductType {
   title: string
   image: string
   catalogId: number
+  totalPages: number
   products: ProductsType
 }
 

@@ -256,7 +256,22 @@
       "price": 3000,
       "new": true,
       "count": 5,
-      "categoryId": 0
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
       "id": 1,
@@ -265,7 +280,22 @@
       "price": 1600,
       "new": false,
       "count": 5,
-      "categoryId": 0
+      "categoryId": 0,
+      "ff5": 311,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
       "id": 2,
@@ -274,7 +304,22 @@
       "price": 2300,
       "new": true,
       "count": 5,
-      "categoryId": 0
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
       "id": 3,
@@ -283,7 +328,22 @@
       "price": 800,
       "new": false,
       "count": 5,
-      "categoryId": 0
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
       "id": 4,
@@ -292,7 +352,22 @@
       "price": 1600,
       "new": false,
       "count": 5,
-      "categoryId": 0
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
       "id": 5,
@@ -301,7 +376,22 @@
       "price": 1500,
       "new": false,
       "count": 5,
-      "categoryId": 2
+      "categoryId": 2,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
       "id": 6,
@@ -310,7 +400,22 @@
       "price": 1600,
       "new": false,
       "count": 5,
-      "categoryId": 1
+      "categoryId": 1,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
       "id": 7,
@@ -319,34 +424,238 @@
       "price": 1299,
       "new": false,
       "count": 5,
-      "categoryId": 1
+      "categoryId": 1,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
-      "id": 0,
+      "id": 8,
       "name": "Складной нож SQ01-B",
       "image": "/src/assets/images/server/product/product1.png",
       "price": 1300,
       "new": true,
       "count": 5,
-      "categoryId": 0
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 320,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
-      "id": 0,
+      "id": 9,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
       "price": 1600,
       "new": false,
       "count": 5,
-      "categoryId": 2
+      "categoryId": 2,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+      "ff49": 309,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     },
     {
-      "id": 0,
+      "id": 10,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
       "price": 1240,
       "new": false,
       "count": 5,
-      "categoryId": 0
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 317,
+      "ff19": 333,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+      "ff49": 309,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 5465,
+      "new": false,
+      "count": 5,
+      "categoryId": 0,
+      "ff5": 311,
+      "ff18": 321,
+      "ff19": 333,
+      "ff38": 471,
+      "ff39": 257,
+      "ff44": 323,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 309,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 3299,
+      "new": false,
+      "count": 5,
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 310,
+      "ff19": 322,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 4999,
+      "new": false,
+      "count": 5,
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 310,
+      "ff19": 322,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 316,
+      "ff45": 279,
+      "ff47": 314,
+      "ff49": 318,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 3256,
+      "new": false,
+      "count": 5,
+      "categoryId": 0,
+      "ff5": 144,
+      "ff18": 310,
+      "ff19": 322,
+      "ff38": 315,
+      "ff39": 257,
+      "ff44": 309,
+      "ff45": 279,
+      "ff47": 314,
+            "ff49": 318,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 2345,
+      "new": false,
+      "count": 5,
+      "categoryId": 0,
+      "ff5": 311,
+      "ff18": 321,
+      "ff19": 333,
+      "ff38": 319,
+      "ff39": 257,
+      "ff44": 320,
+      "ff45": 279,
+      "ff47": 314,
+      "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "price": 1234,
+      "new": false,
+      "count": 5,
+      "categoryId": 0,
+      "ff5": 311,
+      "ff18": 321,
+      "ff19": 333,
+      "ff38": 319,
+      "ff39": 257,
+      "ff44": 320,
+      "ff45": 279,
+      "ff47": 314,
+      "ff49": 79,
+      "ff1": [
+        {
+          "id": 69,
+          "active": true
+        }
+      ]
     }
   ],
   "catalog-recommendation": [
@@ -397,7 +706,7 @@
       "title": "Цена",
       "categoryId": 0,
       "min_price": 0,
-      "max_price": 3480
+      "max_price": 8999
     },
     {
       "id": "ff5",

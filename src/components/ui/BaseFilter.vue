@@ -70,6 +70,8 @@ const props = defineProps({
   }
 })
 
+const emits = defineEmits(['onFiltered'])
+
 const filterValues = ref<FilterValuesType>({})
 const price = ref()
 const curPrice = ref({
@@ -109,6 +111,8 @@ const getValues = () => {
 
   curPrice.value.minPrice = route.query.min_price ? route.query.min_price : price.value.min_price
   curPrice.value.maxPrice = route.query.max_price ? route.query.max_price : price.value.max_price
+
+  emits('onFiltered')
 }
 
 const transformToQuery = computed(() => {
@@ -137,8 +141,12 @@ const getCurrentPrice = ({ minPrice, maxPrice }: { [key: string]: number }) => {
   setFilter()
 }
 
-const setFilter = () => {
-  router.push({ query: transformToQuery.value, params: { savePosition: 1 } })
+const setFilter = async () => {
+  await router.push({
+    query: { ...route.query, ...transformToQuery.value, page: 1 },
+    params: { savePosition: 1 }
+  })
+  emits('onFiltered')
 }
 
 const clearFilter = () => {
