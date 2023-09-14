@@ -32,6 +32,17 @@
         <skeleton-products></skeleton-products>
       </li>
     </ul>
+    <base-button
+      v-if="limit < totalItems"
+      @onClick="showMore"
+      class="products__show-more"
+      :icon="true"
+    >
+      <svg class="fill-white icon24">
+        <use href="@/assets/images/svg/plusIcon.svg#icon"></use>
+      </svg>
+      <span class="p_hg">Показать еще</span>
+    </base-button>
     <base-pagination
       v-if="isLoad"
       @onPagination="emits('onPagination')"
@@ -48,9 +59,10 @@ import ProductCard from '@/components/products/ProductCard.vue'
 import type { FilterType, ProductsType } from '@/types/responseType'
 import SkeletonProducts from '@/components/products/SkeletonProducts.vue'
 import BaseFilter from '@/components/ui/BaseFilter.vue'
-import { computed, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BasePagination from '@/components/ui/BasePagination.vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const props = defineProps({
   products: {
@@ -77,7 +89,12 @@ const props = defineProps({
 
 const emits = defineEmits(['onUnmounted', 'onFiltered', 'onPagination'])
 
+const router = useRouter()
+const route = useRoute()
+
 const filterIsOpen = ref(false)
+
+const limit = ref(8)
 
 const closeFilter = () => {
   filterIsOpen.value = false
@@ -88,6 +105,25 @@ const openFilter = () => {
   filterIsOpen.value = true
   document.querySelector('body').style.overflow = 'hidden'
 }
+
+const checkLimit = () => {
+  if (Number(route.query.limit)) {
+    limit.value = Number(route.query.limit)
+  }
+}
+
+const showMore = async () => {
+  await router.push({
+    query: { ...route.query, limit: limit.value + 8 },
+    params: { savePosition: 1 }
+  })
+  checkLimit()
+  emits('onPagination')
+}
+
+onMounted(() => {
+  checkLimit()
+})
 
 onUnmounted(() => {
   emits('onUnmounted')
@@ -197,6 +233,26 @@ onUnmounted(() => {
 
   &__list-item {
     margin-bottom: 30px;
+  }
+
+  &__show-more {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+
+    justify-self: center;
+    margin-bottom: 30px;
+
+    &:active {
+      svg {
+        fill: $red-active;
+        transition: 0.3s;
+      }
+    }
+
+    svg {
+      margin-right: 8px;
+    }
   }
 }
 

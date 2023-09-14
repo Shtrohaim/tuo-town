@@ -34,6 +34,8 @@ const emits = defineEmits(['onClick'])
   transition: 0.3s;
   cursor: pointer;
 
+  text-align: center;
+
   &:hover {
     border-radius: 0;
   }
