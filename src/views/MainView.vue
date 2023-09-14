@@ -7,7 +7,6 @@
         v-if="isLoad.promo"
         class="main__slider"
         :havePagination="true"
-        :slideWidth="deviceWidth"
         :carousel="true"
         :height="deviceHeight"
       >
@@ -39,7 +38,7 @@
             </router-link>
           </li>
           <li class="main__nav-list-item">
-            <router-link :to="{ name: 'category', params: { id: 1 } }">
+            <router-link :to="{ name: 'products', params: { id: 6 } }">
               <svg class="icon46 fill-gray">
                 <use href="@/assets/images/svg/jackknifeIcon.svg#icon"></use>
               </svg>

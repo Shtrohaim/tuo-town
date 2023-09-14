@@ -31,7 +31,7 @@ const onSubmit = () => {
 
   &:hover,
   &:focus-within {
-    border: 1px solid $gray-label;
+    border: 1px solid $gray-border;
 
     .search__input {
       max-width: 180px;

@@ -32,6 +32,11 @@
           <li class="sidebar__info-list-item"><a>Новости</a></li>
           <li class="sidebar__info-list-item"><a>О компании</a></li>
           <li class="sidebar__info-list-item"><a>Контакты</a></li>
+          <li class="sidebar__info-list-item">
+            <router-link @click="emits('closeSidebar')" :to="{ name: 'service' }"
+              >Сервис</router-link
+            >
+          </li>
           <li class="sidebar__info-list-item"><a>Как проехать</a></li>
         </ul>
       </div>

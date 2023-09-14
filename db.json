@@ -246,6 +246,12 @@
       "catalogId": 0,
       "title": "Кухонные ножи FT-series",
       "image": "/src/assets/images/server/catalog/catalog6.webp"
+    },
+    {
+      "id": 6,
+      "catalogId": 1,
+      "title": "Складные ножи",
+      "image": "/src/assets/images/server/catalog/catalog6.webp"
     }
   ],
   "products": [

@@ -1,5 +1,5 @@
 <template>
-  <form class="form" @keydown.enter="emits['onSubmit']">
+  <form class="form" @keydown.enter.prevent="emits['onSubmit']">
     <slot></slot>
   </form>
 </template>
@@ -14,6 +14,8 @@ const emits = defineEmits(['onSubmit'])
   flex-direction: column;
 
   width: 100%;
+
+  padding: 30px 15px;
 
   border-radius: 15px;
   background: $white;

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="button"
+    class="button p_hg"
     @click="emits('onClick')"
     :class="{ 'button--disabled': disabled, 'button--filled': filled, 'button--icon': icon }"
   >
@@ -36,12 +36,9 @@ const emits = defineEmits(['onClick'])
 
   text-align: center;
 
-  &:hover {
-    border-radius: 0;
-  }
-
   &:active {
     color: $red-active;
+    border-radius: 0;
   }
 
   &--filled {

@@ -50,33 +50,32 @@
 </template>
 
 <script async setup lang="ts">
-import { computed, onBeforeMount, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   havePagination: Boolean,
-  slideWidth: Number,
   carousel: Boolean,
   height: Number
 })
 
 const slide = props.carousel ? ref(2) : ref(1)
 const slides = ref(1)
-const width = props.slideWidth ? props.slideWidth : 320
-const translateX = props.carousel ? ref(-width) : ref(0)
+const sliderContent = ref()
+const width = ref(0)
+const translateX = ref(0)
 const transitionTime = ref(0)
 const posInit = ref(0)
 const posX1 = ref(0)
 const posX2 = ref(0)
 const posFinal = ref(0)
-const posThreshold = width * 0.35
-const sliderContent = ref()
+const posThreshold = ref(0)
 const inTransition = ref(false)
 
 const pagination = (newSlide: number) => {
   if (!inTransition.value) {
     transitionTime.value = 400
     slide.value = newSlide
-    translateX.value = 0 - width * (newSlide - 1)
+    translateX.value = 0 - width.value * (newSlide - 1)
     inTransition.value = true
 
     setTimeout(() => {
@@ -131,17 +130,19 @@ const swipeEnd = () => {
   removeEventListener('touchend', swipeEnd)
   removeEventListener('mouseup', swipeEnd)
 
-  if (Math.abs(posFinal.value) > posThreshold && width >= sliderContent.value.clientWidth) {
+  if (
+    Math.abs(posFinal.value) > posThreshold.value &&
+    width.value >= sliderContent.value.clientWidth
+  ) {
     if (posInit.value < posX1.value) {
       slide.value--
     } else if (posInit.value > posX1.value) {
       slide.value++
     }
-  } else if (width < sliderContent.value.clientWidth) {
-    console.log(translateX.value, slides.value)
+  } else if (width.value < sliderContent.value.clientWidth) {
     noPagination = true
-    if (translateX.value < width * slides.value * -1 + sliderContent.value.clientWidth) {
-      translateX.value = width * slides.value * -1 + sliderContent.value.clientWidth
+    if (translateX.value < sliderContent.value.scrollWidth * -1 + sliderContent.value.clientWidth) {
+      translateX.value = sliderContent.value.scrollWidth * -1 + sliderContent.value.clientWidth - 15
       transitionTime.value = 400
     } else if (translateX.value > 0) {
       translateX.value = 0
@@ -155,9 +156,15 @@ const swipeEnd = () => {
 }
 
 onMounted(() => {
+  width.value =
+    sliderContent.value.children[0].offsetWidth < window.innerWidth
+      ? sliderContent.value.children[0].offsetWidth
+      : window.innerWidth
+  posThreshold.value = width.value * 0.35
   setTimeout(() => {
     slides.value = sliderContent.value.children.length
     if (props.carousel) {
+      translateX.value = -width.value
       let carouselBegin = sliderContent.value.children[slides.value - 1].cloneNode(true)
       let carouselEnd = sliderContent.value.children[0].cloneNode(true)
       sliderContent.value.append(carouselEnd)
@@ -171,13 +178,13 @@ watch(slide, () => {
     slide.value = slides.value + 1
     setTimeout(() => {
       transitionTime.value = 0
-      translateX.value = width * slides.value * -1
+      translateX.value = width.value * slides.value * -1
     }, 420)
   } else if (slide.value == slides.value + 2 && props.carousel) {
     slide.value = 2
     setTimeout(() => {
       transitionTime.value = 0
-      translateX.value = -width
+      translateX.value = -width.value
     }, 420)
   }
   if (slide.value < 1 && !props.carousel) {
@@ -185,7 +192,7 @@ watch(slide, () => {
     translateX.value = 0
   } else if (slide.value > slides.value && !props.carousel) {
     slide.value = slides.value
-    translateX.value = width * (slides.value - 1) * -1
+    translateX.value = width.value * (slides.value - 1) * -1
   }
 })
 </script>

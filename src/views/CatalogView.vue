@@ -29,7 +29,6 @@
           v-if="isLoad.recommendations"
           :carousel="false"
           :havePagination="false"
-          :slideWidth="167"
           :height="70"
           class="catalog__slider"
         >
