@@ -102,6 +102,9 @@ const fetchFilteredProduct = async () => {
       } else stringFilter += `&${item}=${queryFilter[item]}`
     }
   }
+  if (stringFilter === '') {
+    stringFilter += '&_page=1&_limit=8'
+  }
   await productsServices
     .getFilteredProduct({ id: catalog_id.value, filter: stringFilter })
     .then((res) => {
