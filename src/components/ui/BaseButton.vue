@@ -65,11 +65,8 @@ const emits = defineEmits(['onClick'])
     color: $gray;
     cursor: default;
 
-    &:hover {
-      border-radius: 27px;
-    }
-
     &:active {
+      border-radius: 27px;
       color: $gray;
     }
   }

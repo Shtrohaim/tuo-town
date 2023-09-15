@@ -14,14 +14,14 @@
           <base-range
             @onChange="getCurrentPrice"
             :curValues="curPrice"
-            :minPrice="price.min_price"
-            :maxPrice="price.max_price"
+            :minPrice="price?.min_price"
+            :maxPrice="price?.max_price"
           />
         </div>
       </li>
-      <li class="filter__outer-list-item" v-for="filter in data" :key="filter?.id">
+      <li class="filter__outer-list-item" v-for="elem in filter" :key="elem?.id">
         <div class="filter__header" @click="openFilter">
-          <span class="p_md">{{ filter?.title }}</span>
+          <span class="p_md">{{ elem?.title }}</span>
           <base-button class="filter__button" :icon="true">
             <svg class="icon20 fill-white">
               <use href="@/assets/images/svg/dropdownIcon.svg#icon"></use>
@@ -30,11 +30,11 @@
         </div>
         <div class="filter__body">
           <ul class="filter__inner-list">
-            <li class="filter__inner-list-item" v-for="item in filter?.content" :key="item.id">
-              <base-checkbox v-model="filterValues[filter.id][item.id]" class="filter__checkbox" />
+            <li class="filter__inner-list-item" v-for="item in elem?.content" :key="item.id">
+              <base-checkbox v-model="filterValues[elem.id][item.id]" class="filter__checkbox" />
               <label class="p_sm">
                 <input
-                  v-model="filterValues[filter.id][item.id]"
+                  v-model="filterValues[elem.id][item.id]"
                   class="visually-hidden"
                   type="checkbox"
                 />
@@ -78,7 +78,7 @@ const curPrice = ref({
   minPrice: 0,
   maxPrice: 0
 })
-const filter = ref(props.data)
+const filter = ref([...props.data])
 
 const router = useRouter()
 const route = useRoute()
@@ -87,8 +87,7 @@ const getPrice = () => {
   filter.value?.forEach((item) => {
     if (item.id === 'ff0') {
       price.value = item
-      let index = filter.value?.indexOf(item)
-      filter.value?.splice(index, 1)
+      filter.value?.shift()
     }
   })
 }
@@ -109,8 +108,8 @@ const getValues = () => {
     })
   })
 
-  curPrice.value.minPrice = route.query.min_price ? route.query.min_price : price.value.min_price
-  curPrice.value.maxPrice = route.query.max_price ? route.query.max_price : price.value.max_price
+  curPrice.value.minPrice = route.query.min_price ? route.query.min_price : price.value?.min_price
+  curPrice.value.maxPrice = route.query.max_price ? route.query.max_price : price.value?.max_price
 
   emits('onFiltered')
 }

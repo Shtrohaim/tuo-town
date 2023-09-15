@@ -1,13 +1,13 @@
 export default function () {
-  const fieldValidation = (fields) => {
+  const fieldValidation = (fields: any) => {
     const regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     const regexTel = /[^Z0-9]/g
     const regexName = /^([a-zа-яё]+)$/i
 
-    const errors = {}
+    const errors: any = {}
     let countErrors = 0
     for (const field in fields) {
-      if (fields[field].value !== null) {
+      if (fields[field].value !== undefined) {
         fields[field].value = String(fields[field].value)
       } else {
         continue

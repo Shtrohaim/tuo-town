@@ -339,10 +339,6 @@ onMounted(async () => {
     z-index: 3;
   }
 
-  &__recommendation {
-    padding: 30px 15px;
-  }
-
   &__nav-list {
     display: flex;
     flex-wrap: wrap;

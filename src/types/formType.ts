@@ -1,24 +1,30 @@
 interface ServiceType {
   email: {
-    value: string
+    value: string | undefined
     required: boolean
   }
   tel: {
-    value: string
+    value: string | undefined
     required: boolean
   }
   name: {
-    value: string
+    value: string | undefined
     required: boolean
   }
   comment: {
-    value: string
+    value: string | undefined
     required: boolean
   }
   topic: {
-    value: string
+    value: undefined
+    data: SelectType
     required: boolean
   }
 }
 
-export type { ServiceType }
+interface SelectType {
+  value: string
+  code: number
+}
+
+export type { ServiceType, SelectType }

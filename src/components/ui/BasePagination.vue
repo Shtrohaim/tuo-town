@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <div class="pagination" v-if="totalPages">
     <div class="pagination__wrapper">
       <base-button
         class="pagination__button pagination__button--prev"

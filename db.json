@@ -11,48 +11,42 @@
       "id": 1,
       "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 2",
-      "description":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
     },
     {
       "id": 2,
       "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 3",
-      "description":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua",
       "link": "#"
     },
     {
       "id": 3,
       "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 4",
-      "description":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
     },
     {
       "id": 4,
       "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 5",
-      "description":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
     },
     {
       "id": 5,
       "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 6",
-      "description":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua",
       "link": "#"
     },
     {
       "id": 6,
       "image": "/src/assets/images/server/1.jpg",
       "title": "Слайд 7",
-      "description":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua"
     }
   ],
-  "products-recommendation" : [
+  "products-recommendation": [
     {
       "products": [
         {
@@ -271,7 +265,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -295,7 +289,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -319,7 +313,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -343,7 +337,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -367,7 +361,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -391,7 +385,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -415,7 +409,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -439,7 +433,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -463,7 +457,7 @@
       "ff44": 320,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -535,7 +529,7 @@
       "ff44": 323,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 309,
+      "ff49": 309,
       "ff1": [
         {
           "id": 69,
@@ -559,7 +553,7 @@
       "ff44": 316,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 79,
+      "ff49": 79,
       "ff1": [
         {
           "id": 69,
@@ -607,7 +601,7 @@
       "ff44": 309,
       "ff45": 279,
       "ff47": 314,
-            "ff49": 318,
+      "ff49": 318,
       "ff1": [
         {
           "id": 69,
@@ -880,5 +874,8 @@
         }
       ]
     }
+  ],
+  "reports": [
+
   ]
 }

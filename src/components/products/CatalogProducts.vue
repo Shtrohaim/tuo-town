@@ -9,7 +9,7 @@
     <Transition>
       <div class="products__filter-container" v-show="filterIsOpen" @click="closeFilter">
         <div class="products__filter-wrapper" @click.stop="">
-          <div class="products__filter-header" @click="closeFilter">
+          <div class="products__filter-header" @mousedown="closeFilter" @touchmove="closeFilter">
             <div class="products__close-filter"></div>
             <span class="products__filter-title h3">Фильтры</span>
           </div>
@@ -114,7 +114,7 @@ const checkLimit = () => {
 
 const showMore = async () => {
   await router.push({
-    query: { ...route.query, limit: limit.value + 8 },
+    query: { ...route.query, page: 1, limit: limit.value + 8 },
     params: { savePosition: 1 }
   })
   checkLimit()

@@ -1,5 +1,5 @@
 <template>
-  <form class="form" @keydown.enter.prevent="emits['onSubmit']">
+  <form class="form" @keydown.enter.prevent="emits('onSubmit')">
     <slot></slot>
   </form>
 </template>

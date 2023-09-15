@@ -135,6 +135,7 @@ const catalogUnmounted = async () => {
 
   if (route.name === 'products') {
     await fetchProductCatalog()
+    await fetchFilteredProduct()
     await fetchProductFilter()
   }
 }
