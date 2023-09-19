@@ -44,12 +44,23 @@
       >
         <p class="p_hg">Ваш браузер не поддерживает видеоплеер.</p>
       </iframe>
+      <div class="product__characteristics">
+        <h3 class="h4 product__characteristics-title">Храктеристики</h3>
+        <base-image class="product__scheme" :src="product.scheme" />
+        <ul>
+          <li class="p_hg" v-for="characteristic in characteristics" :key="characteristic.id">
+            <span>{{ characteristic.name }}</span>
+            <span>{{ characteristic.value }}</span>
+          </li>
+        </ul>
+        <button @click="toggleCharacteristics">{{ moreCharacteristics }}</button>
+      </div>
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BaseImage from '@/components/ui/BaseImage.vue'
@@ -67,6 +78,7 @@ const route = useRoute()
 const isLoad = ref(false)
 const product = ref()
 const video = ref()
+const characteristicCount = ref(4)
 
 const fetchProduct = async () => {
   await productsServices.getProduct(Number(route.params.id)).then((res) => {
@@ -75,11 +87,25 @@ const fetchProduct = async () => {
   })
 }
 
-const changeVideoStyle = () => {}
+const toggleCharacteristics = () => {
+  characteristicCount.value =
+    characteristicCount.value === product.value.characteristics.length
+      ? 4
+      : product.value.characteristics.length
+}
+
+const moreCharacteristics = computed(() => {
+  return characteristicCount.value === product.value.characteristics.length
+    ? 'Меньше характеристик'
+    : 'Больше характеристик'
+})
+
+const characteristics = computed(() => {
+  return product.value.characteristics.slice(0, characteristicCount.value)
+})
 
 onMounted(async () => {
   await fetchProduct()
-  changeVideoStyle()
 })
 </script>
 

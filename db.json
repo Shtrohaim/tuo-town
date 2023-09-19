@@ -256,23 +256,71 @@
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
       "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 3000,
       "new": true,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Толщина обуха",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -753,6 +801,17 @@
         {
           "id": 333,
           "title": "58-60"
+        }
+      ]
+    },
+    {
+      "id": "ff27",
+      "title": "Материал клинка",
+      "categoryId": 0,
+      "content": [
+        {
+          "id": 256,
+          "title": "VG-10, обкладка DAMASCUS"
         }
       ]
     },
