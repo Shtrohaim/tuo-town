@@ -15,5 +15,8 @@ export default {
   },
   async getProductFilter(id: number) {
     return await axios.get(`/filter/${id}`)
+  },
+  async getProduct(id: number) {
+    return await axios.get(`/products/${id}`)
   }
 }

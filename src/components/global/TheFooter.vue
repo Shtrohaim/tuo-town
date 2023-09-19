@@ -52,7 +52,7 @@
             <li class="footer__list-item"><a>О компании</a></li>
             <li class="footer__list-item"><a>Контакты</a></li>
             <li class="footer__list-item">
-              <router-link :to="{ path: 'service' }">Сервис</router-link>
+              <router-link class="footer__list-link" :to="{ path: 'service' }">Сервис</router-link>
             </li>
           </ul>
         </nav>
@@ -218,10 +218,12 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     column-gap: 30px;
     row-gap: 8px;
 
+    margin-bottom: 30px;
+  }
+
+  &__list-link {
     font-weight: 400;
     color: $gray-light;
-
-    margin-bottom: 30px;
   }
 
   &__social-title {

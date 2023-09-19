@@ -156,30 +156,13 @@ const closeSidebar = () => {
     color: $white;
     text-transform: uppercase;
 
-    margin-bottom: 26px;
-
-    cursor: pointer;
-
     &:hover {
       color: $red-active;
     }
   }
 
   &__info-list-item {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: $white;
-    opacity: 0.6;
-    text-transform: uppercase;
-
     margin-bottom: 26px;
-
-    cursor: pointer;
-
-    &:hover {
-      color: $red-active;
-    }
   }
 }
 </style>
