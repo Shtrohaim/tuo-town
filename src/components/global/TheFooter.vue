@@ -52,7 +52,7 @@
             <li class="footer__list-item"><a>О компании</a></li>
             <li class="footer__list-item"><a>Контакты</a></li>
             <li class="footer__list-item">
-              <router-link :to="{ name: 'service' }">Сервис</router-link>
+              <router-link :to="{ path: 'service' }">Сервис</router-link>
             </li>
           </ul>
         </nav>

@@ -10,18 +10,21 @@
         :src="`${catalog?.image}`"
       />
     </div>
-    <router-view
-      class="catalog__content"
-      :categories="catalog?.category"
-      :products="catalog?.products"
-      :filter="filter"
-      :isLoad="isLoad.catalog"
-      :filterLoad="isLoad.filter"
-      :totalItems="totalItems"
-      @onUnmounted="catalogUnmounted"
-      @onFiltered="fetchFilteredProduct"
-      @onPagination="fetchFilteredProduct"
-    ></router-view>
+    <router-view v-slot="{ Component }" class="catalog__content">
+      <component
+        :is="Component"
+        :categories="catalog?.category"
+        :products="catalog?.products"
+        :filter="filter"
+        :isLoad="isLoad.catalog"
+        :filterLoad="isLoad.filter"
+        :totalItems="totalItems"
+        @onUnmounted="catalogUnmounted"
+        @onFiltered="fetchFilteredProduct"
+        @onPagination="fetchFilteredProduct"
+      >
+      </component>
+    </router-view>
     <section class="catalog__recommendation">
       <h2 class="visually-hidden">Рекомендованные каталоги</h2>
       <div class="catalog__recommendation-wrapper">

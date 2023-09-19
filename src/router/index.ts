@@ -6,6 +6,8 @@ import CatalogCategory from '@/components/categories/CatalogCategory.vue'
 import CatalogProducts from '@/components/products/CatalogProducts.vue'
 import BaseFilter from '@/components/ui/BaseFilter.vue'
 import ServiceView from '@/views/ServiceView.vue'
+import ServiceReport from '@/components/service/ServiceReport.vue'
+import ServiceOther from '@/components/service/ServiceOther.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,7 +41,46 @@ const router = createRouter({
     {
       path: '/service',
       name: 'service',
-      component: ServiceView
+      component: ServiceView,
+      children: [
+        {
+          path: '',
+          name: 'report',
+          component: ServiceReport
+        },
+        {
+          path: '',
+          name: 'centers',
+          component: ServiceOther,
+          meta: {
+            title: 'Сервисные центры'
+          }
+        },
+        {
+          path: '',
+          name: 'spares',
+          component: ServiceOther,
+          meta: {
+            title: 'Запчасти'
+          }
+        },
+        {
+          path: '',
+          name: 'instructions',
+          component: ServiceOther,
+          meta: {
+            title: 'Инструкции'
+          }
+        },
+        {
+          path: '',
+          name: 'certificates',
+          component: ServiceOther,
+          meta: {
+            title: 'Сертификаты'
+          }
+        }
+      ]
     }
   ]
 })

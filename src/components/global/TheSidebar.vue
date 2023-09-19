@@ -33,7 +33,10 @@
           <li class="sidebar__info-list-item"><a>О компании</a></li>
           <li class="sidebar__info-list-item"><a>Контакты</a></li>
           <li class="sidebar__info-list-item">
-            <router-link @click="emits('closeSidebar')" :to="{ name: 'service' }"
+            <router-link
+              class="sidebar__info-list-link"
+              @click="emits('closeSidebar')"
+              :to="{ path: 'service' }"
               >Сервис</router-link
             >
           </li>
@@ -138,6 +141,22 @@ const closeSidebar = () => {
     color: $white;
 
     margin-bottom: 30px;
+
+    cursor: pointer;
+
+    &:hover {
+      color: $red-active;
+    }
+  }
+
+  &__info-list-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: $white;
+    text-transform: uppercase;
+
+    margin-bottom: 26px;
 
     cursor: pointer;
 
