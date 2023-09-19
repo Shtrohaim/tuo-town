@@ -42,7 +42,7 @@
   </main>
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, onUpdated, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BaseSlider from '@/components/ui/BaseSlider.vue'
@@ -66,7 +66,6 @@ const catalog = ref<any>()
 const slides = ref<CatalogRecommendationType[]>()
 const filter = ref<any[]>()
 const totalItems = ref(0)
-
 const fetchCategoryCatalog = async () => {
   await productsServices.getCategoryCatalog(catalog_id.value).then((res) => {
     catalog.value = res.data
@@ -104,6 +103,7 @@ const fetchFilteredProduct = async () => {
   if (stringFilter === '') {
     stringFilter += '&_page=1&_limit=8'
   }
+
   await productsServices
     .getFilteredProduct({ id: catalog_id.value, filter: stringFilter })
     .then((res) => {
@@ -138,6 +138,11 @@ const catalogUnmounted = async () => {
     await fetchFilteredProduct()
     await fetchProductFilter()
   }
+}
+
+onpopstate = async () => {
+  isLoad.value.filter = false
+  await catalogUnmounted()
 }
 
 onMounted(async () => {

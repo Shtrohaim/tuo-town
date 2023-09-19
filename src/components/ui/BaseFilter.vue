@@ -110,8 +110,6 @@ const getValues = () => {
 
   curPrice.value.minPrice = route.query.min_price ? route.query.min_price : price.value?.min_price
   curPrice.value.maxPrice = route.query.max_price ? route.query.max_price : price.value?.max_price
-
-  emits('onFiltered')
 }
 
 const transformToQuery = computed(() => {
