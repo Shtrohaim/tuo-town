@@ -1,5 +1,5 @@
 <template>
-  <a @click.prevent="" href="#" class="product-card">
+  <router-link :to="{ path: `/product/${product.id}` }" class="product-card">
     <div class="product-card__wrapper">
       <base-image class="product-card__image" :src="`${product.image}`" :alt="product.name" />
       <button @click.prevent.stop="" class="product-card__button" type="submit">
@@ -16,14 +16,14 @@
       <span class="p_hg product-card__price">{{ product.price }}</span>
     </div>
     <span class="product-card__new p_sm" v-if="product.new">Новинка</span>
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">
+import BaseImage from '@/components/ui/BaseImage.vue'
+
 import type { ProductsType } from '@/types/responseType'
 import type { PropType } from 'vue'
-import { ref } from 'vue'
-import BaseImage from '@/components/ui/BaseImage.vue'
 
 const props = defineProps({
   product: {

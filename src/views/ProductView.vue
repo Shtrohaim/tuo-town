@@ -1,5 +1,5 @@
 <template>
-  <main class="product" v-if="isLoad">
+  <main class="product" v-if="isLoad.product">
     <div class="product__head">
       <div class="product__head-wrapper">
         <h1 class="product__title h3">{{ product.name }}</h1>
@@ -44,16 +44,73 @@
       >
         <p class="p_hg">Ваш браузер не поддерживает видеоплеер.</p>
       </iframe>
-      <div class="product__characteristics">
+      <div class="product__characteristics container">
         <h3 class="h4 product__characteristics-title">Храктеристики</h3>
         <base-image class="product__scheme" :src="product.scheme" />
-        <ul>
-          <li class="p_hg" v-for="characteristic in characteristics" :key="characteristic.id">
-            <span>{{ characteristic.name }}</span>
-            <span>{{ characteristic.value }}</span>
+        <ul class="product__characteristics-list">
+          <li
+            class="p_hg product__characteristics-list-item"
+            v-for="characteristic in characteristics"
+            :key="characteristic.id"
+          >
+            <span class="product__characteristics-name">{{ characteristic.name }}</span>
+            <span class="product__characteristics-value"
+              >{{ characteristic.value }}
+              {{ typeof characteristic.value === 'number' ? 'см' : '' }}</span
+            >
           </li>
         </ul>
-        <button @click="toggleCharacteristics">{{ moreCharacteristics }}</button>
+        <base-button
+          class="product__characteristics-more"
+          :icon="true"
+          @onClick="toggleCharacteristics"
+        >
+          <svg class="icon24 fill-gray">
+            <use
+              v-if="characteristicCount !== product.characteristics.length"
+              href="@/assets/images/svg/plusIcon.svg#icon"
+            ></use>
+            <use v-else href="@/assets/images/svg/minusIcon.svg#icon"></use>
+          </svg>
+          <span>{{ moreCharacteristics }}</span>
+        </base-button>
+      </div>
+    </section>
+    <section class="product__recommendation container">
+      <h2 class="visually-hidden">Рекомендации</h2>
+      <div class="product__accessories">
+        <h3 class="h4 product__recommendation-title">Аксессуары ({{ accessories.count }})</h3>
+        <ul v-if="isLoad.accessories" class="product__recommendation-list">
+          <li
+            v-for="product in accessories.products"
+            :key="product.id"
+            class="product__recommendation-list-item"
+          >
+            <product-card :product="product" />
+          </li>
+        </ul>
+        <ul v-else class="product__recommendation-list">
+          <li v-for="i in 4" :key="i" class="product__recommendation-list-item">
+            <skeleton-products />
+          </li>
+        </ul>
+      </div>
+      <div class="product__see-also">
+        <h3 class="h4 product__recommendation-title">Смотрите также</h3>
+        <ul v-if="isLoad.also" class="product__recommendation-list">
+          <li
+            v-for="product in seeAlso"
+            :key="product.id"
+            class="product__recommendation-list-item"
+          >
+            <product-card :product="product" />
+          </li>
+        </ul>
+        <ul v-else class="product__recommendation-list">
+          <li v-for="i in 4" :key="i" class="product__recommendation-list-item">
+            <skeleton-products />
+          </li>
+        </ul>
       </div>
     </section>
   </main>
@@ -66,25 +123,51 @@ import { useRoute } from 'vue-router'
 import BaseImage from '@/components/ui/BaseImage.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseSlider from '@/components/ui/BaseSlider.vue'
+import ProductCard from '@/components/products/ProductCard.vue'
+import SkeletonProducts from '@/components/products/SkeletonProducts.vue'
 
 import Slogan1 from '@/assets/images/slogan1.jpg'
 import Slogan2 from '@/assets/images/slogan2.jpg'
 
 import productsServices from '@/services/productsServices'
+import recommendationService from '@/services/recommendationService'
+
 import textTransform from '../utils/textTransform'
+import type { ProductsType } from '@/types/responseType'
 
 const route = useRoute()
 
-const isLoad = ref(false)
+const isLoad = ref({
+  product: false,
+  also: false,
+  accessories: false
+})
 const product = ref()
 const video = ref()
 const characteristicCount = ref(4)
+const accessories = ref({
+  count: 9,
+  products: [] as ProductsType[]
+})
+const seeAlso = ref<ProductsType[]>()
 
 const fetchProduct = async () => {
   await productsServices.getProduct(Number(route.params.id)).then((res) => {
     product.value = res.data
-    isLoad.value = true
+    isLoad.value.product = true
   })
+}
+
+const fetchRecommendation = async () => {
+  await recommendationService
+    .getRecommendation(product.value.categoryId, product.value.id)
+    .then((res) => {
+      seeAlso.value = res.data
+      accessories.value.products = res.data
+      accessories.value.count = res.headers['x-total-count']
+      isLoad.value.also = true
+      isLoad.value.accessories = true
+    })
 }
 
 const toggleCharacteristics = () => {
@@ -106,6 +189,7 @@ const characteristics = computed(() => {
 
 onMounted(async () => {
   await fetchProduct()
+  await fetchRecommendation()
 })
 </script>
 
@@ -218,6 +302,87 @@ onMounted(async () => {
     max-height: 175px;
 
     border-radius: 15px;
+  }
+
+  &__characteristics-title {
+    color: $white;
+    line-height: normal;
+    text-decoration: 2px underline $red-active;
+    text-underline-offset: 5px;
+    text-align: center;
+
+    margin-bottom: 35px;
+  }
+
+  &__scheme {
+    width: 100%;
+
+    max-width: 144px;
+
+    overflow: hidden;
+
+    margin: 0 auto 30px;
+
+    border-radius: 15px;
+  }
+
+  &__characteristics-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    margin-bottom: 20px;
+  }
+
+  &__characteristics-list-item {
+    display: flex;
+    justify-content: space-between;
+
+    color: $white;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid $gray-border;
+  }
+
+  &__characteristics-name {
+    min-width: fit-content;
+    line-height: 140%;
+  }
+
+  &__characteristics-value {
+    text-align: end;
+    line-height: 140%;
+  }
+
+  &__characteristics-more {
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+
+    column-gap: 15px;
+
+    color: $gray-light;
+  }
+
+  &__accessories {
+    margin-bottom: 60px;
+  }
+
+  &__recommendation-title {
+    color: $white;
+    text-decoration: 2px underline $red-active;
+    text-underline-offset: 10px;
+
+    margin-bottom: 30px;
+  }
+
+  &__recommendation-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 14px;
   }
 }
 </style>

@@ -19,7 +19,10 @@
           <base-image class="main__slider-background" :src="slide.image" :alt="slide.title" />
           <p class="main__slider-title h3">{{ slide.title }}</p>
           <p class="main__slider-description p_hg">{{ slide.description }}</p>
-          <base-button v-if="slide?.link" :href="'/#'" class="main__slider-link p_hg"
+          <base-button
+            v-if="slide?.link"
+            @onClick="router.push({ path: slide?.link })"
+            class="main__slider-link p_hg"
             >Подробнее</base-button
           >
         </div>
@@ -46,7 +49,7 @@
             </router-link>
           </li>
           <li class="main__nav-list-item">
-            <router-link :to="{ name: 'category', params: { id: 2 } }">
+            <router-link :to="{ name: 'category', params: { id: 0 } }">
               <svg class="icon46 fill-gray">
                 <use href="@/assets/images/svg/grindIcon.svg#icon"></use>
               </svg>
@@ -54,7 +57,7 @@
             </router-link>
           </li>
           <li class="main__nav-list-item">
-            <router-link :to="{ name: 'category', params: { id: 3 } }">
+            <router-link :to="{ name: 'category', params: { id: 0 } }">
               <svg class="icon46 fill-gray">
                 <use href="@/assets/images/svg/cookIcon.svg#icon"></use>
               </svg>
@@ -215,6 +218,7 @@ import type {
   CategoryType,
   PopularNewType
 } from '@/types/responseType'
+import { useRouter } from 'vue-router'
 
 const deviceWidth = window.innerWidth
 const deviceHeight = window.innerHeight
@@ -233,6 +237,8 @@ const isLoad = ref({
 
 const popularAndNew = ref<PopularNewType[]>()
 const tabIndex = ref(0)
+
+const router = useRouter()
 
 const changeTabIndex = (e: any) => {
   const elem = e.target

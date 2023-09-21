@@ -5,7 +5,7 @@
       "image": "/src/assets/images/server/1.jpg",
       "title": "Исключительное качество без компромиссов",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "link": "#"
+      "link": "catalog/products/0"
     },
     {
       "id": 1,
@@ -312,7 +312,7 @@
         },
         {
           "id": "ff47",
-          "name": "Толщина обуха",
+          "name": "Тип монтажа рукояти",
           "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
@@ -328,23 +328,74 @@
       "id": 1,
       "name": "Складной нож SQ01-B",
       "image": "/src/assets/images/server/product/product1.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1600,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 311,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 311,
+          "value": "G-10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -352,23 +403,74 @@
       "id": 2,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 2300,
       "new": true,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -376,23 +478,74 @@
       "id": 3,
       "name": "Складной нож SQ01-B",
       "image": "/src/assets/images/server/product/product1.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 800,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -400,23 +553,74 @@
       "id": 4,
       "name": "Складной нож SQ01-B",
       "image": "/src/assets/images/server/product/product1.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1600,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -424,23 +628,74 @@
       "id": 5,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1500,
       "new": false,
       "count": 5,
       "categoryId": 2,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -448,23 +703,74 @@
       "id": 6,
       "name": "Складной нож SQ01-B",
       "image": "/src/assets/images/server/product/product1.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1600,
       "new": false,
       "count": 5,
       "categoryId": 1,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -472,23 +778,74 @@
       "id": 7,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1299,
       "new": false,
       "count": 5,
       "categoryId": 1,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -496,23 +853,74 @@
       "id": 8,
       "name": "Складной нож SQ01-B",
       "image": "/src/assets/images/server/product/product1.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1300,
       "new": true,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 320,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 320,
+          "value": 4.7
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -520,23 +928,74 @@
       "id": 9,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1600,
       "new": false,
       "count": 5,
       "categoryId": 2,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 309,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -544,23 +1003,74 @@
       "id": 10,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1240,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 317,
-      "ff19": 333,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 309,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 317,
+          "value": 1.7
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 318,
+          "value": 1.9
         }
       ]
     },
@@ -568,23 +1078,74 @@
       "id": 11,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 5465,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 311,
-      "ff18": 321,
-      "ff19": 333,
-      "ff38": 471,
-      "ff39": 257,
-      "ff44": 323,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 309,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 311,
+          "value": "G-10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 321,
+          "value": 1.8
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 471,
+          "value": 13
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 323,
+          "value": 2.4
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 321,
+          "value": 1.8
         }
       ]
     },
@@ -592,6 +1153,10 @@
       "id": 12,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 3299,
       "new": false,
       "count": 5,
@@ -616,23 +1181,74 @@
       "id": 13,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 4999,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 310,
-      "ff19": 322,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 318,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 310,
+          "value": 1.9
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 316,
+          "value": 2.2
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 318,
+          "value": 1.9
         }
       ]
     },
@@ -640,23 +1256,74 @@
       "id": 14,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 3256,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 310,
-      "ff19": 322,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 309,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 318,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 144,
+          "value": "G10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 310,
+          "value": 1.9
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 309,
+          "value": 5
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 318,
+          "value": 1.9
         }
       ]
     },
@@ -664,23 +1331,74 @@
       "id": 15,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 2345,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 311,
-      "ff18": 321,
-      "ff19": 333,
-      "ff38": 319,
-      "ff39": 257,
-      "ff44": 320,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 311,
+          "value": "G-10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 321,
+          "value": 1.8
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 320,
+          "value": 4.7
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     },
@@ -688,23 +1406,74 @@
       "id": 16,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1234,
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 311,
-      "ff18": 321,
-      "ff19": 333,
-      "ff38": 319,
-      "ff39": 257,
-      "ff44": 320,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
+      "characteristics": [
         {
-          "id": 69,
-          "active": true
+          "id": "ff5",
+          "name": "Материал рукояти",
+          "filter_id": 311,
+          "value": "G-10"
+        },
+        {
+          "id": "ff18",
+          "name": "Толщина обуха",
+          "filter_id": 321,
+          "value": 1.8
+        },
+        {
+          "id": "ff19",
+          "name": "Твердость стали (HRC)",
+          "filter_id": 333,
+          "value": "58-60"
+        },
+        {
+          "id": "ff27",
+          "name": "Материал клинка",
+          "filter_id": 256,
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        {
+          "id": "ff38",
+          "name": "Длина клинка",
+          "filter_id": 315,
+          "value": 12.5
+        },
+        {
+          "id": "ff39",
+          "name": "Количество слоев",
+          "filter_id": 257,
+          "value": "67"
+        },
+        {
+          "id": "ff44",
+          "name": "Высота клинка",
+          "filter_id": 320,
+          "value": 4.7
+        },
+        {
+          "id": "ff45",
+          "name": "Толщина обуха",
+          "filter_id": 279,
+          "value": 0.19
+        },
+        {
+          "id": "ff47",
+          "name": "Тип монтажа рукояти",
+          "filter_id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        {
+          "id": "ff49",
+          "name": "Толщина рукояти",
+          "filter_id": 79,
+          "value": 2
         }
       ]
     }
@@ -918,10 +1687,6 @@
         {
           "id": 79,
           "title": "2"
-        },
-        {
-          "id": 309,
-          "title": "5"
         }
       ]
     },
@@ -938,53 +1703,6 @@
     }
   ],
   "reports": [
-    {
-      "email": "",
-      "tel": "+7 (999) 999-99-99",
-      "name": "Dmitry",
-      "comment": "",
-      "topic": 0,
-      "id": 1
-    },
-    {
-      "email": "Deorel@mail.ru",
-      "tel": "+7 (999) 999-99-99",
-      "name": "Dmitry",
-      "comment": "",
-      "topic": 2,
-      "id": 2
-    },
-    {
-      "email": "",
-      "tel": "+7 (999) 999-99-99",
-      "name": "Dmitry",
-      "comment": "",
-      "topic": 0,
-      "id": 3
-    },
-    {
-      "email": "",
-      "tel": "+7 (999) 999-99-99",
-      "name": "Dmitry",
-      "comment": "",
-      "topic": 0,
-      "id": 4
-    },
-    {
-      "email": "",
-      "tel": "+7 (999) 999-99-99",
-      "name": "Dmitry",
-      "comment": "",
-      "topic": 0,
-      "id": 5
-    },
-    {
-      "email": "",
-      "tel": "+7 (999) 999-99-99",
-      "name": "Dmitry",
-      "comment": "",
-      "topic": 0,
-      "id": 6
-    }
+
   ]
 }
