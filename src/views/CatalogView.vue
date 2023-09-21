@@ -143,10 +143,18 @@ const catalogUnmounted = async () => {
   }
 }
 
+watch(catalog_id, async () => {
+  await catalogUnmounted()
+})
+
 onpopstate = async () => {
   isLoad.value.filter = false
   await catalogUnmounted()
 }
+
+onUpdated(() => {
+  catalog_id.value = Number(route.params.id)
+})
 
 onMounted(async () => {
   await catalogUnmounted()
