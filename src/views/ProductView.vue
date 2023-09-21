@@ -142,8 +142,7 @@ const isLoad = ref({
   also: false,
   accessories: false
 })
-const product = ref()
-const video = ref()
+const product = ref<ProductsType>()
 const characteristicCount = ref(4)
 const accessories = ref({
   count: 9,

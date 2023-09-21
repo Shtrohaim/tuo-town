@@ -10,10 +10,20 @@ interface ProductsType {
   id: number
   name: string
   image: string
+  background: string
+  description: string
+  gallery: string[]
+  scheme: string
   price: number
   new: boolean
   count: number
   categoryId: number
+  characteristics: {
+    id: string
+    name: string
+    filter_id: number
+    value: string | number
+  }[]
 }
 
 interface ArticleType {
