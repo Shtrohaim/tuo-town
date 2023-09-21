@@ -183,7 +183,9 @@ const moreCharacteristics = computed(() => {
 })
 
 const characteristics = computed(() => {
-  return product.value.characteristics.slice(0, characteristicCount.value)
+  return Object.entries(product.value.characteristics)
+    .slice(0, characteristicCount.value)
+    .map((entry) => entry[1])
 })
 
 onMounted(async () => {

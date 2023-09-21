@@ -92,13 +92,13 @@ const fetchFilteredProduct = async () => {
   for (let item in queryFilter) {
     if (item === 'min_price') stringFilter += `&price_gte=${queryFilter[item]}`
     else if (item === 'max_price') stringFilter += `&price_lte=${queryFilter[item]}`
-    else if (item === 'ff1') stringFilter += `&${item}.activate=true`
+    else if (item === 'ff1') stringFilter += `&image_ne=null`
     else if (item === 'page') stringFilter += `&_page=${queryFilter[item]}`
     else if (item === 'limit') stringFilter += `&_limit=${queryFilter[item]}`
     else if (String(queryFilter[item]).trim() !== '') {
       if (Array.isArray(queryFilter[item])) {
         for (let i in queryFilter[item] as any) {
-          stringFilter += `&${item}=${queryFilter[item]?.[i]}`
+          stringFilter += `&characteristics.${item}.id=${queryFilter[item]?.[i]}`
         }
       } else stringFilter += `&${item}=${queryFilter[item]}`
     }

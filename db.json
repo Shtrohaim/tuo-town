@@ -261,68 +261,58 @@
       "new": true,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
           "name": "Материал рукояти",
-          "filter_id": 144,
+          "id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
           "name": "Толщина обуха",
-          "filter_id": 317,
+          "id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
+          "id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27":{
           "name": "Материал клинка",
-          "filter_id": 256,
-          "value": "VG-10, обкладка DAMASCUS"
-        },
-        {
-          "id": "ff38",
+          "id": 256,
+          "value": "VG-10, обкладка DAMASCUf38"
+          },
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
           "name": "Количество слоев",
-          "filter_id": 257,
+          "id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
           "name": "Высота клинка",
-          "filter_id": 316,
+          "id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
           "name": "Толщина обуха",
-          "filter_id": 279,
+          "id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
+          "id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49":{
           "name": "Толщина рукояти",
-          "filter_id": 79,
+          "id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 1,
@@ -336,68 +326,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 311,
           "name": "Материал рукояти",
-          "filter_id": 311,
           "value": "G-10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 2,
@@ -411,68 +391,58 @@
       "new": true,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 3,
@@ -486,68 +456,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 4,
@@ -561,68 +521,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 5,
@@ -636,68 +586,58 @@
       "new": false,
       "count": 5,
       "categoryId": 2,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 6,
@@ -711,68 +651,58 @@
       "new": false,
       "count": 5,
       "categoryId": 1,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 7,
@@ -786,68 +716,58 @@
       "new": false,
       "count": 5,
       "categoryId": 1,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 8,
@@ -861,68 +781,58 @@
       "new": true,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 320,
           "name": "Высота клинка",
-          "filter_id": 320,
           "value": 4.7
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 9,
@@ -936,68 +846,58 @@
       "new": false,
       "count": 5,
       "categoryId": 2,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 10,
@@ -1011,68 +911,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 317,
           "name": "Толщина обуха",
-          "filter_id": 317,
           "value": 1.7
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 318,
           "name": "Толщина рукояти",
-          "filter_id": 318,
           "value": 1.9
         }
-      ]
+      }
     },
     {
       "id": 11,
@@ -1086,68 +976,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 311,
           "name": "Материал рукояти",
-          "filter_id": 311,
           "value": "G-10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 321,
           "name": "Толщина обуха",
-          "filter_id": 321,
           "value": 1.8
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 471,
           "name": "Длина клинка",
-          "filter_id": 471,
           "value": 13
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 323,
           "name": "Высота клинка",
-          "filter_id": 323,
           "value": 2.4
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 321,
           "name": "Толщина рукояти",
-          "filter_id": 321,
           "value": 1.8
         }
-      ]
+      }
     },
     {
       "id": 12,
@@ -1161,21 +1041,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "ff5": 144,
-      "ff18": 310,
-      "ff19": 322,
-      "ff38": 315,
-      "ff39": 257,
-      "ff44": 316,
-      "ff45": 279,
-      "ff47": 314,
-      "ff49": 79,
-      "ff1": [
-        {
-          "id": 69,
-          "active": true
+      "characteristics": {
+        "ff5": {
+          "name": "Материал рукояти",
+          "id": 144,
+          "value": "G10"
+        },
+        "ff18": {
+          "name": "Толщина обуха",
+          "id": 317,
+          "value": 1.7
+        },
+        "ff19": {
+          "name": "Твердость стали (HRC)",
+          "id": 333,
+          "value": "58-60"
+        },
+        "ff27":{
+          "name": "Материал клинка",
+          "id": 256,
+          "value": "VG-10, обкладка DAMASCUf38"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "name": "Количество слоев",
+          "id": 257,
+          "value": "67"
+        },
+        "ff44": {
+          "name": "Высота клинка",
+          "id": 316,
+          "value": 2.2
+        },
+        "ff45": {
+          "name": "Толщина обуха",
+          "id": 279,
+          "value": 0.19
+        },
+        "ff47": {
+          "name": "Тип монтажа рукояти",
+          "id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        "ff49":{
+          "name": "Толщина рукояти",
+          "id": 79,
+          "value": 2
         }
-      ]
+      }
     },
     {
       "id": 13,
@@ -1189,68 +1106,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 310,
           "name": "Толщина обуха",
-          "filter_id": 310,
           "value": 1.9
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 316,
           "name": "Высота клинка",
-          "filter_id": 316,
           "value": 2.2
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 318,
           "name": "Толщина рукояти",
-          "filter_id": 318,
           "value": 1.9
         }
-      ]
+      }
     },
     {
       "id": 14,
@@ -1264,68 +1171,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 144,
           "name": "Материал рукояти",
-          "filter_id": 144,
           "value": "G10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 310,
           "name": "Толщина обуха",
-          "filter_id": 310,
           "value": 1.9
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 309,
           "name": "Высота клинка",
-          "filter_id": 309,
           "value": 5
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 318,
           "name": "Толщина рукояти",
-          "filter_id": 318,
           "value": 1.9
         }
-      ]
+      }
     },
     {
       "id": 15,
@@ -1339,68 +1236,58 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 311,
           "name": "Материал рукояти",
-          "filter_id": 311,
           "value": "G-10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 321,
           "name": "Толщина обуха",
-          "filter_id": 321,
           "value": 1.8
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 320,
           "name": "Высота клинка",
-          "filter_id": 320,
           "value": 4.7
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
     },
     {
       "id": 16,
@@ -1414,68 +1301,709 @@
       "new": false,
       "count": 5,
       "categoryId": 0,
-      "characteristics": [
-        {
-          "id": "ff5",
+      "characteristics": {
+        "ff5": {
+          "id": 311,
           "name": "Материал рукояти",
-          "filter_id": 311,
           "value": "G-10"
         },
-        {
-          "id": "ff18",
+        "ff18": {
+          "id": 321,
           "name": "Толщина обуха",
-          "filter_id": 321,
           "value": 1.8
         },
-        {
-          "id": "ff19",
+        "ff19": {
+          "id": 333,
           "name": "Твердость стали (HRC)",
-          "filter_id": 333,
           "value": "58-60"
         },
-        {
-          "id": "ff27",
+        "ff27": {
+          "id": 256,
           "name": "Материал клинка",
-          "filter_id": 256,
           "value": "VG-10, обкладка DAMASCUS"
         },
-        {
-          "id": "ff38",
+        "ff38": {
+          "id": 315,
           "name": "Длина клинка",
-          "filter_id": 315,
           "value": 12.5
         },
-        {
-          "id": "ff39",
+        "ff39": {
+          "id": 257,
           "name": "Количество слоев",
-          "filter_id": 257,
           "value": "67"
         },
-        {
-          "id": "ff44",
+        "ff44": {
+          "id": 320,
           "name": "Высота клинка",
-          "filter_id": 320,
           "value": 4.7
         },
-        {
-          "id": "ff45",
+        "ff45": {
+          "id": 279,
           "name": "Толщина обуха",
-          "filter_id": 279,
           "value": 0.19
         },
-        {
-          "id": "ff47",
+        "ff47": {
+          "id": 314,
           "name": "Тип монтажа рукояти",
-          "filter_id": 314,
           "value": "Накладной на хвостовик"
         },
-        {
-          "id": "ff49",
+        "ff49": {
+          "id": 79,
           "name": "Толщина рукояти",
-          "filter_id": 79,
           "value": 2
         }
-      ]
+      }
+    },
+    {
+      "id": 17,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 3299,
+      "new": false,
+      "count": 5,
+      "categoryId": 6,
+      "characteristics": {
+        "ff5": {
+          "name": "Материал рукояти",
+          "id": 144,
+          "value": "G10"
+        },
+        "ff18": {
+          "name": "Толщина обуха",
+          "id": 317,
+          "value": 1.7
+        },
+        "ff19": {
+          "name": "Твердость стали (HRC)",
+          "id": 333,
+          "value": "58-60"
+        },
+        "ff27":{
+          "name": "Материал клинка",
+          "id": 256,
+          "value": "VG-10, обкладка DAMASCUf38"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "name": "Количество слоев",
+          "id": 257,
+          "value": "67"
+        },
+        "ff44": {
+          "name": "Высота клинка",
+          "id": 316,
+          "value": 2.2
+        },
+        "ff45": {
+          "name": "Толщина обуха",
+          "id": 279,
+          "value": 0.19
+        },
+        "ff47": {
+          "name": "Тип монтажа рукояти",
+          "id": 314,
+          "value": "Накладной на хвостовик"
+        },
+        "ff49":{
+          "name": "Толщина рукояти",
+          "id": 79,
+          "value": 2
+        }
+      }
+    },
+    {
+      "id": 18,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 4999,
+      "new": false,
+      "count": 5,
+      "categoryId": 6,
+      "characteristics": {
+        "ff5": {
+          "id": 144,
+          "name": "Материал рукояти",
+          "value": "G10"
+        },
+        "ff18": {
+          "id": 310,
+          "name": "Толщина обуха",
+          "value": 1.9
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 316,
+          "name": "Высота клинка",
+          "value": 2.2
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 318,
+          "name": "Толщина рукояти",
+          "value": 1.9
+        }
+      }
+    },
+    {
+      "id": 19,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 3256,
+      "new": false,
+      "count": 5,
+      "categoryId": 6,
+      "characteristics": {
+        "ff5": {
+          "id": 144,
+          "name": "Материал рукояти",
+          "value": "G10"
+        },
+        "ff18": {
+          "id": 310,
+          "name": "Толщина обуха",
+          "value": 1.9
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 309,
+          "name": "Высота клинка",
+          "value": 5
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 318,
+          "name": "Толщина рукояти",
+          "value": 1.9
+        }
+      }
+    },
+    {
+      "id": 20,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 2345,
+      "new": false,
+      "count": 5,
+      "categoryId": 6,
+      "characteristics": {
+        "ff5": {
+          "id": 311,
+          "name": "Материал рукояти",
+          "value": "G-10"
+        },
+        "ff18": {
+          "id": 321,
+          "name": "Толщина обуха",
+          "value": 1.8
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 320,
+          "name": "Высота клинка",
+          "value": 4.7
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 79,
+          "name": "Толщина рукояти",
+          "value": 2
+        }
+      }
+    },
+    {
+      "id": 21,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 1234,
+      "new": false,
+      "count": 5,
+      "categoryId": 6,
+      "characteristics": {
+        "ff5": {
+          "id": 311,
+          "name": "Материал рукояти",
+          "value": "G-10"
+        },
+        "ff18": {
+          "id": 321,
+          "name": "Толщина обуха",
+          "value": 1.8
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 320,
+          "name": "Высота клинка",
+          "value": 4.7
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 79,
+          "name": "Толщина рукояти",
+          "value": 2
+        }
+      }
+    },
+    {
+      "id": 22,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 2345,
+      "new": false,
+      "count": 5,
+      "categoryId": 5,
+      "characteristics": {
+        "ff5": {
+          "id": 311,
+          "name": "Материал рукояти",
+          "value": "G-10"
+        },
+        "ff18": {
+          "id": 321,
+          "name": "Толщина обуха",
+          "value": 1.8
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 320,
+          "name": "Высота клинка",
+          "value": 4.7
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 79,
+          "name": "Толщина рукояти",
+          "value": 2
+        }
+      }
+    },
+    {
+      "id": 23,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 1234,
+      "new": false,
+      "count": 5,
+      "categoryId": 5,
+      "characteristics": {
+        "ff5": {
+          "id": 311,
+          "name": "Материал рукояти",
+          "value": "G-10"
+        },
+        "ff18": {
+          "id": 321,
+          "name": "Толщина обуха",
+          "value": 1.8
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 320,
+          "name": "Высота клинка",
+          "value": 4.7
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 79,
+          "name": "Толщина рукояти",
+          "value": 2
+        }
+      }
+    }
+  ,
+    {
+      "id": 24,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 2345,
+      "new": false,
+      "count": 5,
+      "categoryId": 4,
+      "characteristics": {
+        "ff5": {
+          "id": 311,
+          "name": "Материал рукояти",
+          "value": "G-10"
+        },
+        "ff18": {
+          "id": 321,
+          "name": "Толщина обуха",
+          "value": 1.8
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 320,
+          "name": "Высота клинка",
+          "value": 4.7
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 79,
+          "name": "Толщина рукояти",
+          "value": 2
+        }
+      }
+    },
+    {
+      "id": 25,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 1234,
+      "new": false,
+      "count": 5,
+      "categoryId": 4,
+      "characteristics": {
+        "ff5": {
+          "id": 311,
+          "name": "Материал рукояти",
+          "value": "G-10"
+        },
+        "ff18": {
+          "id": 321,
+          "name": "Толщина обуха",
+          "value": 1.8
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 320,
+          "name": "Высота клинка",
+          "value": 4.7
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 79,
+          "name": "Толщина рукояти",
+          "value": 2
+        }
+      }
+    },
+    {
+      "id": 26,
+      "name": "Складной нож JJ001-TUO-B",
+      "image": "/src/assets/images/server/product/product2.png",
+      "background": "/src/assets/images/server/catalog/catalog1.webp",
+      "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
+      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "scheme": "/src/assets/images/server/product/scheme.png",
+      "price": 1234,
+      "new": false,
+      "count": 5,
+      "categoryId": 3,
+      "characteristics": {
+        "ff5": {
+          "id": 311,
+          "name": "Материал рукояти",
+          "value": "G-10"
+        },
+        "ff18": {
+          "id": 321,
+          "name": "Толщина обуха",
+          "value": 1.8
+        },
+        "ff19": {
+          "id": 333,
+          "name": "Твердость стали (HRC)",
+          "value": "58-60"
+        },
+        "ff27": {
+          "id": 256,
+          "name": "Материал клинка",
+          "value": "VG-10, обкладка DAMASCUS"
+        },
+        "ff38": {
+          "id": 315,
+          "name": "Длина клинка",
+          "value": 12.5
+        },
+        "ff39": {
+          "id": 257,
+          "name": "Количество слоев",
+          "value": "67"
+        },
+        "ff44": {
+          "id": 320,
+          "name": "Высота клинка",
+          "value": 4.7
+        },
+        "ff45": {
+          "id": 279,
+          "name": "Толщина обуха",
+          "value": 0.19
+        },
+        "ff47": {
+          "id": 314,
+          "name": "Тип монтажа рукояти",
+          "value": "Накладной на хвостовик"
+        },
+        "ff49": {
+          "id": 79,
+          "name": "Толщина рукояти",
+          "value": 2
+        }
+      }
     }
   ],
   "catalog-recommendation": [
