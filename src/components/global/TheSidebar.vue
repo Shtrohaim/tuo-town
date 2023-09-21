@@ -86,7 +86,7 @@
             <router-link
               class="sidebar__info-list-link"
               @click="emits('closeSidebar')"
-              :to="{ path: 'service' }"
+              :to="{ path: '/service' }"
               >Сервис</router-link
             >
           </li>

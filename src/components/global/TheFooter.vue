@@ -52,7 +52,7 @@
             <li class="footer__list-item"><a>О компании</a></li>
             <li class="footer__list-item"><a>Контакты</a></li>
             <li class="footer__list-item">
-              <router-link class="footer__list-link" :to="{ path: 'service' }">Сервис</router-link>
+              <router-link class="footer__list-link" :to="{ path: '/service' }">Сервис</router-link>
             </li>
           </ul>
         </nav>
@@ -128,7 +128,7 @@
           вл20с1, вход Ф, 22-68-70</span
         >
         <span class="footer__contact-time">08:00 — 18:00, ежедневно</span>
-        <img class="footer__contact-image" src="../../assets/images/copyright.png" />
+        <img class="footer__contact-image" src="@/assets/images/copyright.png" />
       </div>
     </div>
     <span class="footer__copyright p_md"
