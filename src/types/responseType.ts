@@ -19,11 +19,12 @@ interface ProductsType {
   count: number
   categoryId: number
   characteristics: {
-    id: string
-    name: string
-    filter_id: number
-    value: string | number
-  }[]
+    [key: string]: {
+      name: string
+      id: number
+      value: string | number
+    }
+  }
 }
 
 interface ArticleType {

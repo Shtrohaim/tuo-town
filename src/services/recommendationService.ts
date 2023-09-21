@@ -13,7 +13,7 @@ export default {
   async getCatalogRecommendation() {
     return await axios.get(`/catalog-recommendation`)
   },
-  async getRecommendation(catalog_id: number, product_id: number) {
+  async getRecommendation(catalog_id: number | undefined, product_id: number | undefined) {
     return await axios.get(`/products?categoryId=${catalog_id}&id_ne=${product_id}&_limit=4`)
   }
 }

@@ -1,24 +1,30 @@
 <template>
-  <main class="product" v-if="isLoad.product">
+  <main class="product">
     <div class="product__head">
       <div class="product__head-wrapper">
-        <h1 class="product__title h3">{{ product.name }}</h1>
-        <p class="product__description p_hg">{{ product.description }}</p>
+        <h1 v-if="isLoad.product" class="product__title h3">{{ product.name }}</h1>
+        <h1 v-else class="product__title h3">Ножи TuoTown</h1>
+        <p v-if="isLoad.product" class="product__description p_hg">{{ product?.description }}</p>
+        <p v-else class="product__description p_hg">
+          Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства
+        </p>
         <base-button class="product__buy-button" :filled="true">Купить</base-button>
-        <span class="product__cost p_hg">{{ textTransform().priceTransform(product.price) }}</span>
+        <span v-if="isLoad.product" class="product__cost p_hg">{{
+          textTransform().priceTransform(product.price)
+        }}</span>
       </div>
-      <base-image :src="product.background" class="product__background" />
+      <base-image v-if="isLoad.product" :src="product.background" class="product__background" />
     </div>
     <section class="product__slogan container">
       <h2 class="visually-hidden">Наш слоган</h2>
-      <div class="product__slogan-first">
+      <div class="product__slogan-first" v-if="isLoad.product">
         <base-image class="product__slogan-image" :src="Slogan1" />
         <h3 class="h4 product__slogan-title">Исключительное качество без компромиссов</h3>
         <p class="product__slogan-description p_md">
           Ножи «Tuotown» — это главный инструмент поваров и секрет кулинарного мастерства
         </p>
       </div>
-      <div class="product__slogan-second">
+      <div class="product__slogan-second" v-if="isLoad.product">
         <base-image class="product__slogan-image" :src="Slogan2" />
         <h3 class="h4 product__slogan-title">Исключительное качество без компромиссов</h3>
         <p class="product__slogan-description p_md">
@@ -26,10 +32,10 @@
         </p>
       </div>
     </section>
-    <section class="product__about">
+    <section class="product__about" v-if="isLoad.product">
       <div class="product__gallery">
         <base-slider class="product__slider" :height="166">
-          <div class="product__slide" v-for="(slide, index) in product.gallery" :key="index">
+          <div class="product__slide" v-for="(slide, index) in product?.gallery" :key="index">
             <base-image class="product__slide-image" :src="slide" />
           </div>
         </base-slider>
@@ -46,7 +52,7 @@
       </iframe>
       <div class="product__characteristics container">
         <h3 class="h4 product__characteristics-title">Храктеристики</h3>
-        <base-image class="product__scheme" :src="product.scheme" />
+        <base-image class="product__scheme" :src="product?.scheme" />
         <ul class="product__characteristics-list">
           <li
             class="p_hg product__characteristics-list-item"
@@ -67,7 +73,7 @@
         >
           <svg class="icon24 fill-gray">
             <use
-              v-if="characteristicCount !== product.characteristics.length"
+              v-if="characteristicCount !== Object.keys(product.characteristics).length"
               href="@/assets/images/svg/plusIcon.svg#icon"
             ></use>
             <use v-else href="@/assets/images/svg/minusIcon.svg#icon"></use>
@@ -142,7 +148,7 @@ const isLoad = ref({
   also: false,
   accessories: false
 })
-const product = ref<ProductsType>()
+const product = ref({} as ProductsType)
 const characteristicCount = ref(4)
 const accessories = ref({
   count: 9,
@@ -159,7 +165,7 @@ const fetchProduct = async () => {
 
 const fetchRecommendation = async () => {
   await recommendationService
-    .getRecommendation(product.value.categoryId, product.value.id)
+    .getRecommendation(product.value?.categoryId, product.value?.id)
     .then((res) => {
       seeAlso.value = res.data
       accessories.value.products = res.data
@@ -171,13 +177,13 @@ const fetchRecommendation = async () => {
 
 const toggleCharacteristics = () => {
   characteristicCount.value =
-    characteristicCount.value === product.value.characteristics.length
+    characteristicCount.value === Object.keys(product.value.characteristics).length
       ? 4
-      : product.value.characteristics.length
+      : Object.keys(product.value.characteristics).length
 }
 
 const moreCharacteristics = computed(() => {
-  return characteristicCount.value === product.value.characteristics.length
+  return characteristicCount.value === Object.keys(product.value.characteristics).length
     ? 'Меньше характеристик'
     : 'Больше характеристик'
 })
