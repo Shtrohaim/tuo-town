@@ -9,34 +9,12 @@
         :height="30"
       >
         <router-link
-          :to="{ name: 'centers' }"
+          v-for="tab in tabs"
+          :key="tab.name"
+          :to="{ name: tab.name }"
           class="service__tab p_hg"
-          :class="{ 'service__tab--active': route.name == 'centers' }"
-          >Сервисные центры</router-link
-        >
-        <router-link
-          :to="{ name: 'report' }"
-          class="service__tab p_hg"
-          :class="{ 'service__tab--active': route.name == 'report' }"
-          >Служба заботы</router-link
-        >
-        <router-link
-          :to="{ name: 'spares' }"
-          class="service__tab p_hg"
-          :class="{ 'service__tab--active': route.name == 'spares' }"
-          >Запчасти</router-link
-        >
-        <router-link
-          :to="{ name: 'instructions' }"
-          class="service__tab p_hg"
-          :class="{ 'service__tab--active': route.name == 'instructions' }"
-          >Инструкции</router-link
-        >
-        <router-link
-          :to="{ name: 'certificates' }"
-          class="service__tab p_hg"
-          :class="{ 'service__tab--active': route.name == 'certificates' }"
-          >Сертификаты</router-link
+          :class="{ 'service__tab--active': route.name == tab.name }"
+          >{{ tab.meta?.title }}</router-link
         >
       </base-slider>
     </div>
@@ -47,24 +25,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+import BaseSlider from '@/components/ui/BaseSlider.vue'
 
 import validation from '@/utils/validation'
-import telMask from '@/utils/mask'
 
 import reportServices from '@/services/reportServices'
 
+import type { RouteRecordRaw } from 'vue-router'
 import type { ServiceType } from '@/types/formType'
-
-import BaseForm from '@/components/ui/BaseForm.vue'
-import BaseInput from '@/components/ui/BaseInput.vue'
-import BaseSlider from '@/components/ui/BaseSlider.vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseTextarea from '@/components/ui/BaseTextarea.vue'
-import BaseSelect from '@/components/ui/BaseSelect.vue'
-import { useRoute, useRouter } from 'vue-router'
-import MainView from '@/views/MainView.vue'
-import ServiceReport from '@/components/service/ServiceReport.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -77,6 +48,15 @@ const { fieldValidation } = validation()
 const isSent = ref(false)
 const formData = ref<ServiceType>()
 
+const tabs = computed(() => {
+  let routeTabs: RouteRecordRaw[] | undefined = []
+  for (let curRoute of router.options.routes) {
+    if (curRoute.path === route.path) {
+      routeTabs = curRoute.children
+    }
+  }
+  return routeTabs
+})
 const onSubmit = async (data: ServiceType) => {
   formData.value = data
   await sendReport()

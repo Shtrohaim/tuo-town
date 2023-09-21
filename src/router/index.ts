@@ -47,7 +47,10 @@ const router = createRouter({
         {
           path: '',
           name: 'report',
-          component: ServiceReport
+          component: ServiceReport,
+          meta: {
+            title: 'Служба заботы'
+          }
         },
         {
           path: '',
