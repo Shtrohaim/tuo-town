@@ -61,10 +61,26 @@
         <h3 class="footer__list-title h4">Каталог</h3>
         <nav class="footer__nav">
           <ul class="footer__list p_hg">
-            <li class="footer__list-item"><a>Кухонные ножи</a></li>
-            <li class="footer__list-item"><a>Складные ножи</a></li>
-            <li class="footer__list-item"><a>Точилки для ножей</a></li>
-            <li class="footer__list-item"><a>Аксессуары</a></li>
+            <li class="footer__list-item">
+              <router-link class="footer__list-link" :to="{ path: '/catalog/categories/0' }"
+                >Кухонные ножи</router-link
+              >
+            </li>
+            <li class="footer__list-item">
+              <router-link class="footer__list-link" :to="{ path: '/catalog/products/6' }"
+                >Складные ножи</router-link
+              >
+            </li>
+            <li class="footer__list-item">
+              <router-link class="footer__list-link" :to="{ path: '/catalog/categories/0' }"
+                >Точилки для ножей</router-link
+              >
+            </li>
+            <li class="footer__list-item">
+              <router-link class="footer__list-link" :to="{ path: '/catalog/categories/0' }"
+                >Аксессуары</router-link
+              >
+            </li>
           </ul>
         </nav>
       </div>
@@ -224,6 +240,10 @@ import BaseButton from '@/components/ui/BaseButton.vue'
   &__list-link {
     font-weight: 400;
     color: $gray-light;
+
+    &:active {
+      color: $red-active;
+    }
   }
 
   &__social-title {

@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" @click="closeSidebar">
+  <div class="sidebar" @click="emits('closeSidebar')">
     <Transition>
       <div
         class="sidebar__content"
@@ -14,19 +14,69 @@
           </a>
           <the-search class="sidebar__search"></the-search>
         </div>
-        <base-button class="sidebar__close-button" @onClick="closeSidebar" :icon="true">
+        <base-button class="sidebar__close-button" @onClick="emits('closeSidebar')" :icon="true">
           <svg class="icon24 fill-white">
             <use href="@/assets/images/svg/backIcon.svg#icon"></use>
           </svg>
         </base-button>
         <ul class="sidebar__product-list">
-          <li class="sidebar__product-list-item"><a>Кухонные ножи TUOTOWN</a></li>
-          <li class="sidebar__product-list-item"><a>Складные ножи TUOTOWN</a></li>
-          <li class="sidebar__product-list-item"><a>Кухонные ножи QXF</a></li>
-          <li class="sidebar__product-list-item"><a>Точильные камни</a></li>
-          <li class="sidebar__product-list-item"><a>Наборы для BBQ</a></li>
-          <li class="sidebar__product-list-item"><a>Кухонные принадлежности</a></li>
-          <li class="sidebar__product-list-item"><a>Туристические товары</a></li>
+          <li class="sidebar__product-list-item">
+            <router-link
+              @click="emits('closeSidebar')"
+              class="sidebar__product-list-link"
+              :to="{ path: '/catalog/categories/0' }"
+              >Кухонные ножи TUOTOWN</router-link
+            >
+          </li>
+          <li class="sidebar__product-list-item">
+            <router-link
+              @click="emits('closeSidebar')"
+              class="sidebar__product-list-link"
+              :to="{ path: '/catalog/products/6' }"
+              >Складные ножи TUOTOWN</router-link
+            >
+          </li>
+          <li class="sidebar__product-list-item">
+            <router-link
+              @click="emits('closeSidebar')"
+              class="sidebar__product-list-link"
+              :to="{ path: '/catalog/categories/0' }"
+              >Кухонные ножи QXF</router-link
+            >
+          </li>
+          <li class="sidebar__product-list-item">
+            <router-link
+              @click="emits('closeSidebar')"
+              class="sidebar__product-list-link"
+              :to="{ path: '/catalog/categories/0' }"
+              >Точильные камни</router-link
+            >
+          </li>
+          <li class="sidebar__product-list-item">
+            <router-link
+              @click="emits('closeSidebar')"
+              class="sidebar__product-list-link"
+              :to="{ path: '/catalog/categories/0' }"
+              >Наборы для BBQ</router-link
+            >
+          </li>
+          <li class="sidebar__product-list-item">
+            <router-link
+              @click="emits('closeSidebar')"
+              class="sidebar__product-list-link"
+              :to="{ path: '/catalog/categories/0' }"
+            >
+              Кухонные принадлежности</router-link
+            >
+          </li>
+          <li class="sidebar__product-list-item">
+            <router-link
+              @click="emits('closeSidebar')"
+              class="sidebar__product-list-link"
+              :to="{ path: '/catalog/categories/0' }"
+              >Туристические товары</router-link
+            >
+          </li>
         </ul>
         <ul class="sidebar__info-list">
           <li class="sidebar__info-list-item"><a>Новости</a></li>
@@ -53,10 +103,6 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 
 const deviceWidth = window.innerWidth
 const emits = defineEmits(['closeSidebar'])
-
-const closeSidebar = () => {
-  emits('closeSidebar')
-}
 </script>
 
 <style scoped lang="scss">
@@ -131,17 +177,18 @@ const closeSidebar = () => {
   }
 
   &__product-list {
-    margin-top: 54px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+
+    margin: 54px 0 30px 0;
   }
 
-  &__product-list-item {
+  &__product-list-link {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: $white;
-
-    margin-bottom: 30px;
-
     cursor: pointer;
 
     &:hover {
