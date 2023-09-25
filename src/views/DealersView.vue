@@ -1,39 +1,138 @@
 <template>
-  <main class="dealers container">
-    <yandex-map
-      ref="map"
-      class="dealers__map"
-      :settings="settings"
-      :coords="mainCoords"
-      :zoom="10"
-      :controls="['routePanelControl']"
-    >
-      <div v-for="(coords, index) in coordsArray" :key="index">
-        <ymap-marker :icon="marker" :coords="coords" :marker-id="index" cluster-name="Хакасия" />
+  <main class="dealers">
+    <h1 class="dealers__title h3">Карта</h1>
+    <div class="dealers__content container">
+      <div class="dealers__map-control">
+        <form class="dealers__search" @submit.prevent="geocoder">
+          <input
+            placeholder="Страна, город, улица..."
+            class="dealers__input p_hg"
+            v-model="search"
+            id="suggest"
+          />
+          <base-button class="dealers__search-button" @onClick="geocoder" :icon="true">
+            <svg class="icon20 fill-gray">
+              <use href="@/assets/images/svg/navArrowIcon.svg#icon"></use>
+            </svg>
+          </base-button>
+        </form>
+        <ul class="dealers__options-list">
+          <li class="dealers__options-list-item">
+            <base-button
+              class="dealers__option-button dealers__option-button--all"
+              @onClick="Object.keys(markerOptions).forEach((item) => (markerOptions[item] = false))"
+              :class="{ 'dealers__option-button--active': markerOptions.all }"
+              :icon="true"
+            >
+              <div class="dealers__option-icon"></div>
+            </base-button>
+          </li>
+          <li>
+            <base-button
+              class="dealers__option-button dealers__option-button--sharpening"
+              @onClick="markerOptions.sharpening_stones = !markerOptions.sharpening_stones"
+              :class="{ 'dealers__option-button--active': markerOptions.sharpening_stones }"
+              :icon="true"
+            >
+              <div class="dealers__option-icon"></div>
+            </base-button>
+          </li>
+          <li>
+            <base-button
+              class="dealers__option-button dealers__option-button--cutlery"
+              @onClick="markerOptions.cutlery = !markerOptions.cutlery"
+              :class="{ 'dealers__option-button--active': markerOptions.cutlery }"
+              :icon="true"
+            >
+              <div class="dealers__option-icon"></div>
+            </base-button>
+          </li>
+          <li>
+            <base-button
+              class="dealers__option-button dealers__option-button--knife"
+              @onClick="markerOptions.knife = !markerOptions.knife"
+              :class="{ 'dealers__option-button--active': markerOptions.knife }"
+              :icon="true"
+            >
+              <div class="dealers__option-icon"></div>
+            </base-button>
+          </li>
+          <li>
+            <base-button
+              class="dealers__option-button dealers__option-button--grill"
+              @onClick="markerOptions.grill = !markerOptions.grill"
+              :class="{ 'dealers__option-button--active': markerOptions.grill }"
+              :icon="true"
+            >
+              <div class="dealers__option-icon"></div>
+            </base-button>
+          </li>
+        </ul>
       </div>
-    </yandex-map>
-    <form @submit.prevent="onSubmit">
-      <input v-model="search" id="suggest" type="search" />
-    </form>
+      <yandex-map
+        v-if="isMarkerLoad"
+        ref="map"
+        class="dealers__map"
+        :coords="mainCoords"
+        :zoom="10"
+        :controls="[]"
+      >
+        <div v-for="shop in shops" :key="shop.id">
+          <ymap-marker
+            v-if="markerOptions.all || checkOptions(shop.categories)"
+            :icon="marker"
+            :coords="shop.coords"
+            :marker-id="shop.id"
+            :cluster-name="shop.city"
+            :balloon-template="`
+              <div class=&quot;dealers__balloon&quot;>
+                <h3 class=&quot;dealers__balloon-name p_hg&quot;>${shop.name}</h3>
+                <p class=&quot;dealers__balloon-address p_sm&quot;>${shop.address}</p>
+                <p class=&quot;dealers__balloon-hours p_sm&quot;>${shop.opening_hours}</p>
+                <p class=&quot;dealers__balloon-tel p_md&quot;>${shop.tel}</p>
+                <p class=&quot;dealers__balloon-email p_md&quot;>${shop.email}</p>
+              </div>
+              `"
+          >
+          </ymap-marker>
+        </div>
+      </yandex-map>
+      <base-button class="dealers__nearest-button" @onClick="showNearestShop"
+        >Найти ближайший</base-button
+      >
+      <ul class="dealers__shops-list">
+        <li class="dealers__shops-list-item p_hg" v-for="shop in shops" :key="shop.id">
+          <h3 @click="mainCoords = shop.coords" class="dealers__shop-name">{{ shop.name }}</h3>
+          <p class="dealers__shop-address">{{ shop.address }}</p>
+          <p class="dealers__shop-hours">{{ shop.opening_hours }}</p>
+          <p class="dealers__shop-tel">{{ shop.tel }}</p>
+          <base-button class="dealers__show-route" :icon="true" @onClick="setRoute(shop.coords)">
+            <svg class="icon20 fill-gray">
+              <use href="@/assets/images/svg/subRightIcon.svg#icon"></use>
+            </svg>
+            Проложить маршрут
+          </base-button>
+        </li>
+      </ul>
+    </div>
+    <button @click="a">a</button>
   </main>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUpdated, ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
-import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+import { yandexMap, ymapMarker, loadYmap } from 'vue-yandex-maps'
 
 import markerIcon from '@/assets/images/svg/pinIcon.svg'
-import axios from '@/http/axios'
+
+import mapServices from '@/services/mapServices'
+
+import BaseButton from '@/components/ui/BaseButton.vue'
 
 const map = ref()
 
-const coordsArray = [
-  [53.100762, 91.412204],
-  [53.045567, 90.920592]
-]
-
-const myCoords = ref([])
+const myCoords = ref<number[]>([])
 
 const routePanelControl = ref()
 
@@ -44,10 +143,20 @@ const marker = {
   imageOffset: [-20, -40]
 }
 
-const mainCoords = ref(coordsArray[0])
-const search = ref()
-const mapLoading = ref()
-const isLoad = ref(false)
+const mainCoords = ref()
+const search = ref('')
+
+const isMarkerLoad = ref(false)
+
+const shops = ref()
+
+const markerOptions = ref({
+  all: true,
+  sharpening_stones: false,
+  cutlery: false,
+  knife: false,
+  grill: false
+})
 
 const settings = {
   apiKey: 'd85b83e6-0670-4660-a8a2-b82073feda37',
@@ -55,76 +164,353 @@ const settings = {
   enterprise: true,
   version: '2.1'
 }
-const onSubmit = async () => {
+
+const fetchMarkers = async () => {
+  await mapServices.getMarkers().then((res) => {
+    shops.value = res.data
+    isMarkerLoad.value = true
+    mainCoords.value = res.data[0].coords
+  })
+}
+
+const checkOptions = (categories) => {
+  let isTrue = false
+  for (let option in categories) {
+    for (let option_marker in markerOptions.value) {
+      if (
+        option === option_marker &&
+        categories[option] &&
+        categories[option] === markerOptions.value[option_marker]
+      ) {
+        isTrue = true
+      }
+    }
+  }
+  return isTrue
+}
+
+const geocoder = async () => {
+  if (search.value === '') return
+  await ymaps.geocode(search.value).then((res) => {
+    const firstGeoObject = res.geoObjects.get(0)
+    const newCoords = firstGeoObject.geometry.getCoordinates()
+    mainCoords.value = newCoords
+  })
+}
+const getUserCoords = () => {
   navigator.geolocation.getCurrentPosition((position) => {
     let newCoords = []
     newCoords.push(position.coords.latitude)
     newCoords.push(position.coords.longitude)
     myCoords.value = newCoords
-    let lengthCoords = []
-    coordsArray.map((coords) => {
-      lengthCoords.push(
-        Math.sqrt(
-          Math.pow(myCoords.value[0] - coords[0], 2) + Math.pow(myCoords.value[1] - coords[1], 2)
-        )
-      )
-    })
-    let index = lengthCoords.indexOf(Math.min(...lengthCoords))
-    mainCoords.value = coordsArray[1]
-
-    routePanelControl.value.routePanel.state.set({
-      // Тип маршрутизации.
-      type: 'auto',
-      // Выключим возможность задавать пункт отправления в поле ввода.
-      // Адрес или координаты пункта отправления.
-      from: myCoords.value,
-      // Включим возможность задавать пункт назначения в поле ввода.
-      // Адрес или координаты пункта назначения.
-      to: coordsArray[1]
-    })
   })
-
-  // await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=d85b83e6-0670-4660-a8a2-b82073feda37&format=json&geocode=${search.value}`).then((res) => {
-  //   mainCoords.value = res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse()
-  // })
+}
+const showNearestShop = () => {
+  getUserCoords()
+  let lengthCoords = []
+  for (let shop of shops.value) {
+    lengthCoords.push(
+      Math.sqrt(
+        Math.pow(myCoords.value[0] - shop.coords[0], 2) +
+          Math.pow(myCoords.value[1] - shop.coords[1], 2)
+      )
+    )
+  }
+  let index = lengthCoords.indexOf(Math.min(...lengthCoords))
+  mainCoords.value = shops.value[index].coords
+}
+const setRoute = (coords: number[]) => {
+  map.value.myMap.controls.add('routePanelControl', {
+    maxWidth: 100
+  })
+  routePanelControl.value = map.value.myMap.controls.get('routePanelControl').routePanel
+  routePanelControl.value.state.set({
+    type: 'auto',
+    from: myCoords.value,
+    to: coords
+  })
 }
 
-onMounted(() => {
-  mapLoading.value = setInterval(() => {
-    isLoad.value = map.value.isReady
-  }, 400)
+onMounted(async () => {
+  await loadYmap(settings)
+  await fetchMarkers()
+  getUserCoords()
 })
 
-watch(isLoad, () => {
-  routePanelControl.value = map.value.myMap.controls.get('routePanelControl')
-  routePanelControl.value.options.set({
-    visible: false
-  })
-  clearInterval(mapLoading.value)
+watch(markerOptions.value, () => {
+  const objectLength = Object.keys(markerOptions.value).length
+  const objectValues = Object.values(markerOptions.value)
+  if (markerOptions.value.all && objectValues.slice(1, objectLength).find((item) => item === true))
+    markerOptions.value.all = false
+  if (objectValues.every((item) => !item)) markerOptions.value.all = true
+  if (objectValues.slice(1, objectLength).every((item) => item))
+    Object.keys(markerOptions.value).forEach((item) => (markerOptions.value[item] = false))
 })
-
-// const balloonTemplate = computed((coords) => {
-//   return `
-//         <h1 class="red">Hi, everyone!</h1>
-//         <p>I am here: ${coords}</p>
-//       `
-// })
 </script>
 
 <style scoped lang="scss">
 .dealers {
+  &__title {
+    padding: 70px 0 30px 0;
+
+    text-transform: uppercase;
+    text-align: center;
+    color: $white;
+  }
+
+  &__content {
+    background: $background-dark;
+  }
+
+  &__search {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 30px;
+  }
+
+  &__input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 40px 0 30px;
+
+    appearance: none;
+
+    font-size: 16px;
+
+    background: transparent;
+    outline: none;
+    border: 1px solid $gray-border;
+    border-radius: 20px;
+
+    color: $white;
+  }
+
+  &__search-button {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+
+    transform: translateY(-50%);
+  }
+
+  &__options-list {
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+
+    margin-bottom: 20px;
+  }
+
+  &__option-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    border: 2px solid $gray-border;
+    border-radius: 50%;
+    background: $black-input;
+
+    &:active {
+      border-radius: 50%;
+
+      .dealers__option-icon {
+        opacity: 1;
+      }
+    }
+
+    &--active {
+      border-color: $red-active;
+      .dealers__option-icon {
+        opacity: 1;
+      }
+    }
+
+    &--all {
+      margin-right: 10px;
+
+      .dealers__option-icon {
+        -webkit-mask-image: url('@/assets/images/svg/allIcon.svg');
+        mask-image: url('@/assets/images/svg/allIcon.svg');
+      }
+    }
+
+    &--sharpening {
+      .dealers__option-icon {
+        -webkit-mask-image: url('@/assets/images/svg/sharpeningIcon.svg');
+        mask-image: url('@/assets/images/svg/sharpeningIcon.svg');
+      }
+    }
+
+    &--cutlery {
+      .dealers__option-icon {
+        -webkit-mask-image: url('@/assets/images/svg/cutleryIcon.svg');
+        mask-image: url('@/assets/images/svg/cutleryIcon.svg');
+      }
+    }
+
+    &--knife {
+      .dealers__option-icon {
+        -webkit-mask-image: url('@/assets/images/svg/knife2Icon.svg');
+        mask-image: url('@/assets/images/svg/knife2Icon.svg');
+      }
+    }
+
+    &--grill {
+      .dealers__option-icon {
+        -webkit-mask-image: url('@/assets/images/svg/grillIcon.svg');
+        mask-image: url('@/assets/images/svg/grillIcon.svg');
+      }
+    }
+  }
+
+  &__option-icon {
+    width: 26px;
+    height: 26px;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    opacity: 0.5;
+    background: $white;
+  }
+
   &__map {
     display: flex;
     height: 50vh;
     width: 100%;
 
-    margin-top: 100px;
+    margin-bottom: 30px;
 
     overflow: hidden;
 
     filter: grayscale(1);
 
     border-radius: 15px;
+
+    .ymaps-2-1-79-balloon {
+      background-color: $background-dark;
+    }
+    .ymaps-2-1-79-balloon__content {
+      background: transparent;
+    }
+    .ymaps-2-1-79-balloon__close-button {
+      width: 20px;
+      height: 20px;
+
+      margin: 10px 10px 0 0;
+      -webkit-mask-image: url('@/assets/images/svg/closeIcon.svg');
+      -webkit-mask-repeat: no-repeat;
+      mask-image: url('@/assets/images/svg/closeIcon.svg');
+      mask-repeat: no-repeat;
+      background: $white;
+    }
+  }
+
+  &__balloon {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+
+    color: $white;
+    font-weight: 500;
+  }
+
+  &__balloon-name {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  &__balloon-address {
+    color: $gray-light;
+    font-weight: 400;
+
+    margin-bottom: 5px;
+  }
+
+  &__balloon-hours {
+    color: $gray-light;
+    font-weight: 400;
+
+    margin-bottom: 10px;
+  }
+
+  &__nearest-button {
+    display: flex;
+    justify-content: center;
+
+    border-color: $gray-border;
+
+    margin-bottom: 30px;
+  }
+
+  &__shops-list {
+    display: flex;
+
+    overflow-x: scroll;
+
+    padding: 0 0 20px 0;
+
+    column-gap: 20px;
+
+    scrollbar-width: auto;
+    scrollbar-color: $gray, $black-input;
+
+    &::-webkit-scrollbar {
+      height: 9px;
+      background: $black-input;
+      border-radius: 15px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      height: 100%;
+      width: auto;
+      background: $gray;
+      border-radius: 15px;
+
+      cursor: pointer;
+    }
+  }
+
+  &__shops-list-item {
+    display: grid;
+
+    width: 100%;
+    min-width: 290px;
+
+    color: $gray;
+    line-height: 140%;
+  }
+
+  &__shop-name {
+    font-size: 16px;
+    color: $white;
+    line-height: normal;
+
+    margin-bottom: 10px;
+  }
+
+  &__shop-tel {
+    margin-bottom: 10px;
+  }
+
+  &__show-route {
+    display: flex;
+    align-items: center;
+
+    text-transform: initial;
+    font-weight: 400;
+    color: $gray;
+
+    svg {
+      margin-right: 8px;
+      margin-bottom: 4px;
+    }
   }
 }
 </style>

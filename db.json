@@ -2232,5 +2232,183 @@
   ],
   "reports": [
 
+  ],
+  "map": [
+    {
+      "id": 0,
+      "city": "Москва",
+      "coords": [55.755386, 37.621560],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": true,
+        "knife": true,
+        "grill": true
+      },
+      "name": "Магазин PosudaMart",
+      "address": "г. Москва Ветошный переулок, дом 9, ТЦ Никольский пассаж",
+      "opening_hours": "Ежедневно с 10:00 до 21:00",
+      "tel": "8 (800) 555-57-35",
+      "email": "info@posudamart.ru"
+    },
+    {
+      "id": 1,
+      "city": "Москва",
+      "coords": [55.755558, 37.621659],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": false,
+        "knife": true,
+        "grill": false
+      },
+      "name": "Магазин REZATru",
+      "address": "г. Москва Ветошный пер., 9, ТЦ «Никольский пассаж», 3 этаж.",
+      "opening_hours": "Ежедневно с 10:00 до 21:00",
+      "tel": "+7-495-545-47-37",
+      "email": "info@rezat.ru"
+    },
+    {
+      "id": 2,
+      "city": "Москва",
+      "coords": [55.755208, 37.654977],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": false,
+        "knife": true,
+        "grill": false
+      },
+      "name": "Магазин ножей NOZHIKOV",
+      "address": "г. Москва Подсосенский переулок 23 стр 4. От станций метро Курская (кольцевая) и Чкаловская магазин находится в 2-4-х минутах ходьбы",
+      "opening_hours": "с 09.30 до 20.00 в будние дни; с 11.00 до 18.00 в субботу и воскресенье.",
+      "tel": "+7 (495) 268-13-34",
+      "email": "hello@nozhikov.ru"
+    },
+    {
+      "id": 3,
+      "city": "Одинцово",
+      "coords": [55.700816, 37.323931],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": false,
+        "knife": true,
+        "grill": true
+      },
+      "name": "Интернет магазин ножей ТД \"Кузнецы\"",
+      "address": "г. Одинцово, ул. Кутузовская, д 1",
+      "opening_hours": "ПН.-ПТ.: 10:00 - 19:00; СБ.: 11:00 - 16.00; Воскресенье: выходной.",
+      "tel": "8 (929) 613-45-47",
+      "email": "info@moscowknife.ru"
+    },
+    {
+      "id": 4,
+      "city": "Москва",
+      "coords": [55.621862, 37.783249],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": true,
+        "knife": true,
+        "grill": true
+      },
+      "name": "Фирменный магазин Tuotown Южные Ворота",
+      "address": "г. Москва, МКАД, 19-й километр, вл20с1",
+      "opening_hours": "c 8:00 до 18:00 Без выходных",
+      "tel": "89267663888",
+      "email": "tuotown@ya.ru"
+    },
+    {
+      "id": 5,
+      "city": "Тверь",
+      "coords": [56.868033, 35.901016],
+      "categories": {
+        "sharpening_stones": false,
+        "cutlery": true,
+        "knife": true,
+        "grill": false
+      },
+      "name": "Магазин \"МояПосуда\"",
+      "address": "г. Тверь, ул.Горького 72/4 магазин \"МояПосуда\"",
+      "opening_hours": "Пн-Сб 10:00 – 19:00 Вс 10:00 – 18:00",
+      "tel": "+7 (930) 161-62-12",
+      "email": null
+    },
+    {
+      "id": 6,
+      "city": "Тверь",
+      "coords": [56.844779, 35.916103],
+      "categories": {
+        "sharpening_stones": false,
+        "cutlery": true,
+        "knife": true,
+        "grill": false
+      },
+      "name": "Магазин \"МояПосуда\"",
+      "address": "г.Тверь ул.Александра Попова д.1, магазин \"МояПосуда\"",
+      "opening_hours": "Пн-Сб 10:00 – 19:00 Вс 10:00 – 18:00",
+      "tel": "+7 (930) 161-62-12",
+      "email": null
+    },
+    {
+      "id": 7,
+      "city": "Краснодар",
+      "coords": [45.102209, 38.983856],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": true,
+        "knife": true,
+        "grill": true
+      },
+      "name": "Магазин PosudaMart",
+      "address": "г. Краснодар ул. Дзержинского, 100, ТРЦ Красная Площадь, 3 этаж",
+      "opening_hours": "Ежедневно c 10:00 до 20:00",
+      "tel": "8 (800) 555-57-35",
+      "email": "info@posudamart.ru"
+    },
+    {
+      "id": 8,
+      "city": "Санкт-Петербург",
+      "coords": [59.862506, 30.211044],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": false,
+        "knife": true,
+        "grill": true
+      },
+      "name": "Магазин НожиMAN",
+      "address": "г. Санкт-Петербург, ул. Маршала Казакова д. 35, ТРК Юнона, магазин №530 НожиMAN.",
+      "opening_hours": "Ежедневно с 10:00 до 19:00.",
+      "tel": "8 800 250-78-09",
+      "email": "info@nozhiman.ru"
+    },
+    {
+      "id": 9,
+      "city": "Санкт-Петербург",
+      "coords": [59.851467, 30.310020],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": false,
+        "knife": true,
+        "grill": false
+      },
+      "name": "Магазин \"Империя ножей\"",
+      "address": "г. Санкт-Петербург Россия, Санкт-Петербург, Ленинский пр., д.155",
+      "opening_hours": "Ежедневно 10:00-20:00",
+      "tel": "+7 (931) 248-47-67",
+      "email": "sales@eknives.ru"
+    },
+    {
+      "id": 10,
+      "city": "Санкт-Петербург",
+      "coords": [59.942079, 30.280268],
+      "categories": {
+        "sharpening_stones": true,
+        "cutlery": true,
+        "knife": true,
+        "grill": true
+      },
+      "name": "Магазин PosudaMart",
+      "address": "г. Санкт-Петербург 6-я линия Васильевского острова, 25",
+      "opening_hours": "Ежедневно c 10:00 до 20:00",
+      "tel": "8 (800) 555-57-35",
+      "email": "info@posudamart.ru"
+    }
   ]
 }
