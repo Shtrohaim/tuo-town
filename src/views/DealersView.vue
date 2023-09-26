@@ -73,7 +73,7 @@
         v-if="isMarkerLoad"
         ref="map"
         class="dealers__map"
-        :coords="mainCoords"
+        :coords="shops[0].coords"
         :zoom="10"
         :controls="[]"
       >
@@ -102,7 +102,12 @@
       >
       <ul class="dealers__shops-list">
         <li class="dealers__shops-list-item p_hg" v-for="shop in shops" :key="shop.id">
-          <h3 @click="mainCoords = shop.coords" class="dealers__shop-name">{{ shop.name }}</h3>
+          <h3
+            @click="map.myMap.setCenter(shop.coords, 18, { duration: 500 })"
+            class="dealers__shop-name"
+          >
+            {{ shop.name }}
+          </h3>
           <p class="dealers__shop-address">{{ shop.address }}</p>
           <p class="dealers__shop-hours">{{ shop.opening_hours }}</p>
           <p class="dealers__shop-tel">{{ shop.tel }}</p>
@@ -115,7 +120,6 @@
         </li>
       </ul>
     </div>
-    <button @click="a">a</button>
   </main>
 </template>
 
@@ -143,7 +147,6 @@ const marker = {
   imageOffset: [-20, -40]
 }
 
-const mainCoords = ref()
 const search = ref('')
 
 const isMarkerLoad = ref(false)
@@ -169,7 +172,6 @@ const fetchMarkers = async () => {
   await mapServices.getMarkers().then((res) => {
     shops.value = res.data
     isMarkerLoad.value = true
-    mainCoords.value = res.data[0].coords
   })
 }
 
@@ -194,7 +196,9 @@ const geocoder = async () => {
   await ymaps.geocode(search.value).then((res) => {
     const firstGeoObject = res.geoObjects.get(0)
     const newCoords = firstGeoObject.geometry.getCoordinates()
-    mainCoords.value = newCoords
+    map.value.myMap.setCenter(newCoords, 10, {
+      duration: 500
+    })
   })
 }
 const getUserCoords = () => {
@@ -207,6 +211,7 @@ const getUserCoords = () => {
 }
 const showNearestShop = () => {
   getUserCoords()
+  if (myCoords.value.length === 0) return alert('Геоданные не подключены!')
   let lengthCoords = []
   for (let shop of shops.value) {
     lengthCoords.push(
@@ -216,10 +221,15 @@ const showNearestShop = () => {
       )
     )
   }
+
   let index = lengthCoords.indexOf(Math.min(...lengthCoords))
-  mainCoords.value = shops.value[index].coords
+  map.value.myMap.setCenter(shops.value[index].coords, 15, {
+    duration: 500
+  })
 }
 const setRoute = (coords: number[]) => {
+  getUserCoords()
+  if (myCoords.value.length === 0) return alert('Геоданные не подключены!')
   map.value.myMap.controls.add('routePanelControl', {
     maxWidth: 100
   })
@@ -248,7 +258,7 @@ watch(markerOptions.value, () => {
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .dealers {
   &__title {
     padding: 70px 0 30px 0;
@@ -288,7 +298,7 @@ watch(markerOptions.value, () => {
     color: $white;
   }
 
-  &__search-button {
+  .dealers__search-button {
     position: absolute;
     top: 50%;
     right: 15px;
@@ -304,7 +314,7 @@ watch(markerOptions.value, () => {
     margin-bottom: 20px;
   }
 
-  &__option-button {
+  .dealers__option-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -440,7 +450,7 @@ watch(markerOptions.value, () => {
     margin-bottom: 10px;
   }
 
-  &__nearest-button {
+  .dealers__nearest-button {
     display: flex;
     justify-content: center;
 
@@ -493,13 +503,17 @@ watch(markerOptions.value, () => {
     line-height: normal;
 
     margin-bottom: 10px;
+
+    &:active {
+      color: $red-active;
+    }
   }
 
   &__shop-tel {
     margin-bottom: 10px;
   }
 
-  &__show-route {
+  .dealers__show-route {
     display: flex;
     align-items: center;
 
