@@ -90,7 +90,14 @@
               >Сервис</router-link
             >
           </li>
-          <li class="sidebar__info-list-item"><a>Как проехать</a></li>
+          <li class="sidebar__info-list-item">
+            <router-link
+              class="sidebar__info-list-link"
+              @click="emits('closeSidebar')"
+              :to="{ path: '/dealers' }"
+              >Как проехать</router-link
+            >
+          </li>
         </ul>
       </div>
     </Transition>

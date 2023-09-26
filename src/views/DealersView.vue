@@ -100,6 +100,7 @@
           </ymap-marker>
         </div>
       </yandex-map>
+      <base-image v-else class="dealers__map" src=""></base-image>
       <base-button class="dealers__nearest-button" @onClick="showNearestShop"
         >Найти ближайший</base-button
       >
@@ -139,6 +140,7 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 
 import type { MapShopType, ShopCategoriesType } from '@/types/responseType'
 import type { MarkerOptionsType } from '@/types/mapType'
+import BaseImage from '@/components/ui/BaseImage.vue'
 
 const settings = {
   apiKey: 'd85b83e6-0670-4660-a8a2-b82073feda37',
@@ -408,6 +410,7 @@ watch(markerOptions.value, () => {
 
     filter: grayscale(1);
 
+    border-bottom: 1px solid transparent;
     border-radius: 15px;
 
     .ymaps-2-1-79-balloon {

@@ -1,11 +1,11 @@
 <template>
   <a href="#" class="article-card">
     <div class="article-card__wrapper">
-      <base-image :src="article.image" class="article-card__background" />
+      <base-image :src="props.article.image" class="article-card__background" />
       <div class="article-card__title-background">
-        <h3 class="article-card__title p_hg">{{ article.title }}</h3>
+        <h3 class="article-card__title p_hg">{{ props.article.title }}</h3>
       </div>
-      <span class="article-card__date p_sm">{{ getLocalDate(article.date) }}</span>
+      <span class="article-card__date p_sm">{{ getLocalDate(props.article.date) }}</span>
     </div>
   </a>
 </template>
