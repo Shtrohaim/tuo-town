@@ -8,7 +8,6 @@
             placeholder="Страна, город, улица..."
             class="dealers__input p_hg"
             v-model="search"
-            id="suggest"
           />
           <base-button class="dealers__search-button" @onClick="geocoder" :icon="true">
             <svg class="icon20 fill-gray">
@@ -20,7 +19,11 @@
           <li class="dealers__options-list-item">
             <base-button
               class="dealers__option-button dealers__option-button--all"
-              @onClick="Object.keys(markerOptions).forEach((item) => (markerOptions[item] = false))"
+              @onClick="
+                Object.keys(markerOptions).forEach(
+                  (item: keyof MarkerOptionsType) => (markerOptions[item] = false)
+                )
+              "
               :class="{ 'dealers__option-button--active': markerOptions.all }"
               :icon="true"
             >
@@ -73,7 +76,7 @@
         v-if="isMarkerLoad"
         ref="map"
         class="dealers__map"
-        :coords="shops[0].coords"
+        :coords="shops?.[0].coords"
         :zoom="10"
         :controls="[]"
       >
@@ -134,32 +137,8 @@ import mapServices from '@/services/mapServices'
 
 import BaseButton from '@/components/ui/BaseButton.vue'
 
-const map = ref()
-
-const myCoords = ref<number[]>([])
-
-const routePanelControl = ref()
-
-const marker = {
-  layout: 'default#imageWithContent',
-  imageHref: markerIcon,
-  imageSize: [40, 40],
-  imageOffset: [-20, -40]
-}
-
-const search = ref('')
-
-const isMarkerLoad = ref(false)
-
-const shops = ref()
-
-const markerOptions = ref({
-  all: true,
-  sharpening_stones: false,
-  cutlery: false,
-  knife: false,
-  grill: false
-})
+import type { MapShopType, ShopCategoriesType } from '@/types/responseType'
+import type { MarkerOptionsType } from '@/types/mapType'
 
 const settings = {
   apiKey: 'd85b83e6-0670-4660-a8a2-b82073feda37',
@@ -168,6 +147,30 @@ const settings = {
   version: '2.1'
 }
 
+const marker = {
+  layout: 'default#imageWithContent',
+  imageHref: markerIcon,
+  imageSize: [40, 40],
+  imageOffset: [-20, -40]
+}
+
+const markerOptions = ref<MarkerOptionsType>({
+  all: true,
+  sharpening_stones: false,
+  cutlery: false,
+  knife: false,
+  grill: false
+})
+
+const map = ref()
+const routePanelControl = ref()
+
+const myCoords = ref<number[]>([])
+const search = ref('')
+const isMarkerLoad = ref(false)
+
+const shops = ref<MapShopType[]>()
+
 const fetchMarkers = async () => {
   await mapServices.getMarkers().then((res) => {
     shops.value = res.data
@@ -175,9 +178,10 @@ const fetchMarkers = async () => {
   })
 }
 
-const checkOptions = (categories) => {
+const checkOptions = (categories: ShopCategoriesType) => {
   let isTrue = false
-  for (let option in categories) {
+  let option: keyof ShopCategoriesType
+  for (option in categories) {
     for (let option_marker in markerOptions.value) {
       if (
         option === option_marker &&
@@ -193,7 +197,7 @@ const checkOptions = (categories) => {
 
 const geocoder = async () => {
   if (search.value === '') return
-  await ymaps.geocode(search.value).then((res) => {
+  await ymaps.geocode(search.value).then((res: any) => {
     const firstGeoObject = res.geoObjects.get(0)
     const newCoords = firstGeoObject.geometry.getCoordinates()
     map.value.myMap.setCenter(newCoords, 10, {
@@ -213,6 +217,7 @@ const showNearestShop = () => {
   getUserCoords()
   if (myCoords.value.length === 0) return alert('Геоданные не подключены!')
   let lengthCoords = []
+  if (!shops.value) return
   for (let shop of shops.value) {
     lengthCoords.push(
       Math.sqrt(
@@ -223,7 +228,7 @@ const showNearestShop = () => {
   }
 
   let index = lengthCoords.indexOf(Math.min(...lengthCoords))
-  map.value.myMap.setCenter(shops.value[index].coords, 15, {
+  map.value.myMap.setCenter(shops.value?.[index].coords, 15, {
     duration: 500
   })
 }
@@ -254,7 +259,9 @@ watch(markerOptions.value, () => {
     markerOptions.value.all = false
   if (objectValues.every((item) => !item)) markerOptions.value.all = true
   if (objectValues.slice(1, objectLength).every((item) => item))
-    Object.keys(markerOptions.value).forEach((item) => (markerOptions.value[item] = false))
+    Object.keys(markerOptions.value).forEach(
+      (item: keyof MarkerOptionsType) => (markerOptions.value[item] = false)
+    )
 })
 </script>
 

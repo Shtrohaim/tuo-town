@@ -83,6 +83,25 @@ interface FilterType {
   ]
 }
 
+interface MapShopType {
+  id: number
+  address: string
+  city: string
+  coords: number[]
+  email: string
+  name: string
+  opening_hours: string
+  tel: string
+  categories: ShopCategoriesType
+}
+
+interface ShopCategoriesType {
+  cutlery: boolean
+  grill: boolean
+  knife: boolean
+  sharpening_stones: boolean
+}
+
 export type {
   PromoType,
   ProductsType,
@@ -92,5 +111,7 @@ export type {
   CatalogCategoryType,
   CatalogProductType,
   CatalogRecommendationType,
-  FilterType
+  FilterType,
+  MapShopType,
+  ShopCategoriesType
 }
