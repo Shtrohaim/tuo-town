@@ -143,7 +143,7 @@ import type { MarkerOptionsType } from '@/types/mapType'
 import BaseImage from '@/components/ui/BaseImage.vue'
 
 const settings = {
-  apiKey: 'd85b83e6-0670-4660-a8a2-b82073feda37',
+  apiKey: import.meta.env.VITE_MAP_API,
   lang: 'ru_RU',
   enterprise: true,
   version: '2.1'
