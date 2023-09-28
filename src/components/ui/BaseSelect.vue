@@ -1,5 +1,5 @@
 <template>
-  <div class="select">
+  <div class="select" :class="{ 'select--dark': dark }">
     <label class="select__label p_md">{{ label }}</label>
     <div class="select__wrapper" @click="isActive = !isActive">
       <input v-model="value.value" class="select__input p_md" readonly />
@@ -47,6 +47,10 @@ const props = defineProps({
   label: {
     type: String,
     required: false
+  },
+  dark: {
+    type: Boolean,
+    required: false
   }
 })
 
@@ -76,6 +80,30 @@ const changeValue = (newValue: SelectType) => {
   padding: 15px;
 
   width: 100%;
+
+  &--dark {
+    background: $cart-background-dark;
+
+    .select__input {
+      color: $white;
+    }
+
+    .select__dropdown {
+      background-color: $cart-input-background;
+    }
+
+    .select__dropdown-list-item {
+      color: $white;
+    }
+
+    .select__focus-border {
+      background: $white;
+    }
+
+    .select__list-item-border {
+      background-color: $border-line;
+    }
+  }
 
   &__label {
     display: block;
@@ -156,7 +184,7 @@ const changeValue = (newValue: SelectType) => {
     scrollbar-width: none;
     -ms-overflow-style: none;
 
-    z-index: 2;
+    z-index: 9999;
 
     &::-webkit-scrollbar {
       display: none;

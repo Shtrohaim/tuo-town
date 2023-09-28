@@ -1,5 +1,5 @@
 <template>
-  <div class="base-input">
+  <div class="base-input" :class="{ 'base-input--dark': dark }">
     <label class="base-input__label p_md">{{ label }}</label>
     <div class="base-input__wrapper">
       <input class="base-input__input p_md" v-model="value" :placeholder="placeholder" />
@@ -39,6 +39,10 @@ const props = defineProps({
   error: {
     type: String,
     default: ''
+  },
+  dark: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -59,6 +63,22 @@ const value = computed({
   padding: 15px;
 
   width: 100%;
+
+  &--dark {
+    background: $cart-input-background;
+
+    .base-input__label {
+      color: $gray;
+    }
+
+    .base-input__input {
+      color: $gray-light;
+    }
+
+    .base-input__focus-border {
+      background-color: $white;
+    }
+  }
 
   &__label {
     display: block;

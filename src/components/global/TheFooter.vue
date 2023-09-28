@@ -47,7 +47,9 @@
         <h3 class="footer__list-title h4">Информация</h3>
         <nav class="footer__nav">
           <ul class="footer__list p_hg">
-            <li class="footer__list-item"><a>Главная</a></li>
+            <li class="footer__list-item">
+              <router-link class="footer__list-link" :to="{ name: 'main' }">Главная</router-link>
+            </li>
             <li class="footer__list-item"><a>Новости</a></li>
             <li class="footer__list-item"><a>О компании</a></li>
             <li class="footer__list-item"><a>Контакты</a></li>

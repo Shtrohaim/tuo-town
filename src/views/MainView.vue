@@ -193,7 +193,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseSlider from '@/components/ui/BaseSlider.vue'
@@ -211,6 +211,8 @@ import AboutImage2 from '@/assets/images/about2.jpg'
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
 
+import { useRouter } from 'vue-router'
+
 import type {
   ProductsType,
   PromoType,
@@ -218,10 +220,9 @@ import type {
   CategoryType,
   PopularNewType
 } from '@/types/responseType'
-import { useRouter } from 'vue-router'
 
-const deviceWidth = window.innerWidth
-const deviceHeight = window.innerHeight
+const deviceWidth = ref(window.innerWidth)
+const deviceHeight = ref(window.innerHeight)
 
 const slides = ref<PromoType[]>()
 const products = ref<ProductsType[]>()
@@ -240,6 +241,12 @@ const tabIndex = ref(0)
 
 const router = useRouter()
 
+const resize = () => {
+  deviceWidth.value = window.innerWidth
+  deviceHeight.value = window.innerHeight
+}
+
+addEventListener('resize', resize)
 const changeTabIndex = (e: any) => {
   const elem = e.target
   const childList = elem.parentNode.children
@@ -278,6 +285,10 @@ onMounted(async () => {
   await fetchProducts()
   await fetchArticles()
   await fetchPopularAndNew()
+})
+
+onUnmounted(() => {
+  removeEventListener('resize', resize)
 })
 </script>
 

@@ -50,7 +50,7 @@
 </template>
 
 <script async setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 const props = defineProps({
   havePagination: Boolean,
@@ -71,6 +71,25 @@ const posFinal = ref(0)
 const posThreshold = ref(0)
 const inTransition = ref(false)
 
+const carouselBegin = ref()
+const carouselEnd = ref()
+
+const deviceWidth = ref(window.innerWidth)
+
+const resize = () => {
+  if (props.carousel) {
+    deviceWidth.value = window.innerWidth
+    width.value = deviceWidth.value
+    posThreshold.value = width.value * 0.35
+    carouselBegin.value.style.width = width.value + 'px'
+    carouselEnd.value = width.value + 'px'
+    translateX.value = -width.value
+    slide.value = 2
+  }
+}
+
+addEventListener('resize', resize)
+
 const pagination = (newSlide: number) => {
   if (!inTransition.value) {
     transitionTime.value = 400
@@ -86,7 +105,7 @@ const pagination = (newSlide: number) => {
 
 const filteredItems = computed(() => {
   let begin = 1
-  let step = window.innerWidth <= 640 ? 3 : 6
+  let step = deviceWidth.value <= 640 ? 3 : 6
   let end = step
   if (slide.value - 1 >= step && props.carousel) {
     begin = slide.value > slides.value ? slide.value - 3 : slide.value - 2
@@ -157,20 +176,24 @@ const swipeEnd = () => {
 
 onMounted(() => {
   width.value =
-    sliderContent.value.children[0].offsetWidth < window.innerWidth
+    sliderContent.value.children[0].offsetWidth < deviceWidth.value
       ? sliderContent.value.children[0].offsetWidth
-      : window.innerWidth
+      : deviceWidth.value
   posThreshold.value = width.value * 0.35
   setTimeout(() => {
     slides.value = sliderContent.value.children.length
     if (props.carousel) {
       translateX.value = -width.value
-      let carouselBegin = sliderContent.value.children[slides.value - 1].cloneNode(true)
-      let carouselEnd = sliderContent.value.children[0].cloneNode(true)
-      sliderContent.value.append(carouselEnd)
-      sliderContent.value.prepend(carouselBegin)
+      carouselBegin.value = sliderContent.value.children[slides.value - 1].cloneNode(true)
+      carouselEnd.value = sliderContent.value.children[0].cloneNode(true)
+      sliderContent.value.append(carouselEnd.value)
+      sliderContent.value.prepend(carouselBegin.value)
     }
   }, 500)
+})
+
+onUnmounted(() => {
+  removeEventListener('resize', resize)
 })
 
 watch(slide, () => {
