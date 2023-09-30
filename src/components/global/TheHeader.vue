@@ -31,9 +31,14 @@
           </defs>
         </svg>
       </router-link>
-      <svg class="header__shop icon24 fill-white">
-        <use href="@/assets/images/svg/shopIcon.svg#icon"></use>
-      </svg>
+      <router-link class="header__cart" :to="{ name: 'cart' }">
+        <svg class="icon24 fill-white">
+          <use href="@/assets/images/svg/shopIcon.svg#icon"></use>
+        </svg>
+        <span v-if="sessionStore.session?.total_count > 0" class="header__cart-count p_hg">{{
+          sessionStore.session.total_count
+        }}</span>
+      </router-link>
       <svg class="header__mail icon24 fill-none">
         <use href="@/assets/images/svg/mailIcon.svg#icon"></use>
       </svg>
@@ -45,11 +50,15 @@
 </template>
 
 <script setup lang="ts">
+import { useSessionStore } from '@/stores/session'
+
 const emits = defineEmits(['openSidebar'])
 
 const openSidebar = () => {
   emits('openSidebar')
 }
+
+const sessionStore = useSessionStore()
 </script>
 
 <style lang="scss" scoped>
@@ -66,7 +75,7 @@ const openSidebar = () => {
     padding: 10px 15px;
 
     display: grid;
-    grid-template-columns: 15% 15% 15% 55%;
+    grid-template-columns: 15% 15% 30% 40%;
   }
 
   &__menu {
@@ -98,15 +107,46 @@ const openSidebar = () => {
     justify-self: end;
   }
 
-  &__shop {
+  &__cart {
     grid-row-start: 1;
     grid-column-start: 3;
     grid-column-end: 4;
 
-    cursor: pointer;
+    display: flex;
+    align-items: center;
 
-    &:hover {
-      fill: $red-active;
+    &:active {
+      svg {
+        fill: $red-active;
+      }
+    }
+  }
+
+  &__cart-count {
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-weight: 500;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      background: $red-active;
+      border-radius: 50%;
+      margin: 0 3px;
+      transition: all 0.3s ease;
+    }
+
+    &:active {
+      color: $red-active;
+
+      &:before,
+      &:after {
+        background: $white;
+      }
     }
   }
 

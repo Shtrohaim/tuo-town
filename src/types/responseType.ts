@@ -1,3 +1,5 @@
+import type { SelectType } from '@/types/formType'
+
 interface PromoType {
   id: number
   image: string
@@ -102,6 +104,16 @@ interface ShopCategoriesType {
   sharpening_stones: boolean
 }
 
+interface CartProductType {
+  id: number
+  productId: number
+  sessionId: string
+  image: string
+  name: string
+  price: number
+  count: any
+}
+
 export type {
   PromoType,
   ProductsType,
@@ -113,5 +125,6 @@ export type {
   CatalogRecommendationType,
   FilterType,
   MapShopType,
-  ShopCategoriesType
+  ShopCategoriesType,
+  CartProductType
 }

@@ -2,14 +2,19 @@
   <router-link :to="{ path: `/product/${product.id}` }" class="product-card">
     <div class="product-card__wrapper">
       <base-image class="product-card__image" :src="`${product.image}`" :alt="product.name" />
-      <button @click.prevent.stop="" class="product-card__button" type="submit">
+      <base-button
+        :icon="true"
+        @click.prevent.stop="emits('onClick')"
+        class="product-card__button"
+        type="submit"
+      >
         <svg class="icon24 fill-white">
           <use href="@/assets/images/svg/plusIcon.svg#icon"></use>
         </svg>
         <svg class="icon20 fill-white product-card__shop-icon">
           <use href="@/assets/images/svg/shopIcon.svg#icon"></use>
         </svg>
-      </button>
+      </base-button>
     </div>
     <div class="product-card__info">
       <h3 class="p_sm product-card__name">{{ product.name }}</h3>
@@ -24,6 +29,7 @@ import BaseImage from '@/components/ui/BaseImage.vue'
 
 import type { ProductsType } from '@/types/responseType'
 import type { PropType } from 'vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
 
 const props = defineProps({
   product: {
@@ -31,6 +37,8 @@ const props = defineProps({
     required: true
   }
 })
+
+const emits = defineEmits(['onClick'])
 </script>
 
 <style scoped lang="scss">
@@ -90,6 +98,8 @@ const props = defineProps({
       width: 72px;
 
       z-index: 1;
+
+      border-radius: 27px;
 
       .product-card__shop-icon {
         display: block;

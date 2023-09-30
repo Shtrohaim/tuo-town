@@ -23,7 +23,7 @@ interface ServiceType {
 }
 
 interface SelectType {
-  value: string
+  value: number | string
   code: number
 }
 

@@ -24,7 +24,7 @@
     </Transition>
     <ul v-if="isLoad" class="products__list">
       <li class="products__list-item" v-for="product in products" :key="product.id">
-        <product-card :product="product"></product-card>
+        <product-card @onClick="emits('addProduct', product)" :product="product"></product-card>
       </li>
     </ul>
     <ul class="products__list" v-else>
@@ -87,7 +87,7 @@ const props = defineProps({
   }
 })
 
-const emits = defineEmits(['onUnmounted', 'onFiltered', 'onPagination'])
+const emits = defineEmits(['onUnmounted', 'onFiltered', 'onPagination', 'addProduct'])
 
 const router = useRouter()
 const route = useRoute()

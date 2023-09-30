@@ -22,6 +22,7 @@
         @onUnmounted="catalogUnmounted"
         @onFiltered="fetchFilteredProduct"
         @onPagination="fetchFilteredProduct"
+        @addProduct="addProduct"
       >
       </component>
     </router-view>
@@ -54,9 +55,13 @@ import BaseImage from '@/components/ui/BaseImage.vue'
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
 
-import type { CatalogRecommendationType } from '@/types/responseType'
+import type { CatalogRecommendationType, ProductsType } from '@/types/responseType'
+import cartServices from '@/services/cartServices'
+import { useSessionStore } from '@/stores/session'
 
 const route = useRoute()
+const sessionStorage = useSessionStore()
+
 const isLoad = ref({
   catalog: false,
   recommendations: false,
@@ -83,6 +88,10 @@ const fetchProductCatalog = async () => {
     isLoad.value.catalog = true
     isLoad.value.catalogHead = true
   })
+}
+
+const addProduct = async (product: ProductsType) => {
+  await cartServices.postCartProduct(product)
 }
 
 const fetchFilteredProduct = async () => {

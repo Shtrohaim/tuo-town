@@ -77,6 +77,18 @@ const value = computed({
 
     .base-input__focus-border {
       background-color: $white;
+
+      &--success {
+        width: 100%;
+
+        background-color: $border-success;
+      }
+
+      &--error {
+        width: 100%;
+
+        background-color: $red-active;
+      }
     }
   }
 

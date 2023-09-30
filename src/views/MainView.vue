@@ -71,7 +71,7 @@
           <category-card :category="category"></category-card>
         </li>
         <li class="main__recommendation-list-item" v-for="product in products" :key="product.id">
-          <product-card :product="product"></product-card>
+          <product-card @onClick="addProduct(product)" :product="product"></product-card>
         </li>
         <li class="main__recommendation-list-item main__recommendation-list-item--instagram">
           <a href="https://www.instagram.com/tuotown/" class="main__instagram-link">
@@ -121,7 +121,7 @@
           v-for="product in popularAndNew[tabIndex][Object.keys(popularAndNew[tabIndex])[0]]"
           :key="product.id"
         >
-          <product-card :product="product"></product-card>
+          <product-card @onClick="addProduct(product)" :product="product"></product-card>
         </li>
       </ul>
       <ul class="main__tab-content-list" v-else>
@@ -220,6 +220,8 @@ import type {
   CategoryType,
   PopularNewType
 } from '@/types/responseType'
+import cartServices from '@/services/cartServices'
+import { useSessionStore } from '@/stores/session'
 
 const deviceWidth = ref(window.innerWidth)
 const deviceHeight = ref(window.innerHeight)
@@ -241,6 +243,8 @@ const tabIndex = ref(0)
 
 const router = useRouter()
 
+const sessionStorage = useSessionStore()
+
 const resize = () => {
   deviceWidth.value = window.innerWidth
   deviceHeight.value = window.innerHeight
@@ -251,6 +255,10 @@ const changeTabIndex = (e: any) => {
   const elem = e.target
   const childList = elem.parentNode.children
   tabIndex.value = Array.from(childList).indexOf(elem)
+}
+
+const addProduct = async (product: ProductsType) => {
+  await cartServices.postCartProduct(product)
 }
 
 const fetchPromo = async () => {

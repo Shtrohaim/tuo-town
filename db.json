@@ -255,7 +255,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 3000,
       "new": true,
@@ -277,11 +282,11 @@
           "id": 333,
           "value": "58-60"
         },
-        "ff27":{
+        "ff27": {
           "name": "Материал клинка",
           "id": 256,
           "value": "VG-10, обкладка DAMASCUf38"
-          },
+        },
         "ff38": {
           "id": 315,
           "name": "Длина клинка",
@@ -307,7 +312,7 @@
           "id": 314,
           "value": "Накладной на хвостовик"
         },
-        "ff49":{
+        "ff49": {
           "name": "Толщина рукояти",
           "id": 79,
           "value": 2
@@ -320,7 +325,12 @@
       "image": "/src/assets/images/server/product/product1.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1600,
       "new": false,
@@ -385,7 +395,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 2300,
       "new": true,
@@ -450,7 +465,12 @@
       "image": "/src/assets/images/server/product/product1.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 800,
       "new": false,
@@ -515,7 +535,12 @@
       "image": "/src/assets/images/server/product/product1.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1600,
       "new": false,
@@ -580,7 +605,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1500,
       "new": false,
@@ -645,7 +675,12 @@
       "image": "/src/assets/images/server/product/product1.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1600,
       "new": false,
@@ -710,7 +745,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1299,
       "new": false,
@@ -775,7 +815,12 @@
       "image": "/src/assets/images/server/product/product1.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1300,
       "new": true,
@@ -840,7 +885,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1600,
       "new": false,
@@ -905,7 +955,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1240,
       "new": false,
@@ -970,7 +1025,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 5465,
       "new": false,
@@ -1035,7 +1095,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 3299,
       "new": false,
@@ -1057,7 +1122,7 @@
           "id": 333,
           "value": "58-60"
         },
-        "ff27":{
+        "ff27": {
           "name": "Материал клинка",
           "id": 256,
           "value": "VG-10, обкладка DAMASCUf38"
@@ -1087,7 +1152,7 @@
           "id": 314,
           "value": "Накладной на хвостовик"
         },
-        "ff49":{
+        "ff49": {
           "name": "Толщина рукояти",
           "id": 79,
           "value": 2
@@ -1100,7 +1165,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 4999,
       "new": false,
@@ -1165,7 +1235,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 3256,
       "new": false,
@@ -1230,7 +1305,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 2345,
       "new": false,
@@ -1295,7 +1375,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1234,
       "new": false,
@@ -1360,7 +1445,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 3299,
       "new": false,
@@ -1382,7 +1472,7 @@
           "id": 333,
           "value": "58-60"
         },
-        "ff27":{
+        "ff27": {
           "name": "Материал клинка",
           "id": 256,
           "value": "VG-10, обкладка DAMASCUf38"
@@ -1412,7 +1502,7 @@
           "id": 314,
           "value": "Накладной на хвостовик"
         },
-        "ff49":{
+        "ff49": {
           "name": "Толщина рукояти",
           "id": 79,
           "value": 2
@@ -1425,7 +1515,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 4999,
       "new": false,
@@ -1490,7 +1585,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 3256,
       "new": false,
@@ -1555,7 +1655,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 2345,
       "new": false,
@@ -1620,7 +1725,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1234,
       "new": false,
@@ -1685,7 +1795,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 2345,
       "new": false,
@@ -1750,7 +1865,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1234,
       "new": false,
@@ -1808,15 +1928,19 @@
           "value": 2
         }
       }
-    }
-  ,
+    },
     {
       "id": 24,
       "name": "Складной нож JJ001-TUO-B",
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 2345,
       "new": false,
@@ -1881,7 +2005,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1234,
       "new": false,
@@ -1946,7 +2075,12 @@
       "image": "/src/assets/images/server/product/product2.png",
       "background": "/src/assets/images/server/catalog/catalog1.webp",
       "description": "Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства",
-      "gallery": ["/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg", "/src/assets/images/server/product/gallery.jpg"],
+      "gallery": [
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg",
+        "/src/assets/images/server/product/gallery.jpg"
+      ],
       "scheme": "/src/assets/images/server/product/scheme.png",
       "price": 1234,
       "new": false,
@@ -2230,14 +2364,15 @@
       ]
     }
   ],
-  "reports": [
-
-  ],
+  "reports": [],
   "map": [
     {
       "id": 0,
       "city": "Москва",
-      "coords": [55.755386, 37.621560],
+      "coords": [
+        55.755386,
+        37.62156
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": true,
@@ -2253,7 +2388,10 @@
     {
       "id": 1,
       "city": "Москва",
-      "coords": [55.755558, 37.621659],
+      "coords": [
+        55.755558,
+        37.621659
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": false,
@@ -2269,7 +2407,10 @@
     {
       "id": 2,
       "city": "Москва",
-      "coords": [55.755208, 37.654977],
+      "coords": [
+        55.755208,
+        37.654977
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": false,
@@ -2285,7 +2426,10 @@
     {
       "id": 3,
       "city": "Одинцово",
-      "coords": [55.700816, 37.323931],
+      "coords": [
+        55.700816,
+        37.323931
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": false,
@@ -2301,7 +2445,10 @@
     {
       "id": 4,
       "city": "Москва",
-      "coords": [55.621862, 37.783249],
+      "coords": [
+        55.621862,
+        37.783249
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": true,
@@ -2317,7 +2464,10 @@
     {
       "id": 5,
       "city": "Тверь",
-      "coords": [56.868033, 35.901016],
+      "coords": [
+        56.868033,
+        35.901016
+      ],
       "categories": {
         "sharpening_stones": false,
         "cutlery": true,
@@ -2333,7 +2483,10 @@
     {
       "id": 6,
       "city": "Тверь",
-      "coords": [56.844779, 35.916103],
+      "coords": [
+        56.844779,
+        35.916103
+      ],
       "categories": {
         "sharpening_stones": false,
         "cutlery": true,
@@ -2349,7 +2502,10 @@
     {
       "id": 7,
       "city": "Краснодар",
-      "coords": [45.102209, 38.983856],
+      "coords": [
+        45.102209,
+        38.983856
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": true,
@@ -2365,7 +2521,10 @@
     {
       "id": 8,
       "city": "Санкт-Петербург",
-      "coords": [59.862506, 30.211044],
+      "coords": [
+        59.862506,
+        30.211044
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": false,
@@ -2381,7 +2540,10 @@
     {
       "id": 9,
       "city": "Санкт-Петербург",
-      "coords": [59.851467, 30.310020],
+      "coords": [
+        59.851467,
+        30.31002
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": false,
@@ -2397,7 +2559,10 @@
     {
       "id": 10,
       "city": "Санкт-Петербург",
-      "coords": [59.942079, 30.280268],
+      "coords": [
+        59.942079,
+        30.280268
+      ],
       "categories": {
         "sharpening_stones": true,
         "cutlery": true,
@@ -2409,6 +2574,32 @@
       "opening_hours": "Ежедневно c 10:00 до 20:00",
       "tel": "8 (800) 555-57-35",
       "email": "info@posudamart.ru"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "6784278775164",
+      "total_count": 2
+    }
+  ],
+  "cart-products": [
+    {
+      "productId": 0,
+      "sessionId": "6784278775164",
+      "image": "/src/assets/images/server/product/product2.png",
+      "name": "Складной нож JJ001-TUO-B",
+      "price": 3000,
+      "count": 1,
+      "id": 1
+    },
+    {
+      "productId": 3,
+      "sessionId": "6784278775164",
+      "image": "/src/assets/images/server/product/product1.png",
+      "name": "Складной нож SQ01-B",
+      "price": 800,
+      "count": 1,
+      "id": 2
     }
   ]
 }

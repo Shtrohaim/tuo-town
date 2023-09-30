@@ -1,7 +1,7 @@
 <template>
   <main class="cart container">
     <div class="cart__head">
-      <base-button class="cart__back-button" :icon="true">
+      <base-button @click="router.go(-1)" class="cart__back-button" :icon="true">
         <svg class="icon20 fill-gray">
           <use href="@/assets/images/svg/navArrowIcon.svg#icon"></use>
         </svg>
@@ -13,14 +13,14 @@
         <li
           class="cart__product-list-item p_md"
           v-for="(product, index) in products"
-          :key="product.id"
+          :key="product?.id"
         >
           <div class="cart__product" @click="activateModal(index)">
-            <base-image class="cart__product-image" :src="product.image"></base-image>
-            <span class="cart__product-name p_hg">{{ product.name }}</span>
-            <span class="cart__product-count p_hg">x{{ product.count.value }}</span>
+            <base-image class="cart__product-image" :src="product?.image"></base-image>
+            <span class="cart__product-name p_hg">{{ product?.name }}</span>
+            <span class="cart__product-count p_hg">x{{ product?.count.value }}</span>
             <select class="cart__product-select"></select>
-            <span class="cart__product-price p_hg">{{ product.cost }}</span>
+            <span class="cart__product-price p_hg">{{ product?.price }}</span>
           </div>
         </li>
       </ul>
@@ -31,7 +31,7 @@
             >{{ totalCount }} {{ declensionWord(totalCount, productDeclension) }}</span
           >
           <span class="p_hg cart__content-footer-name">К оплате:</span>
-          <span class="cart__content-footer-value p_hg">{{ priceTransform(totalCost) }}</span>
+          <span class="cart__content-footer-value p_hg">{{ priceTransform(totalPrice) }}</span>
         </div>
       </div>
     </div>
@@ -64,24 +64,31 @@
         >Для подтверждения заказа - введите ваши данные и мы перезвоним вам</span
       >
       <base-input
+        v-model="formData.name.value"
         class="cart__form-input"
         :dark="true"
         label="Получатель"
         placeholder="Имя Фамилия"
         :required="true"
+        :error="formErrors.errors?.name"
       ></base-input>
       <base-input
+        v-model="formData.tel.value"
+        @input="mask"
         class="cart__form-input"
         :dark="true"
         label="Мобильный телефон"
         placeholder="+7 (___) ___-__-__"
         :required="true"
+        :error="formErrors.errors?.tel"
       ></base-input>
       <base-input
+        v-model="formData.email.value"
         class="cart__form-input"
         :dark="true"
         label="E-mail"
         placeholder="Ваша почта"
+        :error="formErrors.errors?.email"
       ></base-input>
       <span class="cart__conditions p_sm"
         >Нажимая «Выбрать способ доставки», подтверждаю, что я ознакомлен с условиями
@@ -100,78 +107,128 @@
           class="cart__modal-select"
           v-model="products[activeProduct].count"
           :data="dataCount"
+          @update:modelValue="
+            updateProduct(products[activeProduct].id, products[activeProduct].count.value)
+          "
         />
         <span class="cart__modal-price p_hg">{{
-          priceTransform(products[activeProduct].cost * products[activeProduct].count.value)
+          priceTransform(products[activeProduct].price * products[activeProduct].count.value)
         }}</span>
       </div>
-      <base-button class="cart__modal-delete" :filled="true">Удалить</base-button>
+      <base-button
+        @onClick="deleteProduct(products[activeProduct].id)"
+        class="cart__modal-delete"
+        :filled="true"
+        >Удалить</base-button
+      >
     </base-modal>
   </main>
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseForm from '@/components/ui/BaseForm.vue'
 import BaseInput from '@/components/ui/BaseInput.vue'
 import BaseImage from '@/components/ui/BaseImage.vue'
-import textTransform from '../utils/textTransform'
-import { computed, ref } from 'vue'
 import BaseSelect from '@/components/ui/BaseSelect.vue'
 import BaseModal from '@/components/ui/BaseModal.vue'
 
+import textTransform from '@/utils/textTransform'
+import validation from '@/utils/validation'
+import telMask from '@/utils/mask'
+import cartServices from '@/services/cartServices'
+
+import { useSessionStore } from '@/stores/session'
+
+import type { CartProductType } from '@/types/responseType'
+import type { SelectType, ServiceType } from '@/types/formType'
+
 const { declensionWord, priceTransform } = textTransform()
+const { fieldValidation } = validation()
+
+const router = useRouter()
+
+const store = useSessionStore()
 
 const productDeclension = ['товар', 'товара', 'товаров']
 
-const products = ref([
-  {
-    id: 0,
-    name: 'Нож классного качества Knight light C653',
-    image: 'src/assets/images/server/product/product1.png',
-    cost: 2500,
-    count: {
-      code: 1,
-      value: 1
-    },
-    sessionId: '6wuv3whig1sphfo2335rd0tkk4imj098'
+const formData = ref({
+  email: {
+    value: undefined,
+    required: false
   },
-  {
-    id: 1,
-    name: 'Нож Knight light C653',
-    image: 'src/assets/images/server/product/product2.png',
-    cost: 800,
-    count: {
-      code: 2,
-      value: 2
-    },
-    sessionId: '6wuv3whig1sphfo2335rd0tkk4imj098'
+  tel: {
+    value: undefined,
+    required: true
   },
-  {
-    id: 1,
-    name: 'Нож Knight light C653',
-    image: 'src/assets/images/server/product/product2.png',
-    cost: 800,
-    count: {
-      code: 2,
-      value: 12
-    },
-    sessionId: '6wuv3whig1sphfo2335rd0tkk4imj098'
+  name: {
+    value: undefined,
+    required: true
   }
-])
+} as ServiceType)
+
+const formErrors = ref({
+  countErrors: 0,
+  errors: {} as any
+})
+
+const products = ref<CartProductType[]>([])
 
 const activeProduct = ref(0)
 const modalActive = ref(false)
 
 const dataCount = computed(() => {
-  let count = []
+  let count = [] as SelectType[]
   for (let i = 1; i <= 6; i++) {
     count.push({ code: i, value: i })
   }
   return count
 })
 
-const activateModal = (index) => {
+const totalPrice = computed(() => {
+  let price = 0
+  products.value.forEach((item) => {
+    price += item.price * item.count.value
+  })
+  return price
+})
+
+const totalCount = computed(() => {
+  let count = 0
+  products.value.forEach((item: CartProductType) => {
+    count += item.count.value
+  })
+  return count
+})
+const fetchProducts = async () => {
+  await cartServices.getCartProducts().then((res) => {
+    products.value = res.data
+    products.value.forEach((item: CartProductType) => {
+      item.count = {
+        code: item.count,
+        value: item.count
+      }
+    })
+  })
+}
+
+const updateProduct = async (id: number, count: number) => {
+  store.updateCount(totalCount.value)
+  await cartServices.patchCartProduct(id, count)
+}
+
+const deleteProduct = async (id: number) => {
+  modalActive.value = false
+  products.value = products.value.filter((item) => {
+    return item.id !== id
+  })
+  store.updateCount(totalCount.value)
+  await cartServices.deleteCartProduct(id)
+}
+const activateModal = (index: number) => {
   document.querySelector('body').style.overflow = 'hidden'
   activeProduct.value = index
   modalActive.value = true
@@ -182,20 +239,16 @@ const closeModal = () => {
   modalActive.value = false
 }
 
-const totalCount = computed(() => {
-  let count = 0
-  for (let product of products.value) {
-    count += product.count.value
-  }
-  return count
+const mask = () => {
+  formData.value.tel.value = telMask(formData.value.tel.value)
+}
+
+onMounted(async () => {
+  await fetchProducts()
 })
 
-const totalCost = computed(() => {
-  let cost = 0
-  for (let product of products.value) {
-    cost += product.cost * product.count.value
-  }
-  return cost
+watch(formData.value, () => {
+  formErrors.value = fieldValidation(formData.value)
 })
 </script>
 
@@ -273,7 +326,7 @@ const totalCost = computed(() => {
 
   &__modal-image {
     width: 70%;
-    margin: 0 auto;
+    margin: 0 auto 10px;
   }
 
   &__modal-info {
