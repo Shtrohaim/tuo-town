@@ -73,14 +73,21 @@ const router = useRouter()
 const page = ref(1)
 const limit = ref(8)
 
-page.value =
-  Number(route.query.page) && String(route.query.page).trim() !== '' ? Number(route.query.page) : 1
 limit.value =
   Number(route.query.limit) && String(route.query.page).trim() !== ''
     ? Number(route.query.limit)
     : 8
 
+page.value =
+  Number(route.query.page) &&
+  String(route.query.page).trim() !== '' &&
+  Number(route.query.page) >= 1
+    ? Number(route.query.page)
+    : 1
+
 const totalPages = Math.ceil(props.totalItems / limit.value)
+
+page.value = page.value > totalPages ? totalPages : page.value
 const onPagination = async () => {
   await router.push({ query: { ...route.query, page: page.value, limit: limit.value } })
   emits('onPagination')

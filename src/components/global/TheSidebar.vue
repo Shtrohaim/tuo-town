@@ -12,7 +12,7 @@
               <use href="@/assets/images/svg/mailIcon.svg#icon"></use>
             </svg>
           </a>
-          <the-search class="sidebar__search"></the-search>
+          <base-search v-model="search" @onSubmit="onSearch" class="sidebar__search"></base-search>
         </div>
         <base-button class="sidebar__close-button" @onClick="emits('closeSidebar')" :icon="true">
           <svg class="icon24 fill-white">
@@ -105,11 +105,22 @@
 </template>
 
 <script setup lang="ts">
-import TheSearch from '@/components/ui/BaseSearch.vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
+import { ref } from 'vue'
 
+import BaseSearch from '@/components/ui/BaseSearch.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const deviceWidth = window.innerWidth
 const emits = defineEmits(['closeSidebar'])
+
+const search = ref('')
+
+const onSearch = () => {
+  emits('closeSidebar')
+  router.push({ name: 'search', query: { search: search.value, page: 1, limit: 8 } })
+}
 </script>
 
 <style scoped lang="scss">

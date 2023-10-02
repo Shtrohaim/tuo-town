@@ -13,6 +13,9 @@ export default {
   async getFilteredProduct(params: any) {
     return await axios.get(`/products?categoryId=${params.id}${params.filter}`)
   },
+  async getSearchingProduct(params: any) {
+    return await axios.get(`/products?${params.filter}`)
+  },
   async getProductFilter(id: number) {
     return await axios.get(`/filter/${id}`)
   },

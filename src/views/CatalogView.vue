@@ -1,6 +1,6 @@
 <template>
   <main class="catalog">
-    <div class="catalog__banner container">
+    <div class="catalog__banner container" v-if="route.name !== 'search'">
       <h1 v-if="isLoad.catalogHead" class="catalog__title h3">{{ catalog?.title }}</h1>
       <h1 v-else class="catalog__title h3">Католог TuoTown</h1>
       <p v-if="isLoad.catalogHead" class="catalog__description p_hg">{{ catalog?.description }}</p>
@@ -10,6 +10,7 @@
         :src="`${catalog?.image}`"
       />
     </div>
+    <div class="catalog__search h3" v-else>Поиск по запросу: {{ route.query.search }}</div>
     <router-view v-slot="{ Component }" class="catalog__content">
       <component
         :is="Component"
@@ -20,8 +21,8 @@
         :filterLoad="isLoad.filter"
         :totalItems="totalItems"
         @onUnmounted="catalogUnmounted"
-        @onFiltered="fetchFilteredProduct"
-        @onPagination="fetchFilteredProduct"
+        @onFiltered="onProductsChange"
+        @onPagination="onProductsChange"
         @addProduct="addProduct"
       >
       </component>
@@ -46,7 +47,7 @@
   </main>
 </template>
 <script setup lang="ts">
-import { onMounted, onUpdated, ref, watch } from 'vue'
+import { computed, onMounted, onUpdated, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BaseSlider from '@/components/ui/BaseSlider.vue'
@@ -57,10 +58,8 @@ import recommendationService from '@/services/recommendationService'
 
 import type { CatalogRecommendationType, ProductsType } from '@/types/responseType'
 import cartServices from '@/services/cartServices'
-import { useSessionStore } from '@/stores/session'
 
 const route = useRoute()
-const sessionStorage = useSessionStore()
 
 const isLoad = ref({
   catalog: false,
@@ -74,6 +73,15 @@ const catalog = ref<any>()
 const slides = ref<CatalogRecommendationType[]>()
 const filter = ref<any[]>()
 const totalItems = ref(0)
+const search = ref('')
+
+const onProductsChange = async () => {
+  if (route.name === 'search') {
+    await fetchSearchingProducts()
+  } else {
+    await fetchFilteredProduct()
+  }
+}
 const fetchCategoryCatalog = async () => {
   await productsServices.getCategoryCatalog(catalog_id.value).then((res) => {
     catalog.value = res.data
@@ -94,30 +102,41 @@ const addProduct = async (product: ProductsType) => {
   await cartServices.postCartProduct(product)
 }
 
-const fetchFilteredProduct = async () => {
+const stringFilter = computed(() => {
   const queryFilter = route.query
-  isLoad.value.catalog = false
-  let stringFilter = ''
+  let filterStr = ''
   for (let item in queryFilter) {
-    if (item === 'min_price') stringFilter += `&price_gte=${queryFilter[item]}`
-    else if (item === 'max_price') stringFilter += `&price_lte=${queryFilter[item]}`
-    else if (item === 'ff1') stringFilter += `&image_ne=null`
-    else if (item === 'page') stringFilter += `&_page=${queryFilter[item]}`
-    else if (item === 'limit') stringFilter += `&_limit=${queryFilter[item]}`
-    else if (String(queryFilter[item]).trim() !== '') {
+    if (item === 'min_price') filterStr += `&price_gte=${queryFilter[item]}`
+    else if (item === 'max_price') filterStr += `&price_lte=${queryFilter[item]}`
+    else if (item === 'search') filterStr += `&name_like=${queryFilter[item]}`
+    else if (item === 'ff1') filterStr += `&image_ne=null`
+    else if (item === 'page') {
+      if (Math.ceil(totalItems.value / Number(route.query.limit)) < Number(route.query.page)) {
+        filterStr += `&_page=${Math.ceil(totalItems.value / Number(route.query.limit))}`
+      } else {
+        filterStr += Number(queryFilter[item]) < 1 ? '&_page=1' : `&_page=${queryFilter[item]}`
+      }
+    } else if (item === 'limit') {
+      filterStr += Number(queryFilter[item]) < 1 ? '&_limit=8' : `&_limit=${queryFilter[item]}`
+    } else if (String(queryFilter[item]).trim() !== '') {
       if (Array.isArray(queryFilter[item])) {
         for (let i in queryFilter[item] as any) {
-          stringFilter += `&characteristics.${item}.id=${queryFilter[item]?.[i]}`
+          filterStr += `&characteristics.${item}.id=${queryFilter[item]?.[i]}`
         }
-      } else stringFilter += `&${item}=${queryFilter[item]}`
+      } else filterStr += `&${item}=${queryFilter[item]}`
     }
   }
-  if (stringFilter === '') {
-    stringFilter += '&_page=1&_limit=8'
+  if (filterStr === '') {
+    filterStr += '&_page=1&_limit=8'
   }
 
+  return filterStr
+})
+
+const fetchFilteredProduct = async () => {
+  isLoad.value.catalog = false
   await productsServices
-    .getFilteredProduct({ id: catalog_id.value, filter: stringFilter })
+    .getFilteredProduct({ id: catalog_id.value, filter: stringFilter.value })
     .then((res) => {
       catalog.value.products = res.data
       totalItems.value = res.headers['x-total-count']
@@ -125,8 +144,21 @@ const fetchFilteredProduct = async () => {
     })
 }
 
-const fetchProductFilter = async () => {
-  await productsServices.getProductFilter(catalog_id.value).then((res) => {
+const fetchSearchingProducts = async () => {
+  isLoad.value.catalog = false
+  await productsServices.getSearchingProduct({ filter: stringFilter.value }).then(async (res) => {
+    catalog.value = { products: [] }
+    catalog.value.products = res.data
+    totalItems.value = res.headers['x-total-count']
+    isLoad.value.catalog = true
+    if (catalog.value.products.length !== 0) {
+      await fetchProductFilter(catalog.value.products[0].categoryId)
+    }
+  })
+}
+
+const fetchProductFilter = async (id: number) => {
+  await productsServices.getProductFilter(id).then((res) => {
     filter.value = res.data
     isLoad.value.filter = true
   })
@@ -143,17 +175,21 @@ const catalogUnmounted = async () => {
   catalog_id.value = Number(route.params.id)
   if (route.name === 'category') {
     await fetchCategoryCatalog()
-  }
-
-  if (route.name === 'products') {
+  } else if (route.name === 'products') {
     await fetchProductCatalog()
     await fetchFilteredProduct()
-    await fetchProductFilter()
+    await fetchProductFilter(catalog_id.value)
+  } else if (route.name === 'search') {
+    await fetchSearchingProducts()
   }
 }
 
 watch(catalog_id, async () => {
   await catalogUnmounted()
+})
+
+watch(search, async () => {
+  await fetchSearchingProducts()
 })
 
 onpopstate = async () => {
@@ -163,6 +199,7 @@ onpopstate = async () => {
 
 onUpdated(() => {
   catalog_id.value = Number(route.params.id)
+  if (route.query.search) search.value = String(route.query.search)
 })
 
 onMounted(async () => {
@@ -215,6 +252,11 @@ onMounted(async () => {
     z-index: 0;
 
     filter: brightness(60%);
+  }
+
+  &__search {
+    padding: 50px 15px 0 15px;
+    color: $white;
   }
 
   &__recommendation {

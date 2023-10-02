@@ -37,6 +37,11 @@ const router = createRouter({
           path: 'products/:id',
           name: 'products',
           component: CatalogProducts
+        },
+        {
+          path: 'products',
+          name: 'search',
+          component: CatalogProducts
         }
       ]
     },

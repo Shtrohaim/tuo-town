@@ -1,22 +1,40 @@
 <template>
-  <form class="search">
-    <input ref="searchBar" placeholder="Поиск" class="search__input p_md" />
+  <base-form class="search" @onSubmit="onSubmit">
+    <input v-model="value" ref="searchBar" placeholder="Поиск" class="search__input p_md" />
     <base-button :icon="true" @onClick="onSubmit" class="search__button">
       <svg class="icon24 fill-none stroke-white">
         <use href="@/assets/images/svg/searchIcon.svg#icon"></use>
       </svg>
     </base-button>
-  </form>
+  </base-form>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
+import BaseForm from '@/components/ui/BaseForm.vue'
+
+const props = defineProps({
+  modelValue: {
+    type: String,
+    default: ''
+  }
+})
+
+const emits = defineEmits(['update:modelValue', 'onSubmit'])
 
 const searchBar = ref()
+
+const value = computed({
+  get: () => props.modelValue,
+  set: (newValue) => emits('update:modelValue', newValue.trim())
+})
+
 const onSubmit = () => {
-  if (!searchBar.value.value.trim()) {
+  if (!value.value) {
     searchBar.value.focus()
+  } else {
+    emits('onSubmit')
   }
 }
 </script>
@@ -28,6 +46,9 @@ const onSubmit = () => {
   min-width: 24px;
   border-radius: 27px;
   border: none;
+
+  background: transparent;
+  padding: 0;
 
   &:hover,
   &:focus-within {

@@ -22,16 +22,17 @@
         </div>
       </div>
     </Transition>
-    <ul v-if="isLoad" class="products__list">
+    <ul v-if="products.length > 0 && isLoad" class="products__list">
       <li class="products__list-item" v-for="product in products" :key="product.id">
         <product-card @onClick="emits('addProduct', product)" :product="product"></product-card>
       </li>
     </ul>
-    <ul class="products__list" v-else>
+    <ul class="products__list" v-else-if="!isLoad">
       <li class="products__list-item" v-for="n in 8" :key="n">
         <skeleton-products></skeleton-products>
       </li>
     </ul>
+    <div class="products__not-found h4" v-else>Товар с такими характеристиками отсутсвует</div>
     <base-button
       v-if="limit < totalItems"
       @onClick="showMore"
@@ -67,7 +68,8 @@ import { useRoute, useRouter } from 'vue-router'
 const props = defineProps({
   products: {
     type: Array as PropType<ProductsType[]>,
-    required: true
+    required: true,
+    default: () => []
   },
   filter: {
     type: Array as PropType<FilterType[]>,
@@ -133,6 +135,12 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .products {
   display: grid;
+
+  &__not-found {
+    color: $white;
+    padding-bottom: 30px;
+    text-align: center;
+  }
 
   &__open-filter {
     display: flex;
