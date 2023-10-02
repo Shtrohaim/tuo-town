@@ -32,7 +32,15 @@
         <skeleton-products></skeleton-products>
       </li>
     </ul>
-    <div class="products__not-found h4" v-else>Товар с такими характеристиками отсутсвует</div>
+    <div class="products__not-found h4" v-else>
+      <svg class="icon36">
+        <use href="@/assets/images/svg/shopIcon.svg#icon"></use>
+      </svg>
+      <h3 class="h4 products__not-found-title">Товары не найдены</h3>
+      <p class="p_hg products__not-found-description">
+        Вы можете изменить настройки фильтра, или воспользоваться поиском. Желаем приятных покупок!
+      </p>
+    </div>
     <base-button
       v-if="limit < totalItems"
       @onClick="showMore"
@@ -138,8 +146,18 @@ onUnmounted(() => {
 
   &__not-found {
     color: $white;
-    padding-bottom: 30px;
+    padding: 30px 15px;
     text-align: center;
+
+    border: 1px solid $gray-border;
+
+    svg {
+      fill: $red-active;
+    }
+  }
+
+  &__not-found-title {
+    margin-bottom: 15px;
   }
 
   &__open-filter {
