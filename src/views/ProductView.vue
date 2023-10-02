@@ -123,7 +123,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, markRaw, onMounted, onUpdated, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BaseImage from '@/components/ui/BaseImage.vue'
@@ -155,9 +155,10 @@ const accessories = ref({
   products: [] as ProductsType[]
 })
 const seeAlso = ref<ProductsType[]>()
+const productId = ref(Number(route.params.id))
 
 const fetchProduct = async () => {
-  await productsServices.getProduct(Number(route.params.id)).then((res) => {
+  await productsServices.getProduct(productId.value).then((res) => {
     product.value = res.data
     isLoad.value.product = true
   })
@@ -192,6 +193,15 @@ const characteristics = computed(() => {
   return Object.entries(product.value.characteristics)
     .slice(0, characteristicCount.value)
     .map((entry) => entry[1])
+})
+
+watch(productId, async () => {
+  await fetchProduct()
+  await fetchRecommendation()
+})
+
+onUpdated(() => {
+  productId.value = Number(route.params.id)
 })
 
 onMounted(async () => {
