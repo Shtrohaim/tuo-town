@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <base-form class="cart__form">
+    <base-form @onSubmit="sendOrder" class="cart__form">
       <span class="cart__form-title h4"
         >Для подтверждения заказа - введите ваши данные и мы перезвоним вам</span
       >
@@ -96,7 +96,9 @@
         <a class="cart__conditions-link" href="#">Политикой конфиденциальности</a>, а также согласен
         получать информационную рассылку</span
       >
-      <base-button :filled="true" class="cart__submit-button">Отправить форму</base-button>
+      <base-button @onClick="sendOrder" :filled="true" class="cart__submit-button"
+        >Отправить форму</base-button
+      >
     </base-form>
     <base-modal class="cart__modal" v-if="modalActive" @closeModal="closeModal">
       <base-image class="cart__modal-image" :src="products[activeProduct].image"></base-image>
@@ -213,6 +215,24 @@ const fetchProducts = async () => {
       }
     })
   })
+}
+
+const sendOrder = async () => {
+  formErrors.value = fieldValidation(formData.value)
+  const productsId = products.value.map((item: CartProductType) => item.id)
+  const sendData = {} as any
+  let item: keyof ServiceType
+  for (item in formData.value) {
+    if (formData.value?.[item].value === undefined) formData.value[item].value = ''
+    else sendData[item] = formData.value?.[item].value
+  }
+  if (!formErrors.value.countErrors) {
+    await cartServices.postCartOrder({
+      ...sendData,
+      sessionId: localStorage.sessionId,
+      products: productsId
+    })
+  }
 }
 
 const updateProduct = async (id: number, count: number) => {

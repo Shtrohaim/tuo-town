@@ -47,5 +47,8 @@ export default {
   async deleteCartProduct(id: number) {
     await sessionServices.patchTotalCount()
     return await axios.delete(`/cart-products/${id}`)
+  },
+  async postCartOrder(data: any) {
+    return await axios.post(`/order`, data)
   }
 }
