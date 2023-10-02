@@ -34,6 +34,8 @@ interface ArticleType {
   title: string
   image: string
   date: string
+  description: string
+  gallery: string[]
 }
 
 interface CategoryType {

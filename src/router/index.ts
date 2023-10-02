@@ -10,6 +10,11 @@ import ServiceOther from '@/components/service/ServiceOther.vue'
 import ProductView from '@/views/ProductView.vue'
 import DealersView from '@/views/DealersView.vue'
 import CartView from '@/views/CartView.vue'
+import ContactsView from '@/views/ContactsView.vue'
+import AboutView from '@/views/AboutView.vue'
+import NewsView from '@/views/NewsView.vue'
+import ArticlesList from '@/components/articles/ArticlesList.vue'
+import ArticleContent from '@/components/articles/ArticleContent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -106,6 +111,33 @@ const router = createRouter({
       path: '/cart',
       name: 'cart',
       component: CartView
+    },
+    {
+      path: '/contacts',
+      name: 'contacts',
+      component: ContactsView
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutView
+    },
+    {
+      path: '/news',
+      name: 'news',
+      component: NewsView,
+      children: [
+        {
+          path: '',
+          name: 'newsList',
+          component: ArticlesList
+        },
+        {
+          path: '/news/:id',
+          name: 'article',
+          component: ArticleContent
+        }
+      ]
     }
   ]
 })

@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="article-card">
+  <router-link :to="{ name: 'article', params: { id: article.id } }" class="article-card">
     <div class="article-card__wrapper">
       <base-image :src="article.image" class="article-card__background" />
       <div class="article-card__title-background">
@@ -7,7 +7,7 @@
       </div>
       <span class="article-card__date p_sm">{{ getLocalDate(article.date) }}</span>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">
@@ -57,6 +57,8 @@ const props = defineProps({
     top: 0;
     left: 0;
     z-index: 0;
+
+    transition: all 0.3s ease;
   }
 
   &__title {
@@ -98,6 +100,10 @@ const props = defineProps({
   }
 
   &:hover {
+    .article-card__background {
+      filter: brightness(30%);
+    }
+
     .article-card__title-background {
       background-position: 0 100%;
     }

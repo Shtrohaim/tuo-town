@@ -178,22 +178,16 @@
     </section>
     <section class="main__articles container">
       <h2 class="main__articles-title h3">Всё самое интересное о ножах</h2>
-      <ul v-if="isLoad.articles" class="main__articles-list">
-        <li class="main__articles-list-item" v-for="article in articles" :key="article.id">
-          <article-card :article="article"></article-card>
-        </li>
-      </ul>
-      <ul class="main__articles-list" v-else>
-        <li class="main__articles-list-item" v-for="n in 3" :key="n">
-          <skeleton-category></skeleton-category>
-        </li>
-      </ul>
+      <articles-list class="main__articles-list" :listLoad="isLoad.articles" :articles="articles" />
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+import { useSessionStore } from '@/stores/session'
 
 import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseSlider from '@/components/ui/BaseSlider.vue'
@@ -210,8 +204,8 @@ import AboutImage2 from '@/assets/images/about2.jpg'
 
 import productsServices from '@/services/productsServices'
 import recommendationService from '@/services/recommendationService'
-
-import { useRouter } from 'vue-router'
+import cartServices from '@/services/cartServices'
+import articlesServices from '@/services/articlesServices'
 
 import type {
   ProductsType,
@@ -220,8 +214,7 @@ import type {
   CategoryType,
   PopularNewType
 } from '@/types/responseType'
-import cartServices from '@/services/cartServices'
-import { useSessionStore } from '@/stores/session'
+import ArticlesList from '@/components/articles/ArticlesList.vue'
 
 const deviceWidth = ref(window.innerWidth)
 const deviceHeight = ref(window.innerHeight)
@@ -242,8 +235,6 @@ const popularAndNew = ref<PopularNewType[]>()
 const tabIndex = ref(0)
 
 const router = useRouter()
-
-const sessionStorage = useSessionStore()
 
 const resize = () => {
   deviceWidth.value = window.innerWidth
@@ -268,7 +259,7 @@ const fetchPromo = async () => {
   })
 }
 const fetchArticles = async () => {
-  await recommendationService.getArticlesRecommendation().then((res) => {
+  await articlesServices.getArticlesRecommendation().then((res) => {
     articles.value = res.data
     isLoad.value.articles = true
   })
@@ -540,17 +531,6 @@ onUnmounted(() => {
     color: $white;
 
     margin-bottom: 30px;
-  }
-
-  &__articles-list {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-
-    row-gap: 30px;
-
-    width: 100%;
   }
 }
 </style>

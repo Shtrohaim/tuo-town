@@ -7,9 +7,6 @@ export default {
   async getProductRecommendation() {
     return await axios.get(`/products-recommendation`)
   },
-  async getArticlesRecommendation() {
-    return await axios.get(`/articles`)
-  },
   async getCatalogRecommendation() {
     return await axios.get(`/catalog-recommendation`)
   },

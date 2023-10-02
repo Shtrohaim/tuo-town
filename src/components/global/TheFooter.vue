@@ -50,9 +50,19 @@
             <li class="footer__list-item">
               <router-link class="footer__list-link" :to="{ name: 'main' }">Главная</router-link>
             </li>
-            <li class="footer__list-item"><a>Новости</a></li>
-            <li class="footer__list-item"><a>О компании</a></li>
-            <li class="footer__list-item"><a>Контакты</a></li>
+            <li class="footer__list-item">
+              <router-link class="footer__list-link" :to="{ path: '/news' }">Новости</router-link>
+            </li>
+            <li class="footer__list-item">
+              <router-link class="footer__list-link" :to="{ path: '/about' }"
+                >О компании</router-link
+              >
+            </li>
+            <li class="footer__list-item">
+              <router-link class="footer__list-link" :to="{ path: '/contacts' }"
+                >Контакты</router-link
+              >
+            </li>
             <li class="footer__list-item">
               <router-link class="footer__list-link" :to="{ path: '/service' }">Сервис</router-link>
             </li>
