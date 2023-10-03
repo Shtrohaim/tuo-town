@@ -108,13 +108,14 @@ const filteredItems = computed(() => {
   let step = deviceWidth.value <= 640 ? 3 : 6
   let end = step
   if (slide.value - 1 >= step && props.carousel) {
-    begin = slide.value > slides.value ? slide.value - 3 : slide.value - 2
+    begin = slide.value > slides.value ? slide.value - step : slide.value - step + 1
     end = slide.value + 1 > slides.value ? slides.value : slide.value
   }
   if (slide.value >= step && !props.carousel) {
     begin = slide.value >= slides.value ? slide.value - 2 : slide.value - 1
     end = slide.value + 1 > slides.value ? slides.value : slide.value + 1
   }
+
   return Array.from({ length: end - begin + 1 }, (value, index) => begin + index)
 })
 const touchStartMethod = (event: any) => {
