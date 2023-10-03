@@ -46,6 +46,10 @@ const emits = defineEmits(['onClick'])
   position: relative;
   display: inline-block;
 
+  @media (min-width: 768px) {
+    height: 453px;
+  }
+
   &:hover {
     .product-card__name {
       color: $red-active;
@@ -66,6 +70,14 @@ const emits = defineEmits(['onClick'])
 
     width: 138px;
     height: 190px;
+
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      height: 379px;
+    }
   }
 
   &__image {
@@ -92,6 +104,11 @@ const emits = defineEmits(['onClick'])
     background: transparent;
 
     transition: all 0.3s ease;
+
+    @media (min-width: 768px) {
+      top: 25px;
+      right: 25px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -122,6 +139,15 @@ const emits = defineEmits(['onClick'])
 
     bottom: 8%;
     left: 8px;
+
+    @media (min-width: 768px) {
+      bottom: 0;
+      left: 0;
+
+      line-height: 28px;
+
+      width: 90%;
+    }
   }
 
   &__name {
@@ -135,6 +161,12 @@ const emits = defineEmits(['onClick'])
     margin-bottom: 10px;
 
     color: $white;
+
+    @media (min-width: 768px) {
+      line-clamp: 1;
+      -webkit-line-clamp: 1;
+      font-weight: 500;
+    }
   }
 
   &__price {
@@ -149,10 +181,20 @@ const emits = defineEmits(['onClick'])
   &__new {
     position: absolute;
 
-    top: 20px;
-    left: 15px;
-
     color: $red-light;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+      top: 20px;
+      left: 15px;
+    }
+
+    @media (min-width: 768px) {
+      font-weight: 600;
+      bottom: 0;
+      right: 60%;
+      transform: translateX(50%);
+      line-height: 28px;
+    }
   }
 }
 </style>

@@ -32,6 +32,10 @@ const props = defineProps({
   width: 100%;
   min-width: 290px;
 
+  @media (min-width: 768px) {
+    min-width: 630px;
+  }
+
   &__wrapper {
     display: flex;
     justify-content: center;
@@ -44,6 +48,10 @@ const props = defineProps({
     overflow: hidden;
 
     border-radius: 14px;
+
+    @media (min-width: 768px) {
+      min-height: 465px;
+    }
   }
 
   &__background {
@@ -82,6 +90,11 @@ const props = defineProps({
     line-height: 24px;
 
     z-index: 1;
+
+    @media (min-width: 768px) {
+      top: 20px;
+      right: 20px;
+    }
   }
 
   &__title-background {
@@ -97,6 +110,10 @@ const props = defineProps({
     background-image: linear-gradient(to top, $red-active 50%, rgba(0 0 0 / 0) 50%);
 
     transition: all 0.3s ease;
+
+    @media (min-width: 768px) {
+      padding: 30px;
+    }
   }
 
   &:hover {

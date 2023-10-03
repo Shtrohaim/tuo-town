@@ -51,6 +51,11 @@ const props = defineProps({
     min-height: 236px;
 
     border-radius: 14px;
+
+    @media (min-width: 768px) {
+      min-width: 630px;
+      min-height: 514px;
+    }
   }
 
   &__background {
@@ -80,6 +85,11 @@ const props = defineProps({
     width: 90%;
 
     z-index: 1;
+
+    @media (min-width: 768px) {
+      bottom: 28px;
+      left: 28px;
+    }
   }
 
   &__icon {

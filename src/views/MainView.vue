@@ -317,6 +317,10 @@ onUnmounted(() => {
       height: 80vh;
       z-index: 2;
     }
+
+    @media (min-width: 768px) {
+      padding: 125px 69px;
+    }
   }
 
   &__slider-background {
@@ -339,6 +343,10 @@ onUnmounted(() => {
     text-transform: uppercase;
 
     margin-bottom: 15px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 20px;
+    }
   }
 
   &__slider-description {
@@ -353,6 +361,12 @@ onUnmounted(() => {
     margin-bottom: 8px;
 
     z-index: 3;
+
+    @media (min-width: 768px) {
+      max-width: 447px;
+
+      margin-bottom: 27px;
+    }
   }
 
   &__nav-list {
@@ -361,6 +375,10 @@ onUnmounted(() => {
     justify-content: space-around;
     align-items: center;
     text-align: center;
+
+    @media (min-width: 768px) {
+      margin-bottom: 60px;
+    }
   }
 
   &__list-name {
@@ -369,6 +387,10 @@ onUnmounted(() => {
     font-weight: 500;
 
     cursor: pointer;
+
+    @media (min-width: 768px) {
+      margin-top: 30px;
+    }
   }
 
   &__nav-list-item {
@@ -384,12 +406,20 @@ onUnmounted(() => {
         color: $red-active;
       }
     }
+
+    @media (min-width: 768px) {
+      width: 25%;
+    }
   }
 
   &__recommendation-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
+    @media (min-width: 768px) {
+      justify-content: space-between;
+    }
   }
 
   &__recommendation-list-item {
@@ -403,14 +433,19 @@ onUnmounted(() => {
   &__instagram-link {
     display: block;
     position: relative;
-    overflow: hidden;
 
-    border-radius: 14px;
+    height: 100%;
+    width: 100%;
 
     min-width: 138px;
     min-height: 190px;
     max-width: 138px;
     max-height: 190px;
+
+    @media (min-width: 768px) {
+      max-height: 453px;
+      min-width: 300px;
+    }
 
     &:hover {
       .main__instagram-image {
@@ -443,6 +478,10 @@ onUnmounted(() => {
     top: 0;
     left: 0;
 
+    overflow: hidden;
+
+    border-radius: 14px;
+
     max-width: 140px;
     max-height: 200px;
 
@@ -451,6 +490,11 @@ onUnmounted(() => {
     transition: all 0.3s ease;
 
     z-index: 0;
+
+    @media (min-width: 768px) {
+      min-height: 379px;
+      min-width: 300px;
+    }
   }
 
   &__products {
@@ -468,6 +512,10 @@ onUnmounted(() => {
     row-gap: 8px;
 
     margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      column-gap: 53px;
+    }
   }
 
   &__tab-list-item {
@@ -492,6 +540,11 @@ onUnmounted(() => {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
+    @media (min-width: 768px) {
+      justify-content: center;
+      column-gap: 30px;
+    }
   }
 
   &__tab-content-list-item {
@@ -500,11 +553,75 @@ onUnmounted(() => {
 
   &__about-company {
     margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      column-gap: 30px;
+
+      .main__about-title {
+        margin-top: 80px;
+      }
+
+      .main__about-image {
+        grid-row-start: 1;
+        grid-row-end: 3;
+
+        height: 302px;
+      }
+
+      .main__about-description {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+    }
+  }
+
+  &__about-knife {
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      column-gap: 20px;
+
+      .main__about-image {
+        grid-row-start: 1;
+        grid-row-end: 3;
+
+        height: 302px;
+        justify-self: center;
+      }
+
+      .main__about-title {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+
+      .main__about-description {
+        &:first-child {
+          grid-row-start: 2;
+          grid-row-end: 3;
+          grid-column-start: 1;
+          grid-column-end: 2;
+        }
+
+        &:last-child {
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 2;
+          grid-column-end: 3;
+        }
+      }
+    }
   }
 
   &__about-image {
     width: 100%;
     min-height: 280px;
+    max-width: 300px;
     overflow: hidden;
 
     border-radius: 20px;
@@ -531,6 +648,10 @@ onUnmounted(() => {
     color: $white;
 
     margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 60px;
+    }
   }
 }
 </style>

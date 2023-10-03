@@ -203,6 +203,10 @@ import BaseButton from '@/components/ui/BaseButton.vue'
   &__content {
     background: $background-dark;
     padding: 40px 15px 50px 15px;
+
+    @media (min-width: 768px) {
+      padding: 60px 15px;
+    }
   }
 
   &__logo {
@@ -211,9 +215,18 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 
     margin-bottom: 20px;
 
+    @media (min-width: 768px) {
+      grid-template-columns: 26% 21%;
+      column-gap: 20px;
+    }
+
     svg {
       width: 139px;
       margin-right: 5px;
+
+      @media (min-width: 768px) {
+        width: 194px;
+      }
     }
   }
 
@@ -238,6 +251,10 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     color: $white;
 
     margin-bottom: 10px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 15px;
+    }
   }
 
   &__list {
@@ -247,6 +264,11 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     row-gap: 8px;
 
     margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 17px;
+      column-gap: 15px;
+    }
   }
 
   &__list-link {
@@ -258,10 +280,19 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     }
   }
 
+  &__social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    column-gap: 28px;
+    row-gap: 15px;
+
+    margin-bottom: 30px;
+  }
+
   &__social-title {
     color: $white;
-
-    margin-bottom: 15px;
   }
 
   &__social-list {
@@ -269,8 +300,6 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     flex-wrap: wrap;
     row-gap: 10px;
     column-gap: 8px;
-
-    margin-bottom: 30px;
   }
 
   &__social-list-item {
@@ -287,14 +316,39 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     }
   }
 
+  &__contact {
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 40% 25% 30%;
+      column-gap: 30px;
+    }
+  }
+
   &__contact-title {
     color: $white;
 
     margin-bottom: 15px;
+
+    @media (min-width: 768px) {
+      font-weight: 600;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 2;
+
+      margin-bottom: 20px;
+    }
   }
 
   &__contact-us {
     margin-bottom: 15px;
+    font-size: 14px;
+
+    @media (min-width: 768px) {
+      display: flex;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
   }
 
   &__contact-tel {
@@ -317,24 +371,41 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     color: $white;
     font-weight: 400;
     line-height: 140%;
+    font-size: 14px;
 
     width: 100%;
     min-width: 196px;
     max-width: 196px;
 
     margin-bottom: 6px;
+
+    @media (min-width: 768px) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
   }
 
   &__contact-time {
     color: $white;
     font-weight: 400;
     line-height: 140%;
+    font-size: 14px;
+
+    @media (min-width: 768px) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
   }
 
   &__contact-image {
     float: right;
 
     transform: translateY(-20%);
+
+    @media (min-width: 768px) {
+      grid-row-start: 3;
+      grid-row-end: 4;
+    }
   }
 
   &__copyright {

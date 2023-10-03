@@ -4,9 +4,18 @@
       <svg @click="openSidebar" class="header__menu icon24 fill-none stroke-white">
         <use href="@/assets/images/svg/menuIcon.svg#icon"></use>
       </svg>
-      <svg class="header__phone icon24 fill-none stroke-white">
-        <use href="@/assets/images/svg/phoneIcon.svg#icon"></use>
-      </svg>
+      <router-link v-if="deviceWidth > 767" class="header__map" :to="{ name: 'dealers' }">
+        <svg class="icon24 fill-none">
+          <use href="@/assets/images/svg/mapIcon.svg#icon"></use>
+        </svg>
+      </router-link>
+      <a href="tel:+7 926 420 11 17" class="header__phone">
+        <svg v-if="deviceWidth < 768" class="icon24 fill-none stroke-white">
+          <use href="@/assets/images/svg/phoneIcon.svg#icon"></use>
+        </svg>
+        <span v-else>8 981 120-11-17</span>
+      </a>
+
       <router-link class="header__logo" :to="{ name: 'main' }">
         <svg
           id="icon"
@@ -31,34 +40,52 @@
           </defs>
         </svg>
       </router-link>
-      <router-link class="header__cart" :to="{ name: 'cart' }">
-        <svg class="icon24 fill-white">
-          <use href="@/assets/images/svg/shopIcon.svg#icon"></use>
-        </svg>
-        <span v-if="sessionStore.session?.total_count > 0" class="header__cart-count p_hg">{{
-          sessionStore.session.total_count
-        }}</span>
-      </router-link>
-      <svg class="header__mail icon24 fill-none">
-        <use href="@/assets/images/svg/mailIcon.svg#icon"></use>
-      </svg>
-      <svg class="header__search icon24 fill-none">
-        <use href="@/assets/images/svg/searchIcon.svg#icon"></use>
-      </svg>
+      <div class="header__options">
+        <router-link class="header__cart" :to="{ name: 'cart' }">
+          <svg class="icon24 fill-white">
+            <use href="@/assets/images/svg/shopIcon.svg#icon"></use>
+          </svg>
+          <span v-if="sessionStore.session?.total_count > 0" class="header__cart-count p_hg">{{
+            sessionStore.session.total_count
+          }}</span>
+        </router-link>
+        <a href="mailto:tuotown@mail.ru" v-if="deviceWidth >= 768" class="header__mail">
+          <svg class="icon24 fill-none stroke-white">
+            <use href="@/assets/images/svg/mailIcon.svg#icon"></use>
+          </svg>
+        </a>
+        <base-search v-if="deviceWidth >= 768" class="header__search" />
+      </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
 import { useSessionStore } from '@/stores/session'
+import { onMounted, onUnmounted, ref } from 'vue'
+import BaseSearch from '@/components/ui/BaseSearch.vue'
 
 const emits = defineEmits(['openSidebar'])
+
+const deviceWidth = ref(window.innerWidth)
 
 const openSidebar = () => {
   emits('openSidebar')
 }
 
 const sessionStore = useSessionStore()
+
+const resize = () => {
+  deviceWidth.value = window.innerWidth
+}
+
+onMounted(() => {
+  addEventListener('resize', resize)
+})
+
+onUnmounted(() => {
+  removeEventListener('resize', resize)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -76,6 +103,11 @@ const sessionStore = useSessionStore()
 
     display: grid;
     grid-template-columns: 15% 15% 30% 40%;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 7% 7% 25% 20% 40%;
+      align-items: center;
+    }
   }
 
   &__menu {
@@ -89,6 +121,30 @@ const sessionStore = useSessionStore()
     }
   }
 
+  &__options {
+    grid-row-start: 1;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-column-start: 5;
+      grid-column-end: 6;
+      justify-self: end;
+      column-gap: 25px;
+    }
+  }
+
+  &__map {
+    @media (min-width: 768px) {
+      display: inline-flex;
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+  }
+
   &__phone {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -98,6 +154,16 @@ const sessionStore = useSessionStore()
     &:hover {
       stroke: $red-active;
     }
+
+    @media (min-width: 768px) {
+      display: block;
+      grid-column-start: 3;
+      grid-column-end: 4;
+
+      font-family: 'Jura', serif;
+      font-size: 20px;
+      color: $white;
+    }
   }
 
   &__logo {
@@ -105,13 +171,14 @@ const sessionStore = useSessionStore()
     grid-column-start: 4;
     grid-column-end: 5;
     justify-self: end;
+
+    @media (min-width: 768px) {
+      justify-self: start;
+      @include logo146;
+    }
   }
 
   &__cart {
-    grid-row-start: 1;
-    grid-column-start: 3;
-    grid-column-end: 4;
-
     display: flex;
     align-items: center;
 
@@ -151,11 +218,23 @@ const sessionStore = useSessionStore()
   }
 
   &__mail {
-    display: none;
+    display: inline-flex;
+
+    &:active {
+      svg {
+        stroke: $red-active;
+      }
+    }
   }
 
   &__search {
-    display: none;
+    @media (min-width: 768px) {
+      width: auto;
+      min-width: 30px;
+      max-width: 150px;
+
+      margin-top: 3px;
+    }
   }
 }
 </style>

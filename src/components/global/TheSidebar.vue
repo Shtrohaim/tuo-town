@@ -175,6 +175,10 @@ const onSearch = () => {
 
     background: url('@/assets/images/sidebarBackground.png') no-repeat center;
     background-size: cover;
+
+    @media (min-width: 768px) {
+      padding: 50px 48px;
+    }
   }
 
   &__tools {
@@ -196,6 +200,11 @@ const onSearch = () => {
     border: none;
 
     cursor: pointer;
+
+    @media (min-width: 768px) {
+      top: 40px;
+      left: 48px;
+    }
 
     svg:hover {
       fill: $red-active;
