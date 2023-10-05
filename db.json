@@ -2631,19 +2631,10 @@
   "sessions": [
     {
       "id": "6784278775164",
-      "total_count": 4
+      "total_count": 1
     }
   ],
   "cart-products": [
-    {
-      "productId": 0,
-      "sessionId": "6784278775164",
-      "image": "/src/assets/images/server/product/product2.png",
-      "name": "Складной нож JJ001-TUO-B",
-      "price": 3000,
-      "count": 3,
-      "id": 1
-    },
     {
       "productId": 3,
       "sessionId": "6784278775164",

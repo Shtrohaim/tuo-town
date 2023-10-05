@@ -1,5 +1,5 @@
 <template>
-  <section class="products container">
+  <section class="products">
     <h2 class="visually-hidden">Католог продуктов</h2>
     <base-button class="products__open-filter" :icon="true" @onClick="openFilter">
       <svg class="icon24 fill-white">
@@ -143,6 +143,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .products {
   display: grid;
+  padding: 30px 15px;
 
   &__not-found {
     color: $white;
@@ -253,8 +254,8 @@ onUnmounted(() => {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
   }
 
   &__list-item {

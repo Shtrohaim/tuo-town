@@ -63,6 +63,8 @@ const value = computed({
   padding: 15px;
 
   width: 100%;
+  min-width: 230px;
+  max-width: 334px;
 
   &--dark {
     background: $cart-input-background;

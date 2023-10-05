@@ -80,6 +80,8 @@ const changeValue = (newValue: SelectType) => {
   padding: 15px;
 
   width: 100%;
+  min-width: 290px;
+  max-width: 334px;
 
   &--dark {
     background: $cart-background-dark;

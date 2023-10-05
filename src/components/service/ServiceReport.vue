@@ -148,17 +148,16 @@ watch(formData.value, () => {
     }
   }
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 15px;
-  }
-
   &__submit {
     width: fit-content;
 
     color: $input-text;
+
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      margin-top: 10px;
+    }
   }
 
   &__send-message {

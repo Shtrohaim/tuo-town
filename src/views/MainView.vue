@@ -291,7 +291,7 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .main {
   &__promo {
     height: 100vh;
@@ -424,6 +424,15 @@ onUnmounted(() => {
 
   &__recommendation-list-item {
     margin-bottom: 30px;
+
+    &:first-child {
+      .category-card__wrapper {
+        @media (min-width: 768px) {
+          min-width: 630px;
+          min-height: 514px;
+        }
+      }
+    }
 
     &:nth-last-child(2) {
       order: 1;

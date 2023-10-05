@@ -1,7 +1,7 @@
 <template>
   <main class="dealers">
     <h1 class="dealers__title h3">Карта</h1>
-    <div class="dealers__content container">
+    <div class="dealers__content">
       <div class="dealers__map-control">
         <form class="dealers__search" @submit.prevent="geocoder">
           <input
@@ -270,7 +270,7 @@ watch(markerOptions.value, () => {
 <style lang="scss">
 .dealers {
   &__title {
-    padding: 70px 0 30px 0;
+    padding: 85px 0 30px 0;
 
     text-transform: uppercase;
     text-align: center;
@@ -278,15 +278,28 @@ watch(markerOptions.value, () => {
   }
 
   &__content {
+    padding: 30px 15px;
     background: $background-dark;
+  }
+
+  &__map-control {
+    @media (min-width: 768px) {
+      display: flex;
+    }
   }
 
   &__search {
     position: relative;
 
     width: 100%;
+    min-width: 290px;
+    max-width: 420px;
 
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 40px;
+    }
   }
 
   &__input {
@@ -413,11 +426,28 @@ watch(markerOptions.value, () => {
     border-bottom: 1px solid transparent;
     border-radius: 15px;
 
+    @media (min-width: 768px) {
+      height: 90vh;
+    }
+
     .ymaps-2-1-79-balloon {
       background-color: $background-dark;
+
+      @media (min-width: 768px) {
+        border-radius: 15px;
+      }
     }
     .ymaps-2-1-79-balloon__content {
       background: transparent;
+    }
+    .ymaps-2-1-79-balloon__layout {
+      background: transparent;
+    }
+    .ymaps-2-1-79-balloon__tail {
+      background-color: $background-dark;
+      &:after {
+        background-color: $background-dark;
+      }
     }
     .ymaps-2-1-79-balloon__close-button {
       width: 20px;
@@ -429,6 +459,10 @@ watch(markerOptions.value, () => {
       mask-image: url('@/assets/images/svg/closeIcon.svg');
       mask-repeat: no-repeat;
       background: $white;
+
+      @media (min-width: 768px) {
+        margin: 10px 5px 0 0;
+      }
     }
   }
 
@@ -463,6 +497,7 @@ watch(markerOptions.value, () => {
   .dealers__nearest-button {
     display: flex;
     justify-content: center;
+    max-width: 300px;
 
     border-color: $gray-border;
 

@@ -12,6 +12,8 @@ const emits = defineEmits(['onSubmit'])
 .form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
 
   width: 100%;
 
@@ -19,5 +21,13 @@ const emits = defineEmits(['onSubmit'])
 
   border-radius: 15px;
   background: $white;
+
+  @media (min-width: 768px) {
+    padding: 60px 25px;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }
 </style>

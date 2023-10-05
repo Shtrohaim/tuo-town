@@ -1,5 +1,5 @@
 <template>
-  <section class="category container">
+  <section class="category">
     <h2 class="visually-hidden">Католог категорий</h2>
     <ul v-if="isLoad" class="category__list">
       <li class="category__list-item" v-for="category in categories" :key="category.id">
@@ -43,9 +43,13 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .category {
+  padding: 30px 15px;
+
   &__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 30px;
   }
 
   &__list-item {

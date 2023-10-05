@@ -13,7 +13,12 @@
     </nav>
     <base-image class="article__main-image" :src="article.image" />
     <p class="article__text p_hg">{{ article.description }}</p>
-    <base-slider class="article__slider" :carousel="false" :have-pagination="false" :height="230">
+    <base-slider
+      class="article__slider"
+      :carousel="false"
+      :have-pagination="false"
+      :height="sliderHeight"
+    >
       <base-image
         class="article__slide"
         v-for="(slide, index) in article.gallery"
@@ -46,6 +51,8 @@ const props = defineProps({
 
 const emits = defineEmits(['onUnmounted'])
 
+const sliderHeight = window.innerWidth < 768 ? 230 : 358
+
 onUnmounted(() => {
   emits('onUnmounted')
 })
@@ -55,11 +62,14 @@ onUnmounted(() => {
 .article {
   &__main-image {
     width: 100%;
+    min-width: 290px;
+    max-width: 400px;
+    max-height: 350px;
     border-radius: 15px;
 
     overflow: hidden;
 
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
   }
 
   &__nav-list {
@@ -69,6 +79,10 @@ onUnmounted(() => {
     gap: 5px 10px;
 
     margin-bottom: 15px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__nav-list-item {
@@ -113,6 +127,10 @@ onUnmounted(() => {
     border-radius: 15px;
 
     overflow: hidden;
+
+    @media (min-width: 768px) {
+      min-width: 450px;
+    }
   }
 }
 </style>

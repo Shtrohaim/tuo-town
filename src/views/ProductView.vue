@@ -19,22 +19,26 @@
       <h2 class="visually-hidden">Наш слоган</h2>
       <div class="product__slogan-first" v-if="isLoad.product">
         <base-image class="product__slogan-image" :src="Slogan1" />
-        <h3 class="h4 product__slogan-title">Исключительное качество без компромиссов</h3>
-        <p class="product__slogan-description p_md">
-          Ножи «Tuotown» — это главный инструмент поваров и секрет кулинарного мастерства
-        </p>
+        <div>
+          <h3 class="h4 product__slogan-title">Исключительное качество без компромиссов</h3>
+          <p class="product__slogan-description p_md">
+            Ножи «Tuotown» — это главный инструмент поваров и секрет кулинарного мастерства
+          </p>
+        </div>
       </div>
       <div class="product__slogan-second" v-if="isLoad.product">
         <base-image class="product__slogan-image" :src="Slogan2" />
-        <h3 class="h4 product__slogan-title">Исключительное качество без компромиссов</h3>
-        <p class="product__slogan-description p_md">
-          Ножи «Tuotown» — это главный инструмент поваров и секрет кулинарного мастерства
-        </p>
+        <div>
+          <h3 class="h4 product__slogan-title">Исключительное качество без компромиссов</h3>
+          <p class="product__slogan-description p_md">
+            Ножи «Tuotown» — это главный инструмент поваров и секрет кулинарного мастерства
+          </p>
+        </div>
       </div>
     </section>
     <section class="product__about" v-if="isLoad.product">
       <div class="product__gallery">
-        <base-slider class="product__slider" :height="166">
+        <base-slider class="product__slider" :height="sliderHeight">
           <div class="product__slide" v-for="(slide, index) in product?.gallery" :key="index">
             <base-image class="product__slide-image" :src="slide" />
           </div>
@@ -157,6 +161,8 @@ const accessories = ref({
 const seeAlso = ref<ProductsType[]>()
 const productId = ref(Number(route.params.id))
 
+const sliderHeight = window.innerWidth < 768 ? 166 : 358
+
 const fetchProduct = async () => {
   await productsServices.getProduct(productId.value).then((res) => {
     product.value = res.data
@@ -220,11 +226,33 @@ onMounted(async () => {
 
   &__head-wrapper {
     position: relative;
+    width: 100%;
+    flex-shrink: 0;
     padding: 75px 15px;
-    z-index: 20;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      content: '';
+
+      background: linear-gradient(180deg, #000 45%, rgba(0, 0, 0, 0) 100%);
+
+      width: 100%;
+      height: 80vh;
+      z-index: 2;
+    }
+
+    @media (min-width: 768px) {
+      padding: 130px 69px;
+    }
   }
 
   &__title {
+    position: relative;
+    z-index: 3;
+
     color: $white;
     line-height: normal;
 
@@ -232,10 +260,17 @@ onMounted(async () => {
   }
 
   &__description {
+    position: relative;
+    z-index: 3;
+
     color: $white;
     line-height: 140%;
 
     margin-bottom: 10px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__buy-button {
@@ -244,24 +279,42 @@ onMounted(async () => {
   }
 
   &__cost {
+    position: relative;
+    z-index: 3;
+
     line-height: normal;
     color: $white;
   }
 
   &__background {
     position: absolute;
-    top: 0;
-    height: 100%;
+    bottom: 0;
+    left: 0;
 
+    object-fit: cover;
+
+    width: 100%;
+    height: 63vh;
     z-index: 0;
   }
 
   &__slogan-first {
     margin-bottom: 72px;
+
+    @media (min-width: 768px) {
+      display: flex;
+      column-gap: 30px;
+    }
   }
 
   &__slogan-second {
     margin-bottom: 42px;
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row-reverse;
+      column-gap: 30px;
+    }
   }
 
   &__slogan-image {
@@ -279,6 +332,10 @@ onMounted(async () => {
     line-height: normal;
 
     margin-bottom: 10px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 25px;
+    }
   }
 
   &__slogan-description {
@@ -293,12 +350,21 @@ onMounted(async () => {
 
   &__slider {
     margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 90px;
+    }
   }
 
   &__slide {
     width: 290px;
 
     margin-right: 8px;
+
+    @media (min-width: 768px) {
+      width: 630px;
+      margin-right: 15px;
+    }
 
     &:first-child {
       margin-left: 15px;
@@ -307,6 +373,10 @@ onMounted(async () => {
 
   &__slide-image {
     width: 290px;
+
+    @media (min-width: 768px) {
+      width: 630px;
+    }
 
     border-radius: 15px;
     overflow: hidden;
@@ -319,6 +389,10 @@ onMounted(async () => {
     max-height: 175px;
 
     border-radius: 15px;
+
+    @media (min-width: 768px) {
+      min-height: 408px;
+    }
   }
 
   &__characteristics-title {
@@ -329,6 +403,10 @@ onMounted(async () => {
     text-align: center;
 
     margin-bottom: 35px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 68px;
+    }
   }
 
   &__scheme {
@@ -341,6 +419,10 @@ onMounted(async () => {
     margin: 0 auto 30px;
 
     border-radius: 15px;
+
+    @media (min-width: 768px) {
+      max-width: 250px;
+    }
   }
 
   &__characteristics-list {
@@ -349,6 +431,10 @@ onMounted(async () => {
     row-gap: 15px;
 
     margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__characteristics-list-item {
@@ -392,7 +478,11 @@ onMounted(async () => {
     text-decoration: 2px underline $red-active;
     text-underline-offset: 10px;
 
-    margin-bottom: 30px;
+    margin-bottom: 27px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 38px;
+    }
   }
 
   &__recommendation-list {
@@ -400,6 +490,10 @@ onMounted(async () => {
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px 14px;
+
+    @media (min-width: 768px) {
+      gap: 30px 29px;
+    }
   }
 }
 </style>

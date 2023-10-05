@@ -29,6 +29,10 @@
 .about {
   padding-top: 65px;
 
+  @media (min-width: 768px) {
+    padding-top: 85px;
+  }
+
   &__title {
     color: $white;
     text-align: center;

@@ -53,8 +53,8 @@ const props = defineProps({
     border-radius: 14px;
 
     @media (min-width: 768px) {
-      min-width: 630px;
-      min-height: 514px;
+      min-width: 354px;
+      min-height: 289px;
     }
   }
 
@@ -98,6 +98,8 @@ const props = defineProps({
 
   &__title {
     display: block;
+
+    width: 80%;
 
     font-weight: 600;
     color: $white;

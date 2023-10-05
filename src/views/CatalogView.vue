@@ -220,6 +220,10 @@ onMounted(async () => {
     position: relative;
     width: 100%;
     height: 40vh;
+
+    @media (min-width: 768px) {
+      height: 100vh;
+    }
   }
 
   &__title {

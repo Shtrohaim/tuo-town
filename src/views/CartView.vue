@@ -1,7 +1,8 @@
 <template>
-  <main class="cart container">
+  <main class="cart">
     <div class="cart__head">
       <base-button @click="router.go(-1)" class="cart__back-button" :icon="true">
+        <span class="cart__back-button-text p_sm">К покупкам</span>
         <svg class="icon20 fill-gray">
           <use href="@/assets/images/svg/navArrowIcon.svg#icon"></use>
         </svg>
@@ -17,17 +18,36 @@
         >
           <div class="cart__product" @click="activateModal(index)">
             <base-image class="cart__product-image" :src="product?.image"></base-image>
+            <span class="cart__product-count p_hg">x{{ product.count.value }}</span>
             <span class="cart__product-name p_hg">{{ product?.name }}</span>
-            <span class="cart__product-count p_hg">x{{ product?.count.value }}</span>
-            <select class="cart__product-select"></select>
-            <span class="cart__product-price p_hg">{{ product?.price }}</span>
+            <base-select
+              :dark="true"
+              class="cart__select cart__product-select"
+              v-model="product.count"
+              :data="dataCount"
+              @update:modelValue="updateProduct(product.id, product.count.value)"
+            />
+            <span class="cart__product-price p_hg">{{
+              priceTransform(product.price * product.count.value)
+            }}</span>
+            <base-button
+              @onClick="deleteProduct(product.id)"
+              :icon="true"
+              class="cart__product-delete"
+            >
+              <svg class="icon20 fill-gray">
+                <use href="@/assets/images/svg/closeIcon.svg#icon"></use>
+              </svg>
+            </base-button>
           </div>
         </li>
       </ul>
       <div class="cart__content-footer">
         <div class="cart__content-footer-wrapper">
-          <span class="p_hg cart__content-footer-name">Ваш заказ:</span>
-          <span class="cart__content-footer-value p_hg"
+          <span class="p_hg cart__content-footer-name cart__content-footer-name--count"
+            >Ваш заказ:</span
+          >
+          <span class="cart__content-footer-value cart__content-footer-value--count p_hg"
             >{{ totalCount }} {{ declensionWord(totalCount, productDeclension) }}</span
           >
           <span class="p_hg cart__content-footer-name">К оплате:</span>
@@ -63,42 +83,46 @@
       <span class="cart__form-title h4"
         >Для подтверждения заказа - введите ваши данные и мы перезвоним вам</span
       >
-      <base-input
-        v-model="formData.name.value"
-        class="cart__form-input"
-        :dark="true"
-        label="Получатель"
-        placeholder="Имя Фамилия"
-        :required="true"
-        :error="formErrors.errors?.name"
-      ></base-input>
-      <base-input
-        v-model="formData.tel.value"
-        @input="mask"
-        class="cart__form-input"
-        :dark="true"
-        label="Мобильный телефон"
-        placeholder="+7 (___) ___-__-__"
-        :required="true"
-        :error="formErrors.errors?.tel"
-      ></base-input>
-      <base-input
-        v-model="formData.email.value"
-        class="cart__form-input"
-        :dark="true"
-        label="E-mail"
-        placeholder="Ваша почта"
-        :error="formErrors.errors?.email"
-      ></base-input>
-      <span class="cart__conditions p_sm"
-        >Нажимая «Выбрать способ доставки», подтверждаю, что я ознакомлен с условиями
-        <a class="cart__conditions-link" href="#">Публичного договора оферты</a> и
-        <a class="cart__conditions-link" href="#">Политикой конфиденциальности</a>, а также согласен
-        получать информационную рассылку</span
-      >
-      <base-button @onClick="sendOrder" :filled="true" class="cart__submit-button"
-        >Отправить форму</base-button
-      >
+      <div class="cart__form-inputs">
+        <base-input
+          v-model="formData.name.value"
+          class="cart__form-input"
+          :dark="true"
+          label="Получатель"
+          placeholder="Имя Фамилия"
+          :required="true"
+          :error="formErrors.errors?.name"
+        ></base-input>
+        <base-input
+          v-model="formData.tel.value"
+          @input="mask"
+          class="cart__form-input"
+          :dark="true"
+          label="Мобильный телефон"
+          placeholder="+7 (___) ___-__-__"
+          :required="true"
+          :error="formErrors.errors?.tel"
+        ></base-input>
+        <base-input
+          v-model="formData.email.value"
+          class="cart__form-input"
+          :dark="true"
+          label="E-mail"
+          placeholder="Ваша почта"
+          :error="formErrors.errors?.email"
+        ></base-input>
+      </div>
+      <div class="cart__form-info">
+        <span class="cart__conditions p_sm"
+          >Нажимая «Выбрать способ доставки», подтверждаю, что я ознакомлен с условиями
+          <a class="cart__conditions-link" href="#">Публичного договора оферты</a> и
+          <a class="cart__conditions-link" href="#">Политикой конфиденциальности</a>, а также
+          согласен получать информационную рассылку</span
+        >
+        <base-button @onClick="sendOrder" :filled="true" class="cart__submit-button"
+          >Отправить форму</base-button
+        >
+      </div>
     </base-form>
     <base-modal class="cart__modal" v-if="modalActive" @closeModal="closeModal">
       <base-image class="cart__modal-image" :src="products[activeProduct].image"></base-image>
@@ -106,7 +130,7 @@
       <div class="cart__modal-info">
         <base-select
           :dark="true"
-          class="cart__modal-select"
+          class="cart__select cart__modal-select"
           v-model="products[activeProduct].count"
           :data="dataCount"
           @update:modelValue="
@@ -249,9 +273,11 @@ const deleteProduct = async (id: number) => {
   await cartServices.deleteCartProduct(id)
 }
 const activateModal = (index: number) => {
-  document.querySelector('body').style.overflow = 'hidden'
-  activeProduct.value = index
-  modalActive.value = true
+  if (window.innerWidth < 768) {
+    document.querySelector('body').style.overflow = 'hidden'
+    activeProduct.value = index
+    modalActive.value = true
+  }
 }
 
 const closeModal = () => {
@@ -274,7 +300,7 @@ watch(formData.value, () => {
 
 <style scoped lang="scss">
 .cart {
-  padding-top: 75px;
+  padding: 75px 15px 15px 30px;
 
   &__head {
     position: relative;
@@ -289,10 +315,36 @@ watch(formData.value, () => {
 
   &__back-button {
     position: absolute;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
     top: 50%;
     left: 0;
 
     transform: translateY(-50%) rotate(180deg);
+
+    &:active {
+      svg {
+        fill: $red-active;
+      }
+
+      .cart__back-button-text {
+        color: $red-active;
+      }
+    }
+  }
+
+  &__back-button-text {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: inline-block;
+      transform: rotate(180deg);
+
+      text-transform: none;
+      font-weight: 400;
+      color: $gray-light;
+    }
   }
 
   &__product-list {
@@ -307,34 +359,111 @@ watch(formData.value, () => {
 
   &__product-list-item {
     padding: 30px 20px;
+
+    @media (min-width: 768px) {
+      padding: 0;
+      width: 100%;
+    }
+
+    &:after {
+      @media (min-width: 768px) {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 100%;
+
+        background-color: $border-line;
+      }
+    }
+  }
+
+  &__select {
+    position: relative;
+    display: flex;
+
+    background: transparent;
+    color: $white;
+
+    min-width: 80px;
+    max-width: 80px;
+    border: none;
   }
 
   &__product {
     display: flex;
     align-items: end;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 15% 43% 12% 16% 5%;
+      column-gap: 15px;
+      align-items: center;
+      width: 100%;
+
+      padding: 30px;
+    }
   }
 
   &__product-image {
     width: 66px;
     margin-right: 17px;
+
+    @media (min-width: 768px) {
+      margin: 0;
+    }
   }
 
   &__product-count {
     color: $gray-light;
     font-weight: 500;
     line-height: 140%;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
 
   &__product-name {
     display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      color: $white;
+      line-height: 140%;
+    }
   }
 
   &__product-price {
     display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      color: $white;
+      justify-self: start;
+    }
   }
 
   &__product-select {
     display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &__product-delete {
+    display: none;
+
+    &:active {
+      svg {
+        fill: $red-active;
+      }
+    }
+
+    @media (min-width: 768px) {
+      display: block;
+      justify-self: start;
+    }
   }
 
   &__modal-name {
@@ -363,17 +492,6 @@ watch(formData.value, () => {
     margin-top: 10px;
   }
 
-  &__modal-select {
-    background: transparent;
-    color: $white;
-
-    width: 80px;
-    border: none;
-
-    transform: translateY(-5px);
-    z-index: 5;
-  }
-
   &__content-footer {
     display: flex;
     flex-direction: column;
@@ -388,6 +506,11 @@ watch(formData.value, () => {
     border-radius: 0 0 15px 15px;
 
     margin-bottom: 26px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 30px;
+      padding: 26px;
+    }
   }
 
   &__content-footer-wrapper {
@@ -396,18 +519,43 @@ watch(formData.value, () => {
 
     grid-row-gap: 12px;
     grid-column-gap: 15px;
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-end;
+    }
   }
 
   &__content-footer-name {
     color: $gray-light;
     font-weight: 500;
     line-height: 140%;
+
+    &--count {
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   &__content-footer-value {
     color: $white;
     font-weight: 500;
     line-height: 140%;
+
+    @media (min-width: 768px) {
+      font-family: 'Jura', serif;
+      font-size: 24px;
+      text-align: start;
+    }
+
+    &--count {
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   &__slogans {
@@ -417,10 +565,21 @@ watch(formData.value, () => {
     row-gap: 30px;
 
     margin-bottom: 69px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+
+      margin-bottom: 30px;
+    }
   }
 
   &__slogan {
-    display: flex;
+    display: inline-flex;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
 
   &__slogan-icon-wrapper {
@@ -463,20 +622,72 @@ watch(formData.value, () => {
   &__form {
     background: $cart-background-dark;
 
-    row-gap: 15px;
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 50% 45%;
+      padding: 60px 40px;
+      column-gap: 40px;
+    }
   }
 
   &__form-title {
     padding: 0 9px;
 
     color: $white;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+
+    @media (min-width: 768px) {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  &__form-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    @media (min-width: 768px) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 1;
+      grid-column-end: 2;
+
+      margin: 0;
+    }
+  }
+
+  &__form-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    @media (min-width: 768px) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+      align-self: end;
+    }
   }
 
   &__conditions {
     color: $gray-light;
 
     text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+      line-height: 140%;
+    }
   }
 
   &__conditions-link {
@@ -487,6 +698,11 @@ watch(formData.value, () => {
     width: 223px;
 
     margin: 0 auto;
+
+    @media (min-width: 768px) {
+      margin: 0;
+      width: 250px;
+    }
   }
 }
 </style>

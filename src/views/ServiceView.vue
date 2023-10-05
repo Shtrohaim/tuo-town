@@ -83,6 +83,10 @@ const sendReport = async () => {
 .service {
   padding: 65px 0 0 0;
 
+  @media (min-width: 768px) {
+    padding: 85px 15px 0 15px;
+  }
+
   &__title {
     text-transform: uppercase;
     text-align: center;
@@ -102,6 +106,10 @@ const sendReport = async () => {
   &__tab-slider {
     margin-bottom: 45px;
     text-align: center;
+
+    @media (min-width: 768px) {
+      margin-bottom: 60px;
+    }
   }
 
   &__tab {

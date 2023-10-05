@@ -71,6 +71,10 @@ const marker = {
   padding-top: 65px;
   background: $background-dark;
 
+  @media (min-width: 768px) {
+    padding-top: 85px;
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
@@ -96,6 +100,10 @@ const marker = {
     line-height: 140%;
 
     margin-bottom: 30px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 15px;
+    }
   }
 
   &__link {
@@ -141,12 +149,30 @@ const marker = {
     filter: grayscale(1);
 
     border-bottom: 1px solid transparent;
-    border-radius: 15px;
+
+    @media (min-width: 768px) {
+      height: 80vh;
+    }
 
     .ymaps-2-1-79-balloon {
       background-color: $background-dark;
       color: $white;
+
+      @media (min-width: 768px) {
+        border-radius: 15px;
+      }
     }
+    .ymaps-2-1-79-balloon__layout {
+      background: transparent;
+    }
+
+    .ymaps-2-1-79-balloon__tail {
+      background-color: $background-dark;
+      &:after {
+        background-color: $background-dark;
+      }
+    }
+
     .ymaps-2-1-79-balloon__content {
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
