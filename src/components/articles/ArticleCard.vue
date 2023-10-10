@@ -36,6 +36,10 @@ const props = defineProps({
     min-width: 630px;
   }
 
+  @media (min-width: 1440px) {
+    min-width: 380px;
+  }
+
   &__wrapper {
     display: flex;
     justify-content: center;

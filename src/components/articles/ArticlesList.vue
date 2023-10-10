@@ -46,5 +46,6 @@ onUnmounted(() => {
   row-gap: 30px;
 
   width: 100%;
+  justify-content: space-between;
 }
 </style>

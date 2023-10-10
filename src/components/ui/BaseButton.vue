@@ -36,6 +36,10 @@ const emits = defineEmits(['onClick'])
 
   text-align: center;
 
+  @media (min-width: 1440px) {
+    line-height: 23px;
+  }
+
   &:active {
     color: $red-active;
     border-radius: 0;

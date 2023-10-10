@@ -50,6 +50,10 @@ const emits = defineEmits(['onClick'])
     height: 453px;
   }
 
+  @media (min-width: 1440px) {
+    height: 480px;
+  }
+
   &:hover {
     .product-card__name {
       color: $red-active;
@@ -77,6 +81,11 @@ const emits = defineEmits(['onClick'])
       align-items: center;
       width: 300px;
       height: 379px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 286px;
+      height: 412px;
     }
   }
 
@@ -108,6 +117,11 @@ const emits = defineEmits(['onClick'])
     @media (min-width: 768px) {
       top: 25px;
       right: 25px;
+    }
+
+    @media (min-width: 1440px) {
+      top: 20px;
+      right: 15px;
     }
 
     &:hover {
@@ -167,6 +181,10 @@ const emits = defineEmits(['onClick'])
       -webkit-line-clamp: 1;
       font-weight: 500;
     }
+
+    @media (min-width: 1440px) {
+      margin: 0;
+    }
   }
 
   &__price {
@@ -175,6 +193,10 @@ const emits = defineEmits(['onClick'])
 
     &::after {
       content: ' р.';
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 14px;
     }
   }
 

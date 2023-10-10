@@ -56,6 +56,11 @@ const props = defineProps({
       min-width: 354px;
       min-height: 289px;
     }
+
+    @media (min-width: 1440px) {
+      min-width: 630px;
+      min-height: 514px;
+    }
   }
 
   &__background {

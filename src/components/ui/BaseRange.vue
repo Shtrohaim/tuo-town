@@ -199,7 +199,6 @@ watch(curMaxPrice, () => {
 
   &__input {
     width: 40%;
-    appearance: none;
 
     background: transparent;
     border: none;
@@ -209,6 +208,15 @@ watch(curMaxPrice, () => {
     padding: 8px;
 
     color: $white;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &[type='number'] {
+      -moz-appearance: textfield;
+    }
   }
 
   &__bar {

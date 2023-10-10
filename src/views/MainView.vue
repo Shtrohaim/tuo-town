@@ -316,10 +316,19 @@ onUnmounted(() => {
       width: 100%;
       height: 80vh;
       z-index: 2;
+
+      @media (min-width: 1440px) {
+        background: linear-gradient(268deg, rgba(0, 0, 0, 0) 21.45%, #000 85.16%);
+        height: 100%;
+      }
     }
 
     @media (min-width: 768px) {
       padding: 125px 69px;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 150px 189px;
     }
   }
 
@@ -333,6 +342,11 @@ onUnmounted(() => {
     width: 100%;
     height: 63vh;
     z-index: -1;
+
+    @media (min-width: 1440px) {
+      top: 0;
+      height: 100%;
+    }
   }
 
   &__slider-title {
@@ -346,6 +360,14 @@ onUnmounted(() => {
 
     @media (min-width: 768px) {
       margin-bottom: 20px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 24px;
+
+      max-width: 602px;
+
+      line-height: 48px;
     }
   }
 
@@ -366,6 +388,10 @@ onUnmounted(() => {
       max-width: 447px;
 
       margin-bottom: 27px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 40px;
     }
   }
 
@@ -420,16 +446,29 @@ onUnmounted(() => {
     @media (min-width: 768px) {
       justify-content: space-between;
     }
+
+    @media (min-width: 1400px) {
+      justify-content: space-between;
+    }
   }
 
   &__recommendation-list-item {
     margin-bottom: 30px;
+
+    @media (min-width: 1400px) {
+      margin-bottom: 25px;
+    }
 
     &:first-child {
       .category-card__wrapper {
         @media (min-width: 768px) {
           min-width: 630px;
           min-height: 514px;
+        }
+
+        @media (min-width: 1400px) {
+          min-width: 590px;
+          min-height: 481px;
         }
       }
     }
@@ -452,8 +491,17 @@ onUnmounted(() => {
     max-height: 190px;
 
     @media (min-width: 768px) {
-      max-height: 453px;
-      min-width: 300px;
+      min-width: 295px;
+      min-height: 450px;
+      max-width: 295px;
+      max-height: 450px;
+    }
+
+    @media (min-width: 1440px) {
+      min-width: 280px;
+      max-height: 408px;
+      min-height: 408px;
+      max-width: 280px;
     }
 
     &:hover {
@@ -501,14 +549,23 @@ onUnmounted(() => {
     z-index: 0;
 
     @media (min-width: 768px) {
-      min-height: 379px;
-      min-width: 300px;
+      max-height: 379px;
+      max-width: 300px;
+    }
+
+    @media (min-width: 1440px) {
+      max-width: 286px;
+      max-height: 412px;
     }
   }
 
   &__products {
     padding: 0 15px 30px 15px;
     border-top: 1px solid $border-line;
+
+    @media (min-width: 768px) {
+      padding-top: 60px;
+    }
   }
 
   &__tab-list {
@@ -535,6 +592,12 @@ onUnmounted(() => {
     opacity: 0.5;
 
     cursor: pointer;
+
+    @media (min-width: 1440px) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
 
     &--active {
       opacity: 1;
@@ -586,6 +649,27 @@ onUnmounted(() => {
         grid-column-end: 3;
       }
     }
+
+    @media (min-width: 1440px) {
+      grid-template-columns: 25% 75%;
+      column-gap: 80px;
+
+      .main__about-title {
+        margin-top: 0;
+      }
+
+      .main__about-description {
+        max-width: 672px;
+        color: $white;
+        line-height: 22px;
+
+        margin: 0;
+
+        br {
+          display: none;
+        }
+      }
+    }
   }
 
   &__about-knife {
@@ -622,6 +706,51 @@ onUnmounted(() => {
           grid-row-end: 4;
           grid-column-start: 2;
           grid-column-end: 3;
+        }
+      }
+    }
+
+    @media (min-width: 1440px) {
+      grid-template-columns: 75% 25%;
+      column-gap: 80px;
+
+      .main__about-title {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+
+        margin-top: 30px;
+      }
+
+      .main__about-image {
+        grid-row-start: 1;
+        grid-row-end: 4;
+
+        height: 100%;
+        justify-self: center;
+      }
+
+      .main__about-description {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+        margin: 0;
+
+        color: $white;
+        line-height: 22px;
+
+        &:last-child {
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 2;
+          grid-row-end: 3;
+        }
+
+        br {
+          display: none;
         }
       }
     }

@@ -58,6 +58,10 @@ const onSubmit = () => {
       max-width: 180px;
       padding: 0 35px 0 15px;
       opacity: 1;
+
+      @media (min-width: 1440px) {
+        max-width: 350px;
+      }
     }
   }
 

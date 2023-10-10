@@ -207,6 +207,14 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     @media (min-width: 768px) {
       padding: 60px 15px;
     }
+
+    @media (min-width: 1440px) {
+      padding: 45px 120px;
+
+      display: grid;
+      grid-template-columns: 30% 40% 30%;
+      column-gap: 60px;
+    }
   }
 
   &__logo {
@@ -218,6 +226,13 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     @media (min-width: 768px) {
       grid-template-columns: 26% 21%;
       column-gap: 20px;
+    }
+
+    @media (min-width: 1440px) {
+      grid-template-columns: 50% 50%;
+      column-gap: 26px;
+      grid-row-start: 1;
+      grid-row-end: 2;
     }
 
     svg {
@@ -245,6 +260,18 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     line-height: 20px;
 
     margin-bottom: 30px;
+
+    @media (min-width: 1440px) {
+      grid-template-columns: 50% 50%;
+      column-gap: 26px;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 1;
+      grid-column-end: 2;
+
+      color: $white;
+      line-height: 20px;
+    }
   }
 
   &__list-title {
@@ -269,6 +296,11 @@ import BaseButton from '@/components/ui/BaseButton.vue'
       margin-bottom: 17px;
       column-gap: 15px;
     }
+
+    @media (min-width: 1440px) {
+      column-gap: 25px;
+      row-gap: 15px;
+    }
   }
 
   &__list-link {
@@ -277,6 +309,26 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 
     &:active {
       color: $red-active;
+    }
+  }
+
+  &__info {
+    @media (min-width: 1440px) {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+  }
+
+  &__catalog {
+    @media (min-width: 1440px) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+      margin-top: 35px;
     }
   }
 
@@ -289,6 +341,15 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     row-gap: 15px;
 
     margin-bottom: 30px;
+
+    @media (min-width: 1440px) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+      align-self: end;
+    }
   }
 
   &__social-title {
@@ -322,6 +383,13 @@ import BaseButton from '@/components/ui/BaseButton.vue'
       grid-template-columns: 40% 25% 30%;
       column-gap: 30px;
     }
+
+    @media (min-width: 1440px) {
+      display: flex;
+      flex-direction: column;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
   }
 
   &__contact-title {
@@ -338,6 +406,10 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 
       margin-bottom: 20px;
     }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 25px;
+    }
   }
 
   &__contact-us {
@@ -349,6 +421,13 @@ import BaseButton from '@/components/ui/BaseButton.vue'
       grid-row-start: 2;
       grid-row-end: 3;
     }
+
+    @media (min-width: 1440px) {
+      flex-direction: column;
+      margin-bottom: 30px;
+
+      order: 1;
+    }
   }
 
   &__contact-tel {
@@ -357,6 +436,12 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     font-weight: 600;
 
     margin-right: 30px;
+
+    @media (min-width: 1440px) {
+      font-size: 20px;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
   }
 
   &__contact-email {
@@ -383,6 +468,12 @@ import BaseButton from '@/components/ui/BaseButton.vue'
       grid-row-start: 2;
       grid-row-end: 3;
     }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 20px;
+
+      order: 3;
+    }
   }
 
   &__contact-time {
@@ -395,6 +486,11 @@ import BaseButton from '@/components/ui/BaseButton.vue'
       grid-row-start: 2;
       grid-row-end: 3;
     }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 18px;
+      order: 2;
+    }
   }
 
   &__contact-image {
@@ -405,6 +501,13 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     @media (min-width: 768px) {
       grid-row-start: 3;
       grid-row-end: 4;
+    }
+
+    @media (min-width: 1440px) {
+      width: 87px;
+      height: 31px;
+
+      order: 4;
     }
   }
 

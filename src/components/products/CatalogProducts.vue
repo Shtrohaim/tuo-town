@@ -53,6 +53,7 @@
       <span class="p_hg">Показать еще</span>
     </base-button>
     <base-pagination
+      class="products__pagination"
       v-if="isLoad"
       @onPagination="emits('onPagination')"
       :totalItems="totalItems"
@@ -131,11 +132,18 @@ const showMore = async () => {
   emits('onPagination')
 }
 
+const resize = () => {
+  filterIsOpen.value = window.innerWidth >= 1440
+}
+
 onMounted(() => {
+  resize()
+  addEventListener('resize', resize)
   checkLimit()
 })
 
 onUnmounted(() => {
+  removeEventListener('resize', resize)
   emits('onUnmounted')
 })
 </script>
@@ -144,6 +152,11 @@ onUnmounted(() => {
 .products {
   display: grid;
   padding: 30px 15px;
+
+  @media (min-width: 1440px) {
+    grid-template-columns: 20% 80%;
+    padding: 60px 122px;
+  }
 
   &__not-found {
     color: $white;
@@ -176,6 +189,10 @@ onUnmounted(() => {
 
     margin-bottom: 15px;
 
+    @media (min-width: 1440px) {
+      display: none;
+    }
+
     svg {
       transform: rotate(90deg);
     }
@@ -194,6 +211,11 @@ onUnmounted(() => {
     height: 100vh;
     width: 100%;
     z-index: 10;
+
+    @media (min-width: 1440px) {
+      position: relative;
+      height: 100%;
+    }
   }
 
   &__filter-wrapper {
@@ -206,6 +228,11 @@ onUnmounted(() => {
     width: 100%;
 
     transform: translateX(-50%);
+
+    @media (min-width: 1440px) {
+      position: relative;
+      background: transparent;
+    }
   }
 
   &__filter {
@@ -216,6 +243,11 @@ onUnmounted(() => {
     padding: 5px 15px 30px 15px;
 
     background: $background-light;
+
+    @media (min-width: 1440px) {
+      height: 100%;
+      overflow: hidden;
+    }
   }
 
   &__filter-header {
@@ -224,6 +256,10 @@ onUnmounted(() => {
     min-height: 60px;
 
     cursor: pointer;
+
+    @media (min-width: 1440px) {
+      display: none;
+    }
   }
 
   &__close-filter {
@@ -256,6 +292,10 @@ onUnmounted(() => {
     flex-wrap: wrap;
     justify-content: center;
     column-gap: 30px;
+
+    @media (min-width: 1440px) {
+      grid-column-start: 2;
+    }
   }
 
   &__list-item {
@@ -270,6 +310,10 @@ onUnmounted(() => {
     justify-self: center;
     margin-bottom: 30px;
 
+    @media (min-width: 1440px) {
+      grid-column-start: 2;
+    }
+
     &:active {
       svg {
         fill: $red-active;
@@ -279,6 +323,12 @@ onUnmounted(() => {
 
     svg {
       margin-right: 8px;
+    }
+  }
+
+  &__pagination {
+    @media (min-width: 1440px) {
+      grid-column-start: 2;
     }
   }
 }
