@@ -83,6 +83,10 @@ const changeValue = (newValue: SelectType) => {
   min-width: 290px;
   max-width: 334px;
 
+  @media (min-width: 1440px) {
+    max-width: 368px;
+  }
+
   &--dark {
     background: $cart-background-dark;
 

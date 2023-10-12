@@ -3,7 +3,9 @@
   <Transition>
     <the-sidebar v-if="isActiveSidebar" @closeSidebar="closeSidebar"></the-sidebar>
   </Transition>
-  <router-view class="app" />
+  <div class="app">
+    <router-view />
+  </div>
   <the-footer></the-footer>
 </template>
 

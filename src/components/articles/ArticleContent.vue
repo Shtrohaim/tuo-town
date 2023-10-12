@@ -51,7 +51,7 @@ const props = defineProps({
 
 const emits = defineEmits(['onUnmounted'])
 
-const sliderHeight = window.innerWidth < 768 ? 230 : 358
+const sliderHeight = window.innerWidth < 768 ? 230 : window.innerWidth < 1440 ? 358 : 450
 
 onUnmounted(() => {
   emits('onUnmounted')
@@ -70,6 +70,15 @@ onUnmounted(() => {
     overflow: hidden;
 
     margin: 0 auto 30px;
+
+    @media (min-width: 1440px) {
+      float: left;
+      margin-right: 30px;
+      margin-bottom: 15px;
+
+      max-width: 450px;
+      max-height: 500px;
+    }
   }
 
   &__nav-list {
@@ -88,6 +97,16 @@ onUnmounted(() => {
   &__nav-list-item {
     color: $gray-light;
 
+    @media (min-width: 1440px) {
+      &:hover {
+        color: $red-active;
+
+        &:after {
+          color: $gray-light;
+        }
+      }
+    }
+
     &:active {
       color: $red-active;
 
@@ -103,6 +122,14 @@ onUnmounted(() => {
     }
 
     &:last-child {
+      @media (min-width: 1440px) {
+        color: $gray-light;
+
+        &::after {
+          content: '';
+        }
+      }
+
       &:active {
         color: $gray-light;
       }
@@ -118,6 +145,10 @@ onUnmounted(() => {
     line-height: 140%;
 
     margin-bottom: 30px;
+
+    @media (min-width: 1440px) {
+      margin-top: 50px;
+    }
   }
 
   &__slide {
@@ -130,6 +161,10 @@ onUnmounted(() => {
 
     @media (min-width: 768px) {
       min-width: 450px;
+    }
+
+    @media (min-width: 1440px) {
+      min-width: 600px;
     }
   }
 }

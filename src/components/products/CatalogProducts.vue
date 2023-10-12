@@ -290,8 +290,12 @@ onUnmounted(() => {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 30px;
+    justify-content: space-between;
+
+    @media (min-width: 768px) {
+      column-gap: 30px;
+      justify-content: center;
+    }
 
     @media (min-width: 1440px) {
       grid-column-start: 2;

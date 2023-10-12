@@ -75,6 +75,12 @@ const marker = {
     padding-top: 85px;
   }
 
+  @media (min-width: 1440px) {
+    padding-top: 130px;
+    max-width: 1920px;
+    display: flex;
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
@@ -84,6 +90,10 @@ const marker = {
     text-align: center;
     color: $white;
     margin-bottom: 30px;
+
+    @media (min-width: 1440px) {
+      text-align: left;
+    }
   }
 
   &__address {
@@ -115,8 +125,11 @@ const marker = {
 
     &:active {
       color: $red-active;
+      text-decoration-color: $red-active;
+    }
 
-      &:active {
+    @media (min-width: 1440px) {
+      &:hover {
         color: $red-active;
         text-decoration-color: $red-active;
       }
@@ -135,6 +148,12 @@ const marker = {
 
   &__redirect {
     margin: 0 auto 30px;
+
+    @media (min-width: 1440px) {
+      margin: 0;
+
+      width: 230px;
+    }
   }
 
   &__map {
@@ -152,6 +171,10 @@ const marker = {
 
     @media (min-width: 768px) {
       height: 80vh;
+    }
+
+    @media (min-width: 1440px) {
+      max-height: 900px;
     }
 
     .ymaps-2-1-79-balloon {

@@ -6,7 +6,7 @@
   </ul>
   <ul class="articles-list" v-else>
     <li class="articles-list__item" v-for="n in 3" :key="n">
-      <skeleton-category></skeleton-category>
+      <skeleton-article></skeleton-article>
     </li>
   </ul>
 </template>
@@ -15,7 +15,7 @@
 import { onUnmounted } from 'vue'
 
 import ArticleCard from '@/components/articles/ArticleCard.vue'
-import SkeletonCategory from '@/components/categories/SkeletonCategory.vue'
+import SkeletonArticle from '@/components/articles/SkeletonArticle.vue'
 
 import type { PropType } from 'vue'
 import type { ArticleType } from '@/types/responseType'
@@ -47,5 +47,10 @@ onUnmounted(() => {
 
   width: 100%;
   justify-content: space-between;
+
+  @media (min-width: 1440px) {
+    justify-content: center;
+    gap: 30px 15px;
+  }
 }
 </style>

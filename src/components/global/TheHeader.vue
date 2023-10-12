@@ -54,7 +54,12 @@
             <use href="@/assets/images/svg/mailIcon.svg#icon"></use>
           </svg>
         </a>
-        <base-search v-if="deviceWidth >= 768" class="header__search" />
+        <base-search
+          v-if="deviceWidth >= 768"
+          @onSubmit="onSearch"
+          v-model="search"
+          class="header__search"
+        />
       </div>
     </div>
   </header>
@@ -64,6 +69,7 @@
 import { useSessionStore } from '@/stores/session'
 import { onMounted, onUnmounted, ref } from 'vue'
 import BaseSearch from '@/components/ui/BaseSearch.vue'
+import { useRouter } from 'vue-router'
 
 const emits = defineEmits(['openSidebar'])
 
@@ -73,7 +79,15 @@ const openSidebar = () => {
   emits('openSidebar')
 }
 
+const router = useRouter()
+
 const sessionStore = useSessionStore()
+
+const search = ref('')
+
+const onSearch = () => {
+  router.push({ name: 'search', query: { search: search.value, page: 1, limit: 8 } })
+}
 
 const resize = () => {
   deviceWidth.value = window.innerWidth

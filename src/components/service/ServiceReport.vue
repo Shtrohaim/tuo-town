@@ -134,6 +134,19 @@ watch(formData.value, () => {
 
 <style scoped lang="scss">
 .service-report {
+  &__form {
+    @media (min-width: 1440px) {
+      padding: 50px 265px;
+      justify-content: space-between;
+    }
+  }
+
+  &__input {
+    @media (min-width: 1440px) {
+      width: 50%;
+    }
+  }
+
   &__phone {
     display: block;
     color: $white;
@@ -145,6 +158,12 @@ watch(formData.value, () => {
 
     &:active {
       color: $red-active;
+    }
+
+    @media (min-width: 1440px) {
+      &:hover {
+        color: $red-active;
+      }
     }
   }
 

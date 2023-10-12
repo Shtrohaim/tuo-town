@@ -178,6 +178,14 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 
     background: $background-dark;
     border-radius: 6px;
+
+    @media (min-width: 768px) {
+      max-width: 265px;
+    }
+
+    @media (min-width: 1440px) {
+      max-width: 305px;
+    }
   }
 
   &__input-email {
@@ -298,7 +306,6 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     }
 
     @media (min-width: 1440px) {
-      column-gap: 25px;
       row-gap: 15px;
     }
   }
@@ -306,6 +313,12 @@ import BaseButton from '@/components/ui/BaseButton.vue'
   &__list-link {
     font-weight: 400;
     color: $gray-light;
+
+    @media (min-width: 1440px) {
+      &:hover {
+        color: $red-active;
+      }
+    }
 
     &:active {
       color: $red-active;
@@ -374,6 +387,12 @@ import BaseButton from '@/components/ui/BaseButton.vue'
       background: $background-light;
 
       border-radius: 50%;
+
+      @media (min-width: 1440px) {
+        &:hover {
+          background-color: $red-active;
+        }
+      }
     }
   }
 

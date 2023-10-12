@@ -19,7 +19,7 @@
       <h2 class="visually-hidden">Наш слоган</h2>
       <div class="product__slogan-first" v-if="isLoad.product">
         <base-image class="product__slogan-image" :src="Slogan1" />
-        <div>
+        <div class="product__slogan-text">
           <h3 class="h4 product__slogan-title">Исключительное качество без компромиссов</h3>
           <p class="product__slogan-description p_md">
             Ножи «Tuotown» — это главный инструмент поваров и секрет кулинарного мастерства
@@ -28,7 +28,7 @@
       </div>
       <div class="product__slogan-second" v-if="isLoad.product">
         <base-image class="product__slogan-image" :src="Slogan2" />
-        <div>
+        <div class="product__slogan-text">
           <h3 class="h4 product__slogan-title">Исключительное качество без компромиссов</h3>
           <p class="product__slogan-description p_md">
             Ножи «Tuotown» — это главный инструмент поваров и секрет кулинарного мастерства
@@ -161,7 +161,7 @@ const accessories = ref({
 const seeAlso = ref<ProductsType[]>()
 const productId = ref(Number(route.params.id))
 
-const sliderHeight = window.innerWidth < 768 ? 166 : 358
+const sliderHeight = window.innerWidth < 768 ? 166 : window.innerWidth < 1440 ? 358 : 550
 
 const fetchProduct = async () => {
   await productsServices.getProduct(productId.value).then((res) => {
@@ -242,10 +242,19 @@ onMounted(async () => {
       width: 100%;
       height: 80vh;
       z-index: 2;
+
+      @media (min-width: 1440px) {
+        background: linear-gradient(268deg, rgba(0, 0, 0, 0) 21.45%, #000 85.16%);
+        height: 100vh;
+      }
     }
 
     @media (min-width: 768px) {
       padding: 130px 69px;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 149px 189px;
     }
   }
 
@@ -296,6 +305,11 @@ onMounted(async () => {
     width: 100%;
     height: 63vh;
     z-index: 0;
+
+    @media (min-width: 1440px) {
+      top: 0;
+      height: 100%;
+    }
   }
 
   &__slogan-first {
@@ -304,6 +318,12 @@ onMounted(async () => {
     @media (min-width: 768px) {
       display: flex;
       column-gap: 30px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 89px;
+      align-items: center;
+      column-gap: 140px;
     }
   }
 
@@ -315,10 +335,23 @@ onMounted(async () => {
       flex-direction: row-reverse;
       column-gap: 30px;
     }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 90px;
+      align-items: center;
+      column-gap: 140px;
+    }
+  }
+
+  &__slogan-text {
+    @media (min-width: 1440px) {
+      max-width: 350px;
+    }
   }
 
   &__slogan-image {
     width: 100%;
+    max-width: 500px;
 
     border-radius: 15px;
     overflow: hidden;
@@ -346,6 +379,10 @@ onMounted(async () => {
   &__about {
     background: $background-dark;
     padding: 30px 0;
+
+    @media (min-width: 1440px) {
+      padding: 90px 0;
+    }
   }
 
   &__slider {
@@ -366,6 +403,10 @@ onMounted(async () => {
       margin-right: 15px;
     }
 
+    @media (min-width: 1440px) {
+      width: 940px;
+    }
+
     &:first-child {
       margin-left: 15px;
     }
@@ -376,6 +417,10 @@ onMounted(async () => {
 
     @media (min-width: 768px) {
       width: 630px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 940px;
     }
 
     border-radius: 15px;
@@ -393,6 +438,19 @@ onMounted(async () => {
     @media (min-width: 768px) {
       min-height: 408px;
     }
+
+    @media (min-width: 1440px) {
+      min-height: 900px;
+    }
+  }
+
+  &__characteristics {
+    @media (min-width: 1440px) {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      grid-template-rows: 1fr auto 1fr;
+      column-gap: 125px;
+    }
   }
 
   &__characteristics-title {
@@ -406,6 +464,16 @@ onMounted(async () => {
 
     @media (min-width: 768px) {
       margin-bottom: 68px;
+    }
+
+    @media (min-width: 1440px) {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      align-self: end;
+      justify-self: start;
+      margin-bottom: 25px;
     }
   }
 
@@ -423,6 +491,16 @@ onMounted(async () => {
     @media (min-width: 768px) {
       max-width: 250px;
     }
+
+    @media (min-width: 1440px) {
+      max-width: 407px;
+      max-height: 620px;
+
+      grid-row-start: 1;
+      grid-row-end: 4;
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
   }
 
   &__characteristics-list {
@@ -434,6 +512,17 @@ onMounted(async () => {
 
     @media (min-width: 768px) {
       margin-bottom: 30px;
+    }
+
+    @media (min-width: 1440px) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+      max-width: 550px;
+
+      height: fit-content;
     }
   }
 
@@ -467,6 +556,15 @@ onMounted(async () => {
     column-gap: 15px;
 
     color: $gray-light;
+
+    @media (min-width: 1440px) {
+      grid-row-start: 3;
+      grid-row-end: 4;
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+      align-self: start;
+    }
   }
 
   &__accessories {
@@ -493,6 +591,11 @@ onMounted(async () => {
 
     @media (min-width: 768px) {
       gap: 30px 29px;
+    }
+
+    @media (min-width: 1440px) {
+      gap: 0;
+      justify-content: space-between;
     }
   }
 }

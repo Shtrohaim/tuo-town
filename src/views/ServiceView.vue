@@ -87,6 +87,10 @@ const sendReport = async () => {
     padding: 85px 15px 0 15px;
   }
 
+  @media (min-width: 1440px) {
+    padding: 85px 122px 0 122px;
+  }
+
   &__title {
     text-transform: uppercase;
     text-align: center;
@@ -123,6 +127,12 @@ const sendReport = async () => {
     color: $gray-light;
 
     cursor: pointer;
+
+    @media (min-width: 1440px) {
+      &:hover {
+        color: $white;
+      }
+    }
 
     &--active {
       text-decoration: underline $red-active 2px;

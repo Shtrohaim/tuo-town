@@ -38,6 +38,11 @@ const emits = defineEmits(['onClick'])
 
   @media (min-width: 1440px) {
     line-height: 23px;
+
+    &:hover {
+      color: $red-active;
+      border-radius: 0;
+    }
   }
 
   &:active {
@@ -51,6 +56,12 @@ const emits = defineEmits(['onClick'])
 
     &:hover {
       background: $red;
+    }
+
+    @media (min-width: 1440px) {
+      &:hover {
+        color: $white;
+      }
     }
 
     &:active {

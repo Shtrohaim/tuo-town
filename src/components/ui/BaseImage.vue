@@ -1,6 +1,6 @@
 <template>
   <div class="base-image" :class="{ 'base-image--loading': !isLoad }">
-    <img class="base-image__image" @load="isLoad = true" :src="src" :alt="alt" />
+    <img class="base-image__image" draggable="false" @load="isLoad = true" :src="src" :alt="alt" />
   </div>
 </template>
 

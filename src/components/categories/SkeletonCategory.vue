@@ -22,17 +22,14 @@
 
     border-radius: 14px;
 
-    &::after {
-      display: block;
-      content: '';
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: 45px;
-      transform: skewX(-45deg);
-      left: -150%;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
-      animation: flareAnimation 1.5s infinite linear;
+    @media (min-width: 768px) {
+      min-width: 354px;
+      min-height: 289px;
+    }
+
+    @media (min-width: 1440px) {
+      min-width: 630px;
+      min-height: 514px;
     }
   }
 

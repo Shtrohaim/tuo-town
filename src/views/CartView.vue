@@ -302,6 +302,13 @@ watch(formData.value, () => {
 .cart {
   padding: 75px 15px 15px 30px;
 
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (min-width: 1440px) {
+    padding: 100px 300px 60px 300px;
+  }
+
   &__head {
     position: relative;
   }
@@ -322,6 +329,18 @@ watch(formData.value, () => {
     left: 0;
 
     transform: translateY(-50%) rotate(180deg);
+
+    @media (min-width: 1440px) {
+      &:hover {
+        svg {
+          fill: $red-active;
+        }
+
+        .cart__back-button-text {
+          color: $red-active;
+        }
+      }
+    }
 
     &:active {
       svg {
@@ -402,6 +421,10 @@ watch(formData.value, () => {
 
       padding: 30px;
     }
+
+    @media (min-width: 1440px) {
+      grid-template-columns: 12% 59% 9% 8% 5%;
+    }
   }
 
   &__product-image {
@@ -463,6 +486,15 @@ watch(formData.value, () => {
     @media (min-width: 768px) {
       display: block;
       justify-self: start;
+      margin-top: 6px;
+    }
+
+    @media (min-width: 1440px) {
+      &:hover {
+        svg {
+          fill: $red-active;
+        }
+      }
     }
   }
 
@@ -641,6 +673,8 @@ watch(formData.value, () => {
       grid-row-end: 2;
       grid-column-start: 1;
       grid-column-end: 3;
+
+      text-transform: uppercase;
     }
   }
 
@@ -688,6 +722,10 @@ watch(formData.value, () => {
       text-align: left;
       line-height: 140%;
     }
+
+    @media (min-width: 1440px) {
+      max-width: 395px;
+    }
   }
 
   &__conditions-link {
@@ -702,6 +740,10 @@ watch(formData.value, () => {
     @media (min-width: 768px) {
       margin: 0;
       width: 250px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 280px;
     }
   }
 }

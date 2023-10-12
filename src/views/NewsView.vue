@@ -61,6 +61,11 @@ onMounted(async () => {
 <style scoped lang="scss">
 .news {
   padding-top: 65px;
+
+  @media (min-width: 1440px) {
+    padding-top: 100px;
+  }
+
   &__title {
     text-align: center;
     color: $white;

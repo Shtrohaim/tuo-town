@@ -275,11 +275,24 @@ watch(markerOptions.value, () => {
     text-transform: uppercase;
     text-align: center;
     color: $white;
+
+    @media (min-width: 1440px) {
+      padding-top: 100px;
+    }
   }
 
   &__content {
     padding: 30px 15px;
     background: $background-dark;
+
+    @media (min-width: 1440px) {
+      display: grid;
+      grid-template-columns: 70% 30%;
+      grid-template-rows: auto;
+      gap: 40px 30px;
+      padding: 60px 122px;
+      height: 110vh;
+    }
   }
 
   &__map-control {
@@ -299,6 +312,17 @@ watch(markerOptions.value, () => {
 
     @media (min-width: 768px) {
       margin-bottom: 40px;
+    }
+
+    @media (min-width: 1440px) {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 3;
+
+      margin: 0 48px 0 0;
+
+      max-width: 642px;
     }
   }
 
@@ -326,6 +350,28 @@ watch(markerOptions.value, () => {
     right: 15px;
 
     transform: translateY(-50%);
+
+    &:active {
+      svg {
+        fill: $red-active;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      transform: translateY(-40%);
+
+      &:hover {
+        svg {
+          fill: $white;
+        }
+      }
+
+      &:active {
+        svg {
+          fill: $red-active;
+        }
+      }
+    }
   }
 
   &__options-list {
@@ -334,6 +380,17 @@ watch(markerOptions.value, () => {
     column-gap: 5px;
 
     margin-bottom: 20px;
+
+    @media (min-width: 1440px) {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 3;
+
+      margin: 0;
+
+      column-gap: 15px;
+    }
   }
 
   .dealers__option-button {
@@ -347,6 +404,16 @@ watch(markerOptions.value, () => {
     border: 2px solid $gray-border;
     border-radius: 50%;
     background: $black-input;
+
+    @media (min-width: 1440px) {
+      &:hover {
+        border-radius: 50%;
+
+        .dealers__option-icon {
+          opacity: 1;
+        }
+      }
+    }
 
     &:active {
       border-radius: 50%;
@@ -430,6 +497,17 @@ watch(markerOptions.value, () => {
       height: 90vh;
     }
 
+    @media (min-width: 1440px) {
+      grid-row-start: 2;
+      grid-row-end: 4;
+      grid-column-start: 1;
+      grid-column-end: 2;
+
+      margin: 0;
+
+      height: 630px;
+    }
+
     .ymaps-2-1-79-balloon {
       background-color: $background-dark;
 
@@ -498,10 +576,20 @@ watch(markerOptions.value, () => {
     display: flex;
     justify-content: center;
     max-width: 300px;
+    max-height: 60px;
 
     border-color: $gray-border;
 
     margin-bottom: 30px;
+
+    @media (min-width: 1440px) {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+      margin: 0;
+    }
   }
 
   &__shops-list {
@@ -516,6 +604,23 @@ watch(markerOptions.value, () => {
     scrollbar-width: auto;
     scrollbar-color: $gray, $black-input;
 
+    @media (min-width: 1440px) {
+      grid-row-start: 3;
+      grid-row-end: 4;
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+      flex-direction: column;
+      max-width: 300px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      height: 100%;
+
+      margin-left: 10px;
+      row-gap: 30px;
+    }
+
     &::-webkit-scrollbar {
       height: 9px;
       background: $black-input;
@@ -529,6 +634,10 @@ watch(markerOptions.value, () => {
       border-radius: 15px;
 
       cursor: pointer;
+
+      @media (min-width: 1440px) {
+        height: auto;
+      }
     }
   }
 
@@ -540,6 +649,10 @@ watch(markerOptions.value, () => {
 
     color: $gray;
     line-height: 140%;
+
+    @media (min-width: 1440px) {
+      padding-right: 20px;
+    }
   }
 
   &__shop-name {
@@ -551,6 +664,13 @@ watch(markerOptions.value, () => {
 
     &:active {
       color: $red-active;
+    }
+
+    @media (min-width: 1440px) {
+      &:hover {
+        cursor: pointer;
+        color: $red-active;
+      }
     }
   }
 
