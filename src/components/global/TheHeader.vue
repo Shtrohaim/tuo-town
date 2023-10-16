@@ -170,6 +170,17 @@ onUnmounted(() => {
       display: inline-flex;
       grid-column-start: 2;
       grid-column-end: 3;
+      color: $white;
+
+      &:active {
+        color: $red-active;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      &:hover {
+        color: $red-active;
+      }
     }
   }
 

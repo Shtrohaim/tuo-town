@@ -1,4 +1,5 @@
 import axios from '@/http/axios'
+import router from '@/router'
 
 export default {
   async getArticlesRecommendation() {
@@ -8,6 +9,10 @@ export default {
     return await axios.get(`/articles`)
   },
   async getArticle(id: number) {
-    return await axios.get(`/articles/${id}`)
+    return await axios.get(`/articles/${id}`).catch((err) => {
+      if (err.response.status === 404) {
+        router.push({ name: 'not-found' })
+      }
+    })
   }
 }

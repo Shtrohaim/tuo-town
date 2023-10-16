@@ -15,6 +15,7 @@ import AboutView from '@/views/AboutView.vue'
 import NewsView from '@/views/NewsView.vue'
 import ArticlesList from '@/components/articles/ArticlesList.vue'
 import ArticleContent from '@/components/articles/ArticleContent.vue'
+import NotFoundView from '@/views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -138,8 +139,12 @@ const router = createRouter({
           component: ArticleContent
         }
       ]
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFoundView
     }
   ]
 })
-
 export default router
