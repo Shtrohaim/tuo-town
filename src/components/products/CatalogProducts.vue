@@ -165,6 +165,15 @@ onUnmounted(() => {
 
     border: 1px solid $gray-border;
 
+    max-width: 500px;
+    margin: 0 auto;
+    height: fit-content;
+
+    @media (min-width: 1440px) {
+      padding: 60px 30px;
+      max-width: 700px;
+    }
+
     svg {
       fill: $red-active;
     }

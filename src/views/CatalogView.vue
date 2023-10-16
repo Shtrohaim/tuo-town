@@ -261,6 +261,14 @@ onMounted(async () => {
   &__search {
     padding: 50px 15px 0 15px;
     color: $white;
+
+    @media (min-width: 768px) {
+      padding: 90px 30px 0 30px;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 101px 60px 0 60px;
+    }
   }
 
   &__recommendation {
