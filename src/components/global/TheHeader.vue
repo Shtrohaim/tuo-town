@@ -124,10 +124,10 @@ onUnmounted(() => {
     padding: 10px 15px;
 
     display: grid;
-    grid-template-columns: 15% 15% 30% 40%;
+    grid-template-columns: 40px 40px 59% 16%;
 
     @media (min-width: 768px) {
-      grid-template-columns: 7% 7% 25% 20% 40%;
+      grid-template-columns: 55px 7% 25% 20% 40%;
       align-items: center;
       padding: 18px 15px;
     }

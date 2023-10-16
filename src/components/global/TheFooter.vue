@@ -226,18 +226,15 @@ import BaseButton from '@/components/ui/BaseButton.vue'
   }
 
   &__logo {
-    display: grid;
-    grid-template-columns: 49% 51%;
-
+    display: flex;
     margin-bottom: 20px;
+    column-gap: 10px;
 
     @media (min-width: 768px) {
-      grid-template-columns: 26% 21%;
       column-gap: 20px;
     }
 
     @media (min-width: 1440px) {
-      grid-template-columns: 50% 50%;
       column-gap: 26px;
       grid-row-start: 1;
       grid-row-end: 2;
@@ -260,6 +257,8 @@ import BaseButton from '@/components/ui/BaseButton.vue'
     color: $white;
     font-weight: 500;
     text-transform: lowercase;
+
+    max-width: 180px;
   }
 
   &__description {
@@ -397,6 +396,8 @@ import BaseButton from '@/components/ui/BaseButton.vue'
   }
 
   &__contact {
+    max-width: 768px;
+
     @media (min-width: 768px) {
       display: grid;
       grid-template-columns: 40% 25% 30%;
