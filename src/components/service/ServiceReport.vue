@@ -66,7 +66,7 @@ import BaseSelect from '@/components/ui/BaseSelect.vue'
 import telMask from '@/utils/mask'
 import validation from '@/utils/validation'
 
-import { ServiceType } from '@/types/formType'
+import type { ServiceType } from '@/types/formType'
 
 const emits = defineEmits(['onSubmit'])
 const props = defineProps({

@@ -253,19 +253,19 @@ const addProduct = async (product: ProductsType) => {
 }
 
 const fetchPromo = async () => {
-  await recommendationService.getPromo().then((res) => {
+  await recommendationService.getPromo().then((res: any) => {
     slides.value = res.data
     isLoad.value.promo = true
   })
 }
 const fetchArticles = async () => {
-  await articlesServices.getArticlesRecommendation().then((res) => {
+  await articlesServices.getArticlesRecommendation().then((res: any) => {
     articles.value = res.data
     isLoad.value.articles = true
   })
 }
 const fetchProducts = async () => {
-  await recommendationService.getProductRecommendation().then((res) => {
+  await recommendationService.getProductRecommendation().then((res: any) => {
     products.value = res.data[0].products
     category.value = res.data[1].category[0]
     isLoad.value.recommendation = true
@@ -273,7 +273,7 @@ const fetchProducts = async () => {
 }
 
 const fetchPopularAndNew = async () => {
-  await productsServices.getNewAndPopular().then((res) => {
+  await productsServices.getNewAndPopular().then((res: any) => {
     popularAndNew.value = res.data
     isLoad.value.popular = true
   })

@@ -32,7 +32,7 @@ const isLoad = ref({
 })
 
 const fetchNews = async () => {
-  await articlesServices.getAllArticles().then((res) => {
+  await articlesServices.getAllArticles().then((res: any) => {
     news.value = res.data
     isLoad.value.list = true
   })

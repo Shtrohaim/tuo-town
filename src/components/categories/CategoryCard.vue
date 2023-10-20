@@ -17,9 +17,10 @@
 </template>
 
 <script async setup lang="ts">
-import { PropType } from 'vue'
-import type { CategoryType } from '@/types/responseType'
 import BaseImage from '@/components/ui/BaseImage.vue'
+
+import type { PropType } from 'vue'
+import type { CategoryType } from '@/types/responseType'
 
 const props = defineProps({
   category: {

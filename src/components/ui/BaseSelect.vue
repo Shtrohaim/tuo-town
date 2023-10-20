@@ -30,8 +30,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, PropType, ref } from 'vue'
+import { computed, ref } from 'vue'
 
+import type { PropType } from 'vue'
 import type { SelectType } from '@/types/formType'
 
 const props = defineProps({

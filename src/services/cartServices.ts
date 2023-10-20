@@ -18,7 +18,7 @@ export default {
 
     store.updateCount(store.storeSession.total_count + 1)
     await sessionServices.patchTotalCount()
-    await this.getCartProducts().then((res) => {
+    await this.getCartProducts().then((res: any) => {
       fetchedProducts.value = res.data
     })
     fetchedProducts.value.forEach(async (item: CartProductType) => {

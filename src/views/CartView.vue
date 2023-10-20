@@ -230,7 +230,7 @@ const totalCount = computed(() => {
   return count
 })
 const fetchProducts = async () => {
-  await cartServices.getCartProducts().then((res) => {
+  await cartServices.getCartProducts().then((res: any) => {
     products.value = res.data
     products.value.forEach((item: CartProductType) => {
       item.count = {

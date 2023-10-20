@@ -23,7 +23,7 @@ import { storeToRefs } from 'pinia'
 const sessionStore = useSessionStore()
 const fetchSession = async () => {
   if (localStorage.sessionId && localStorage.sessionId !== '') {
-    await sessionServices.getSession(localStorage.sessionId).then((res) => {
+    await sessionServices.getSession(localStorage.sessionId).then((res: any) => {
       sessionStore.setSession(res.data)
     })
   } else {

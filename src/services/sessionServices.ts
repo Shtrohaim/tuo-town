@@ -4,7 +4,7 @@ import { useSessionStore } from '@/stores/session'
 
 export default {
   async getSession(sessionId: string) {
-    return await axios.get(`/sessions/${sessionId}`).catch(async (err) => {
+    return await axios.get(`/sessions/${sessionId}`).catch(async (err: any) => {
       if (err.response.status === 404) {
         localStorage.sessionId = Date.now() * (Math.floor(Math.random() * 10) + 1)
         await this.postSession(localStorage.sessionId).then(async () => {

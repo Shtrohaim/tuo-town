@@ -9,7 +9,7 @@ export default {
     return await axios.get(`/articles`)
   },
   async getArticle(id: number) {
-    return await axios.get(`/articles/${id}`).catch((err) => {
+    return await axios.get(`/articles/${id}`).catch((err: any) => {
       if (err.response.status === 404) {
         router.push({ name: 'not-found' })
       }

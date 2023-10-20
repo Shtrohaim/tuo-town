@@ -83,7 +83,7 @@ const onProductsChange = async () => {
   }
 }
 const fetchCategoryCatalog = async () => {
-  await productsServices.getCategoryCatalog(catalog_id.value).then((res) => {
+  await productsServices.getCategoryCatalog(catalog_id.value).then((res: any) => {
     catalog.value = res.data
     isLoad.value.catalog = true
     isLoad.value.catalogHead = true
@@ -91,7 +91,7 @@ const fetchCategoryCatalog = async () => {
 }
 
 const fetchProductCatalog = async () => {
-  await productsServices.getProductCatalog(catalog_id.value).then((res) => {
+  await productsServices.getProductCatalog(catalog_id.value).then((res: any) => {
     catalog.value = res.data
     isLoad.value.catalog = true
     isLoad.value.catalogHead = true
@@ -137,7 +137,7 @@ const fetchFilteredProduct = async () => {
   isLoad.value.catalog = false
   await productsServices
     .getFilteredProduct({ id: catalog_id.value, filter: stringFilter.value })
-    .then((res) => {
+    .then((res: any) => {
       catalog.value.products = res.data
       totalItems.value = res.headers['x-total-count']
       isLoad.value.catalog = true
@@ -146,26 +146,28 @@ const fetchFilteredProduct = async () => {
 
 const fetchSearchingProducts = async () => {
   isLoad.value.catalog = false
-  await productsServices.getSearchingProduct({ filter: stringFilter.value }).then(async (res) => {
-    catalog.value = { products: [] }
-    catalog.value.products = res.data
-    totalItems.value = res.headers['x-total-count']
-    isLoad.value.catalog = true
-    if (catalog.value.products.length !== 0) {
-      await fetchProductFilter(catalog.value.products[0].categoryId)
-    }
-  })
+  await productsServices
+    .getSearchingProduct({ filter: stringFilter.value })
+    .then(async (res: any) => {
+      catalog.value = { products: [] }
+      catalog.value.products = res.data
+      totalItems.value = res.headers['x-total-count']
+      isLoad.value.catalog = true
+      if (catalog.value.products.length !== 0) {
+        await fetchProductFilter(catalog.value.products[0].categoryId)
+      }
+    })
 }
 
 const fetchProductFilter = async (id: number) => {
-  await productsServices.getProductFilter(id).then((res) => {
+  await productsServices.getProductFilter(id).then((res: any) => {
     filter.value = res.data
     isLoad.value.filter = true
   })
 }
 
 const fetchRecommendation = async () => {
-  await recommendationService.getCatalogRecommendation().then((res) => {
+  await recommendationService.getCatalogRecommendation().then((res: any) => {
     slides.value = res.data
     isLoad.value.recommendations = true
   })

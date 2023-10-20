@@ -168,7 +168,7 @@ const productId = ref(Number(route.params.id))
 const sliderHeight = ref(window.innerWidth < 768 ? 166 : window.innerWidth < 1440 ? 358 : 550)
 
 const fetchProduct = async () => {
-  await productsServices.getProduct(productId.value).then((res) => {
+  await productsServices.getProduct(productId.value).then((res: any) => {
     product.value = res.data
     isLoad.value.product = true
   })
@@ -183,7 +183,7 @@ const addProduct = async () => {
 const fetchRecommendation = async () => {
   await recommendationService
     .getRecommendation(product.value?.categoryId, product.value?.id)
-    .then((res) => {
+    .then((res: any) => {
       seeAlso.value = res.data
       accessories.value.products = res.data
       accessories.value.count = res.headers['x-total-count']

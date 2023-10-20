@@ -174,7 +174,7 @@ const isMarkerLoad = ref(false)
 const shops = ref<MapShopType[]>()
 
 const fetchMarkers = async () => {
-  await mapServices.getMarkers().then((res) => {
+  await mapServices.getMarkers().then((res: any) => {
     shops.value = res.data
     isMarkerLoad.value = true
   })
