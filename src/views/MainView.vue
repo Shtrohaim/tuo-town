@@ -219,10 +219,10 @@ import ArticlesList from '@/components/articles/ArticlesList.vue'
 const deviceWidth = ref(window.innerWidth)
 const deviceHeight = ref(window.innerHeight)
 
-const slides = ref<PromoType[]>()
-const products = ref<ProductsType[]>()
-const category = ref<CategoryType>()
-const articles = ref<ArticleType[]>()
+const slides = ref([] as PromoType[])
+const products = ref([] as ProductsType[])
+const category = ref({} as CategoryType)
+const articles = ref([] as ArticleType[])
 
 const isLoad = ref({
   promo: false,
@@ -231,7 +231,7 @@ const isLoad = ref({
   popular: false
 })
 
-const popularAndNew = ref<PopularNewType[]>()
+const popularAndNew = ref([] as PopularNewType[])
 const tabIndex = ref(0)
 
 const router = useRouter()

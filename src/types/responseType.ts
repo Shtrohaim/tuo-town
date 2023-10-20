@@ -5,7 +5,7 @@ interface PromoType {
   image: string
   title: string
   description: string
-  link: boolean
+  link: string
 }
 
 interface ProductsType {

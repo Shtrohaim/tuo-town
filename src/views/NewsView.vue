@@ -39,7 +39,7 @@ const fetchNews = async () => {
 }
 
 const fetchArticle = async () => {
-  await articlesServices.getArticle(Number(route.params.id)).then((res) => {
+  await articlesServices.getArticle(Number(route.params.id)).then((res: any) => {
     article.value = res.data
     isLoad.value.article = true
   })
