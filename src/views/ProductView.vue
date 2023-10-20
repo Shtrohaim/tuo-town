@@ -8,7 +8,9 @@
         <p v-else class="product__description p_hg">
           Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства
         </p>
-        <base-button class="product__buy-button" :filled="true">Купить</base-button>
+        <base-button @onClick="addProduct" class="product__buy-button" :filled="true"
+          >Купить</base-button
+        >
         <span v-if="isLoad.product" class="product__cost p_hg">{{
           textTransform().priceTransform(product.price)
         }}</span>
@@ -144,6 +146,8 @@ import recommendationService from '@/services/recommendationService'
 
 import textTransform from '../utils/textTransform'
 import type { ProductsType } from '@/types/responseType'
+import cartServices from '@/services/cartServices'
+import router from '@/router'
 
 const route = useRoute()
 
@@ -167,6 +171,12 @@ const fetchProduct = async () => {
   await productsServices.getProduct(productId.value).then((res) => {
     product.value = res.data
     isLoad.value.product = true
+  })
+}
+
+const addProduct = async () => {
+  await cartServices.postCartProduct(product.value).finally(() => {
+    router.push({ name: 'cart' })
   })
 }
 

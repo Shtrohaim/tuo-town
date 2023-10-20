@@ -2640,7 +2640,7 @@
   "sessions": [
     {
       "id": "6784278775164",
-      "total_count": 11
+      "total_count": 1
     },
     {
       "id": "8484596006150",
@@ -2649,67 +2649,13 @@
   ],
   "cart-products": [
     {
-      "productId": 3,
-      "sessionId": "6784278775164",
-      "image": "/src/assets/images/server/product/product1.png",
-      "name": "Складной нож SQ01-B",
-      "price": 800,
-      "count": 5,
-      "id": 2
-    },
-    {
-      "productId": 1,
-      "sessionId": "6784278775164",
-      "image": "/src/assets/images/server/product/product1.png",
-      "name": "Складной нож SQ01-B",
-      "price": 1600,
-      "count": 1,
-      "id": 3
-    },
-    {
-      "productId": 2,
+      "productId": 0,
       "sessionId": "6784278775164",
       "image": "/src/assets/images/server/product/product2.png",
       "name": "Складной нож JJ001-TUO-B",
-      "price": 2300,
+      "price": 3000,
       "count": 1,
-      "id": 4
-    },
-    {
-      "productId": 11,
-      "sessionId": "6784278775164",
-      "image": "/src/assets/images/server/product/product2.png",
-      "name": "Складной нож JJ001-TUO-B",
-      "price": 5465,
-      "count": 1,
-      "id": 5
-    },
-    {
-      "productId": 10,
-      "sessionId": "6784278775164",
-      "image": "/src/assets/images/server/product/product2.png",
-      "name": "Складной нож JJ001-TUO-B",
-      "price": 1240,
-      "count": 1,
-      "id": 6
-    },
-    {
-      "productId": 8,
-      "sessionId": "6784278775164",
-      "image": "/src/assets/images/server/product/product1.png",
-      "name": "Складной нож SQ01-B",
-      "price": 1300,
-      "count": 1,
-      "id": 7
-    },
-    {
-      "productId": 4,
-      "sessionId": "6784278775164",
-      "image": "/src/assets/images/server/product/product1.png",
-      "name": "Складной нож SQ01-B",
-      "price": 1600,
-      "count": 1,
-      "id": 8
+      "id": 1
     }
   ],
   "order": []
