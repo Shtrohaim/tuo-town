@@ -300,13 +300,17 @@ watch(formData.value, () => {
 
 <style scoped lang="scss">
 .cart {
-  padding: 75px 15px 15px 30px;
+  padding: 75px 15px 30px 15px;
 
-  max-width: 1440px;
+  max-width: 900px;
   margin: 0 auto;
 
-  @media (min-width: 1440px) {
-    padding: 100px 300px 60px 300px;
+  @media (min-width: 768px) {
+    padding-top: 100px;
+  }
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    max-width: 520px;
   }
 
   &__head {
@@ -423,7 +427,7 @@ watch(formData.value, () => {
     }
 
     @media (min-width: 1440px) {
-      grid-template-columns: 12% 59% 9% 8% 5%;
+      grid-template-columns: 12% 53% 9% 15% 5%;
     }
   }
 
@@ -631,6 +635,7 @@ watch(formData.value, () => {
 
   &__slogan-icon {
     stroke: $white;
+    color: $white;
   }
 
   &__slogan-description {

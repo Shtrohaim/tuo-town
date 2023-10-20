@@ -438,6 +438,12 @@ onUnmounted(() => {
     }
   }
 
+  &__recommendation {
+    @media (min-width: 320px) and (max-width: 767px) {
+      max-width: 640px;
+    }
+  }
+
   &__recommendation-list {
     display: flex;
     flex-wrap: wrap;
@@ -764,7 +770,7 @@ onUnmounted(() => {
 
     border-radius: 20px;
 
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
   }
 
   &__about-title {
@@ -790,6 +796,10 @@ onUnmounted(() => {
     @media (min-width: 768px) {
       margin-bottom: 60px;
     }
+  }
+
+  .main__articles-list {
+    justify-content: space-around;
   }
 }
 </style>

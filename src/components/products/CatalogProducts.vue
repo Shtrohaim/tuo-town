@@ -152,9 +152,15 @@ onUnmounted(() => {
 .products {
   display: grid;
   padding: 30px 15px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    max-width: 600px;
+  }
 
   @media (min-width: 1440px) {
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 25% 80%;
     padding: 60px 122px;
   }
 
@@ -299,7 +305,7 @@ onUnmounted(() => {
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 
     @media (min-width: 768px) {
       column-gap: 30px;

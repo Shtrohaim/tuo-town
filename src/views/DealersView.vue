@@ -292,6 +292,11 @@ watch(markerOptions.value, () => {
       gap: 40px 30px;
       padding: 60px 122px;
       height: 110vh;
+      min-height: 900px;
+      max-height: 900px;
+
+      max-width: 1440px;
+      margin: 0 auto;
     }
   }
 

@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 import BaseImage from '@/components/ui/BaseImage.vue'
 import BaseSlider from '@/components/ui/BaseSlider.vue'
@@ -51,9 +51,18 @@ const props = defineProps({
 
 const emits = defineEmits(['onUnmounted'])
 
-const sliderHeight = window.innerWidth < 768 ? 230 : window.innerWidth < 1440 ? 358 : 450
+const sliderHeight = ref(window.innerWidth < 768 ? 230 : window.innerWidth < 1440 ? 358 : 450)
+
+const resize = () => {
+  sliderHeight.value = window.innerWidth < 768 ? 230 : window.innerWidth < 1440 ? 358 : 450
+}
+
+onMounted(() => {
+  addEventListener('resize', resize)
+})
 
 onUnmounted(() => {
+  removeEventListener('resize', resize)
   emits('onUnmounted')
 })
 </script>

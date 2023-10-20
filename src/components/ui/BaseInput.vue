@@ -67,7 +67,7 @@ const value = computed({
   max-width: 334px;
 
   @media (min-width: 1440px) {
-    max-width: 368px;
+    max-width: 320px;
   }
 
   &--dark {

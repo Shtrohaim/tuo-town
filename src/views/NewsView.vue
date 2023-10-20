@@ -62,7 +62,7 @@ onMounted(async () => {
 .news {
   padding-top: 65px;
 
-  @media (min-width: 1440px) {
+  @media (min-width: 768px) {
     padding-top: 100px;
   }
 
@@ -71,6 +71,10 @@ onMounted(async () => {
     color: $white;
 
     margin-bottom: 40px;
+  }
+
+  &__content {
+    justify-content: space-around;
   }
 }
 </style>

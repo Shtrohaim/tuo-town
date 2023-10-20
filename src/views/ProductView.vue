@@ -127,7 +127,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, markRaw, onMounted, onUpdated, ref, watch } from 'vue'
+import { computed, markRaw, onMounted, onUnmounted, onUpdated, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import BaseImage from '@/components/ui/BaseImage.vue'
@@ -161,7 +161,7 @@ const accessories = ref({
 const seeAlso = ref<ProductsType[]>()
 const productId = ref(Number(route.params.id))
 
-const sliderHeight = window.innerWidth < 768 ? 166 : window.innerWidth < 1440 ? 358 : 550
+const sliderHeight = ref(window.innerWidth < 768 ? 166 : window.innerWidth < 1440 ? 358 : 550)
 
 const fetchProduct = async () => {
   await productsServices.getProduct(productId.value).then((res) => {
@@ -201,6 +201,10 @@ const characteristics = computed(() => {
     .map((entry) => entry[1])
 })
 
+const resize = () => {
+  sliderHeight.value = window.innerWidth < 768 ? 166 : window.innerWidth < 1440 ? 358 : 550
+}
+
 watch(productId, async () => {
   await fetchProduct()
   await fetchRecommendation()
@@ -213,6 +217,11 @@ onUpdated(() => {
 onMounted(async () => {
   await fetchProduct()
   await fetchRecommendation()
+  addEventListener('resize', resize)
+})
+
+onUnmounted(() => {
+  removeEventListener('resize', resize)
 })
 </script>
 
@@ -356,7 +365,7 @@ onMounted(async () => {
     border-radius: 15px;
     overflow: hidden;
 
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
   }
 
   &__slogan-title {
@@ -377,6 +386,8 @@ onMounted(async () => {
   }
 
   &__about {
+    display: flex;
+    flex-direction: column;
     background: $background-dark;
     padding: 30px 0;
 
@@ -390,6 +401,11 @@ onMounted(async () => {
 
     @media (min-width: 768px) {
       margin-bottom: 90px;
+    }
+
+    @media (min-width: 1440px) {
+      max-width: 1920px;
+      margin: 0 auto;
     }
   }
 
@@ -441,6 +457,8 @@ onMounted(async () => {
 
     @media (min-width: 1440px) {
       min-height: 900px;
+      max-width: 1920px;
+      margin: 0 auto;
     }
   }
 

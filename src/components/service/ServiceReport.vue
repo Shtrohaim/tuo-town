@@ -3,7 +3,12 @@
     <h2 class="visually-hidden">Служба заботы</h2>
     <a class="service-report__phone h3" href="tel:+7 926 420-11-17">+7 (981) 120-11-17</a>
     <base-form @onSubmit="emits('onSubmit', formData)" class="service-report__form" v-if="!isSent">
-      <base-select label="Тема" v-model="formData.topic.data" :data="topicData" />
+      <base-select
+        class="service-report__input"
+        label="Тема"
+        v-model="formData.topic.data"
+        :data="topicData"
+      />
       <base-input
         class="service-report__input"
         v-model="formData.email.value"
@@ -135,7 +140,15 @@ watch(formData.value, () => {
 <style scoped lang="scss">
 .service-report {
   &__form {
+    max-width: 320px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      max-width: 900px;
+    }
+
     @media (min-width: 1440px) {
+      max-width: 1210px;
       padding: 50px 265px;
       justify-content: space-between;
     }

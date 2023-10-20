@@ -1,6 +1,6 @@
 <template>
   <main class="catalog">
-    <div class="catalog__banner container" v-if="route.name !== 'search'">
+    <div class="catalog__banner" v-if="route.name !== 'search'">
       <h1 v-if="isLoad.catalogHead" class="catalog__title h3">{{ catalog?.title }}</h1>
       <h1 v-else class="catalog__title h3">Католог TuoTown</h1>
       <p v-if="isLoad.catalogHead" class="catalog__description p_hg">{{ catalog?.description }}</p>
