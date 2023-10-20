@@ -8,7 +8,9 @@
         <p v-else class="product__description p_hg">
           Ножи «Tuotown» – это главный инструмент поваров и секрет кулинарного мастерства
         </p>
-        <base-button class="product__buy-button" :filled="true">Купить</base-button>
+        <base-button @onClick="addProduct" class="product__buy-button" :filled="true"
+          >Купить</base-button
+        >
         <span v-if="isLoad.product" class="product__cost p_hg">{{
           textTransform().priceTransform(product.price)
         }}</span>
@@ -128,7 +130,7 @@
 
 <script setup lang="ts">
 import { computed, markRaw, onMounted, onUnmounted, onUpdated, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 import BaseImage from '@/components/ui/BaseImage.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
@@ -144,6 +146,8 @@ import recommendationService from '@/services/recommendationService'
 
 import textTransform from '../utils/textTransform'
 import type { ProductsType } from '@/types/responseType'
+import cartServices from '@/services/cartServices'
+import router from '@/router'
 
 const route = useRoute()
 
@@ -170,6 +174,11 @@ const fetchProduct = async () => {
   })
 }
 
+const addProduct = async () => {
+  await cartServices.postCartProduct(product.value).finally(() => {
+    router.push({ name: 'cart' })
+  })
+}
 const fetchRecommendation = async () => {
   await recommendationService
     .getRecommendation(product.value?.categoryId, product.value?.id)
