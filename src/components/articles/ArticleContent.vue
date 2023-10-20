@@ -3,10 +3,12 @@
     <nav class="article__nav">
       <ul class="p_md article__nav-list">
         <li class="article__nav-list-item">
-          <router-link :to="{ name: 'main' }"> Главная </router-link>
+          <router-link class="article__nav-list-link" :to="{ name: 'main' }"> Главная </router-link>
         </li>
         <li class="article__nav-list-item">
-          <router-link :to="{ path: '/news' }"> Новости </router-link>
+          <router-link class="article__nav-list-link" :to="{ path: '/news' }">
+            Новости
+          </router-link>
         </li>
         <li class="article__nav-list-item">{{ article.title }}</li>
       </ul>
@@ -104,30 +106,16 @@ onUnmounted(() => {
   }
 
   &__nav-list-item {
-    color: $gray-light;
-
-    @media (min-width: 1440px) {
-      &:hover {
-        color: $red-active;
-
-        &:after {
-          color: $gray-light;
-        }
-      }
-    }
-
     &:active {
-      color: $red-active;
-
       &:after {
         color: $gray-light;
       }
     }
-
     &:after {
       content: '-';
       font-size: 16px;
       margin-left: 5px;
+      color: $gray-light;
     }
 
     &:last-child {
@@ -146,6 +134,24 @@ onUnmounted(() => {
       &::after {
         content: '';
       }
+    }
+  }
+
+  &__nav-list-link {
+    color: $gray-light;
+
+    @media (min-width: 1440px) {
+      &:hover {
+        color: $red-active;
+
+        &:after {
+          color: $gray-light;
+        }
+      }
+    }
+
+    &:active {
+      color: $red-active;
     }
   }
 

@@ -1,4 +1,4 @@
-# tuo-town
+# Tuo Town
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -26,11 +26,22 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 ```sh
 npm install
 ```
+### Pre-commit install
+
+```sh
+npm run prepare
+```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
 npm run dev
+```
+
+### Start json-server
+
+```sh
+npm run json
 ```
 
 ### Type-Check, Compile and Minify for Production
